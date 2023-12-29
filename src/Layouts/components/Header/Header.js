@@ -8,7 +8,6 @@ import Logo from '~/components/Logo';
 import { ArrowDownIcon, CartIcon, HeartIcon, SearchIcon } from '~/components/Icons';
 import Button from '~/components/Button';
 import { faSignIn } from '@fortawesome/free-solid-svg-icons';
-import icons from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -25,21 +24,21 @@ function Header() {
                             <Link to={routes.home} className={cx('navbar__link')}>
                                 <p>Danh mục</p>
                                 <div className={cx('navbar__arrow')}>
-                                    <ArrowDownIcon />
+                                    <ArrowDownIcon className={cx('icon')}/>
                                 </div>
                             </Link>
 
                             <Link to={routes.home} className={cx('navbar__link')}>
                                 <p>Cửa hàng tạp hóa</p>
                                 <div className={cx('navbar__arrow')}>
-                                    <ArrowDownIcon />
+                                    <ArrowDownIcon className={cx('icon')}/>
                                 </div>
                             </Link>
 
                             <Link to={routes.home} className={cx('navbar__link')}>
                                 <p>Sắc đẹp</p>
                                 <div className={cx('navbar__arrow')}>
-                                    <ArrowDownIcon />
+                                    <ArrowDownIcon className={cx('icon')}/>
                                 </div>
                             </Link>
                         </nav>
@@ -49,20 +48,20 @@ function Header() {
                             <div className={cx('action')}>
                                 <div className={cx('action__group', 'action__group--single')}>
                                     <button className={cx('action__btn')}>
-                                        <SearchIcon />
+                                        <SearchIcon className={cx('icon')}/>
                                     </button>
                                 </div>
 
                                 <div className={cx('action__group')}>
                                     <button className={cx('action__btn')}>
-                                        <HeartIcon />
+                                        <HeartIcon className={cx('icon')}/>
                                         <span className={cx('action__title')}>03</span>
                                     </button>
 
                                     <div className={cx('action__separate')}></div>
 
                                     <button className={cx('action__btn')}>
-                                        <CartIcon />
+                                        <CartIcon className={cx('icon')}/>
                                         <span className={cx('action__title')}>$65.42</span>
                                     </button>
                                 </div>
