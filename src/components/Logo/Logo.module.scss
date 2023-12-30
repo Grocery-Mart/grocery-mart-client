@@ -1,19 +1,36 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
 .logo {
     display: flex;
+    align-items: center;
     gap: 14px;
     user-select: none;
     cursor: pointer;
+
+    @include media-breakpoint-down(lg) {
+        gap: 10px;
+    }
     
     &__img {
+        @include media-breakpoint-down(lg) {
+            width: 24px;
+            height: 24px;
+        }
+
         width: 32px;
         height: 32px;
         object-fit: cover;
     }
 
     &__title {
-        color: #1a162e;
         font-size: 2.2rem;
         font-weight: 700;
         line-height: 145.455%;
+
+        @include media-breakpoint-down(lg) {
+            font-size: 1.8rem;
+        }
     }
 }
