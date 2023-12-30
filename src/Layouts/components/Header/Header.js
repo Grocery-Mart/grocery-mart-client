@@ -12,7 +12,7 @@ import { faSignIn } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function Header() {
-    const currentUser = true;
+    const currentUser = false;
 
     return (
         <header className={cx('wrapper')}>
@@ -79,7 +79,7 @@ function Header() {
                             </div>
                         ) : (
                             <>
-                                <Button text rightIcon={<FontAwesomeIcon icon={faSignIn} />}>
+                                <Button none text rightIcon={<FontAwesomeIcon icon={faSignIn} />}>
                                     Đăng nhập
                                 </Button>
                                 <Button primary>Đăng ký</Button>

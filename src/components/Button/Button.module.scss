@@ -1,3 +1,7 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
 .wrapper {
     display: inline-flex;
     align-items: center;
@@ -11,13 +15,27 @@
     background-color: transparent;
     cursor: pointer;
 
+    @include media-breakpoint-down(sm) {
+        padding: 10px 13px;
+    }
+
     + .wrapper {
         margin-left: 25px;
+
+        @include media-breakpoint-down(xl) {
+            margin-left: 10px;
+        }
     }
 
     &.disabled {
         pointer-events: none;
         opacity: 0.5;
+    }
+
+    &.none {
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
     }
 }
 

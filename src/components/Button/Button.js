@@ -10,6 +10,7 @@ function Button({
     primary = false,
     text = false,
     disabled = false,
+    none = false,
     children,
     className,
     leftIcon,
@@ -46,6 +47,7 @@ function Button({
         primary,
         text,
         disabled,
+        none,
     });
 
     return (
