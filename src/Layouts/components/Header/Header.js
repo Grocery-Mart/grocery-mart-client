@@ -1,6 +1,9 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import { useState } from 'react';
 
 import routes from '~/config/routes';
 import styles from './Header.module.scss';
@@ -8,11 +11,22 @@ import Logo from '~/components/Logo';
 import { ArrowDownIcon, CartIcon, HeartIcon, MenuIcon, SearchIcon } from '~/components/Icons';
 import Button from '~/components/Button';
 import { faSignIn } from '@fortawesome/free-solid-svg-icons';
+import SearchInput from '~/components/SearchInput';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const currentUser = false;
+
+    const [openSearch, setOpenSearch] = useState(false);
+
+    const openSearchInput = () => {
+        if (openSearch) {
+            setOpenSearch(false);
+        } else {
+            setOpenSearch(true);
+        }
+    };
 
     return (
         <header className={cx('wrapper')}>
@@ -50,23 +64,37 @@ function Header() {
                         {currentUser ? (
                             <div className={cx('action')}>
                                 <div className={cx('action__group', 'action__group--single')}>
-                                    <button className={cx('action__btn')}>
-                                        <SearchIcon className={cx('icon')} />
-                                    </button>
+                                    <>
+                                        <Tippy content='Tìm kiếm'>
+                                            <button className={cx('action__btn')} onClick={openSearchInput}>
+                                                <SearchIcon className={cx('icon')} />
+                                            </button>
+                                        </Tippy>
+                                    </>
                                 </div>
 
+                                {openSearch && <SearchInput className={cx('action__search')}/>}
+
                                 <div className={cx('action__group')}>
-                                    <button className={cx('action__btn')}>
-                                        <HeartIcon className={cx('icon')} />
-                                        <span className={cx('action__title')}>03</span>
-                                    </button>
+                                    <>
+                                        <Tippy content='Yêu thích'>
+                                            <button className={cx('action__btn')}>
+                                                <HeartIcon className={cx('icon')} />
+                                                <span className={cx('action__title')}>03</span>
+                                            </button>
+                                        </Tippy>
+                                    </>
 
                                     <div className={cx('action__separate')}></div>
 
-                                    <button className={cx('action__btn')}>
-                                        <CartIcon className={cx('icon')} />
-                                        <span className={cx('action__title')}>$65.42</span>
-                                    </button>
+                                    <>
+                                        <Tippy content='Giỏ hàng'>
+                                            <button className={cx('action__btn')}>
+                                                <CartIcon className={cx('icon')} />
+                                                <span className={cx('action__title')}>$65.42</span>
+                                            </button>
+                                        </Tippy>
+                                    </>
                                 </div>
 
                                 <div className={cx('action__user')}>

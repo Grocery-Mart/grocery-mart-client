@@ -16,6 +16,11 @@
     --actions-group-background-color: #fff;
     --actions-group-box-shadow: rgba(0, 0, 0, 0.20);
     --actions-group-separate: #EDEDF6;
+    --actions-search-color: #171c28;
+    --search-result-title-color: rgba(22, 24, 35, 0.341);
+    --search-result-trademark-color: rgba(22, 24, 35, 0.5);
+    --boxshadow-search: 2px 2px 4px 0px rgba(0,0,0,0.75);
+    --search-result-product-hover-color: rgba(22, 24, 35, 0.03);
 
     --button-text-color: #171c28;
 
@@ -34,6 +39,11 @@ html.dark {
     --actions-group-background-color: #292E39;
     --actions-group-box-shadow: rgba(237, 237, 246, 0.2);
     --actions-group-separate: #EDEDF6;
+    --actions-search-color: #fff;
+    --search-result-title-color: #f1f1f1;
+    --search-result-trademark-color: #f1f1f1;
+    --boxshadow-search: 4px 3px 20px 0px rgba(160, 160, 160, 0.75);
+    --search-result-product-hover-color: rgba(160, 160, 160, 0.75);
 }
 
 * {

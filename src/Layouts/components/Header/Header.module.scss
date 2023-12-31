@@ -61,8 +61,12 @@
     display: flex;
     gap: 30px;
 
+    @include media-breakpoint-between(lg, xl) {
+        gap: 15px;
+    }
+
     @include media-breakpoint-down(lg) {
-        display: none
+        display: none;
     }
 
     &__link {
@@ -85,6 +89,10 @@
     @extend %flexItemsCenter;
     gap: 20px;
 
+    @include media-breakpoint-between(lg, xl) {
+        gap: 10px;
+    }
+
     &__group {
         @extend %flexItemsCenter;
 
@@ -100,7 +108,8 @@
     }
 
     &__group--single {
-        @include media-breakpoint-down(xl) {
+        position: relative;
+        @include media-breakpoint-down(lg) {
             display: none;
         }
     }
@@ -136,5 +145,11 @@
         object-fit: cover;
         border-radius: 8px;
         cursor: pointer;
+    }
+
+    &__search {
+        position: absolute;
+        top: 100px;
+        right: 50px;
     }
 }
