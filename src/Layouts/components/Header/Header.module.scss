@@ -21,29 +21,25 @@
     @extend %flexItemsCenter;
     padding: 30px 0;
     justify-content: space-between;
-    
+
     @include media-breakpoint-down(lg) {
         padding: 20px 0;
     }
-    
+
     @include media-breakpoint-down(sm) {
         padding: 16px 0;
     }
-
 }
 
 .content-left {
     @extend %flexItemsCenter;
     @include media-breakpoint-up(xl) {
         gap: 144px;
-
     }
 
     @include media-breakpoint-between(lg, xl) {
         gap: 50px;
     }
-
-
 }
 
 .content-menu {
@@ -101,7 +97,7 @@
         border-radius: 8px;
         background-color: var(--actions-group-background-color);
         box-shadow: 0px 20px 60px 10px var(--actions-group-box-shadow);
-    
+
         @include media-breakpoint-down(md) {
             display: none;
         }

@@ -5,7 +5,7 @@ import Tippy from '@tippyjs/react/headless';
 import styles from './SearchInput.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { SearchIcon } from '~/components/Icons';
-import ProductItem from '~/components/ProductItem';
+import SearchProduct from '~/components/SearchProduct'
 
 const cx = classNames.bind(styles);
 
@@ -26,9 +26,9 @@ function SearchInput({ className }) {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Products</h4>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
+                        <SearchProduct />
+                        <SearchProduct />
+                        <SearchProduct />
                     </PopperWrapper>
                 </div>
             )}

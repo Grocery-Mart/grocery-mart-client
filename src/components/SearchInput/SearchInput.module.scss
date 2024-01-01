@@ -10,6 +10,7 @@
     border-radius: 8px;
     background-color: var(--actions-group-background-color);
     box-shadow: var(--boxshadow-search);
+    z-index: 99999;
 }
 
 .search-input {

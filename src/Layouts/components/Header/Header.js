@@ -12,11 +12,13 @@ import { ArrowDownIcon, CartIcon, HeartIcon, MenuIcon, SearchIcon } from '~/comp
 import Button from '~/components/Button';
 import { faSignIn } from '@fortawesome/free-solid-svg-icons';
 import SearchInput from '~/components/SearchInput';
+import Image from '~/components/Image';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const currentUser = false;
+    const currentUser = true;
 
     const [openSearch, setOpenSearch] = useState(false);
 
@@ -64,41 +66,35 @@ function Header() {
                         {currentUser ? (
                             <div className={cx('action')}>
                                 <div className={cx('action__group', 'action__group--single')}>
-                                    <>
-                                        <Tippy content='Tìm kiếm'>
-                                            <button className={cx('action__btn')} onClick={openSearchInput}>
-                                                <SearchIcon className={cx('icon')} />
-                                            </button>
-                                        </Tippy>
-                                    </>
+                                    <Tippy content="Tìm kiếm">
+                                        <button className={cx('action__btn')} onClick={openSearchInput}>
+                                            <SearchIcon className={cx('icon')} />
+                                        </button>
+                                    </Tippy>
                                 </div>
 
-                                {openSearch && <SearchInput className={cx('action__search')}/>}
+                                {openSearch && <SearchInput className={cx('action__search')} />}
 
                                 <div className={cx('action__group')}>
-                                    <>
-                                        <Tippy content='Yêu thích'>
-                                            <button className={cx('action__btn')}>
-                                                <HeartIcon className={cx('icon')} />
-                                                <span className={cx('action__title')}>03</span>
-                                            </button>
-                                        </Tippy>
-                                    </>
+                                    <Menu>
+                                        <button className={cx('action__btn')}>
+                                            <HeartIcon className={cx('icon')} />
+                                            <span className={cx('action__title')}>03</span>
+                                        </button>
+                                    </Menu>
 
                                     <div className={cx('action__separate')}></div>
 
-                                    <>
-                                        <Tippy content='Giỏ hàng'>
-                                            <button className={cx('action__btn')}>
-                                                <CartIcon className={cx('icon')} />
-                                                <span className={cx('action__title')}>$65.42</span>
-                                            </button>
-                                        </Tippy>
-                                    </>
+                                    <Menu cart>
+                                        <button className={cx('action__btn')}>
+                                            <CartIcon className={cx('icon')} />
+                                            <span className={cx('action__title')}>$65.42</span>
+                                        </button>
+                                    </Menu>
                                 </div>
 
                                 <div className={cx('action__user')}>
-                                    <img
+                                    <Image
                                         src="https://wx4.sinaimg.cn/mw690/001Pb9yIgy1hl9fqj7mkuj62te4804qu02.jpg"
                                         alt="avatar"
                                         className={cx('action__avatar')}

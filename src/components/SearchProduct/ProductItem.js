@@ -1,10 +1,10 @@
 import classNames from "classnames/bind";
 
-import styles from './ProductItem.module.scss';
+import styles from './SearchProduct.module.scss';
 
 const cx = classNames.bind(styles);
 
-function ProductItem() {
+function SearchProduct() {
     return ( 
         <div className={cx('wrapper')}>
             <img className={cx('img')} src="https://down-vn.img.susercontent.com/file/87a79a9cf65f0618fcf2ec54486de865" alt=""/>
@@ -16,4 +16,4 @@ function ProductItem() {
     );
 }
 
-export default ProductItem;
+export default SearchProduct;
