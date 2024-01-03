@@ -24,6 +24,9 @@
 
     --button-text-color: #171c28;
 
+    --header-act-dropdown-shadow: rgba(200, 200, 200, 0.4);
+    --separate-color: #d2d1d6;
+
     @include media-breakpoint-down(lg) {
         --header-background-color: #fff;
     }
@@ -99,6 +102,10 @@ select {
 a {
     color: var(--text-color);
     text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
 }
 
 .icon {

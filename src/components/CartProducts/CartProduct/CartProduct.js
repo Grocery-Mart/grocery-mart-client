@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
 
-import styles from './MenuProduct.module.scss';
+import styles from './CartProduct.module.scss';
 import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
-function MenuProduct() {
+function CartProduct() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('border-img')}>
@@ -19,4 +19,4 @@ function MenuProduct() {
     );
 }
 
-export default MenuProduct;
+export default CartProduct;

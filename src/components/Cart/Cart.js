@@ -1,62 +1,33 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import styles from './Menu.module.scss';
+import styles from './Cart.module.scss';
 import Button from '~/components/Button';
-import MenuProducts from '~/components/MenuProducts';
+import CartProducts from '~/components/CartProducts';
 import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, cart = false }) {
-    const [disabled, setDisabled] = useState(false);
-    const hide = () => setDisabled(true);
-    const show = () => setDisabled(false);
-
-    const location = useLocation();
-    console.log(location);
-
-    useEffect(() => {
-        show();
-    }, [location.pathname]);
-
-    const handleCheckout = () => {
-        if (disabled) {
-            show();
-        } else {
-            hide();
-        }
-
-        if (location.pathname === '/cart') {
-            show();
-        }
-    };
-
+function Cart({ children, cart = false }) {
     return (
         <Tippy
-            disabled={disabled}
-            onClickOutside={hide}
             interactive
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('container')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
-                        <div className={cx('arrow')}></div>
                         <div className={cx('content')}>
                             <div className={cx('header')}>
                                 <p className={cx('header__title')}>Bạn có 3 sản phẩm</p>
                                 <Link to={routes.cart}>
-                                    <Button className={cx('header__btn')} onClick={handleCheckout}>
-                                        Tất cả
-                                    </Button>
+                                    <Button className={cx('header__btn')}>Tất cả</Button>
                                 </Link>
                             </div>
 
                             <div className={cx('products')}>
-                                <MenuProducts />
+                                <CartProducts />
                             </div>
 
                             {cart && (
@@ -85,7 +56,7 @@ function Menu({ children, cart = false }) {
 
                             <div className={cx('checkout')}>
                                 <Link to={routes.cart}>
-                                    <Button primary className={cx('checkout-btn')} onClick={handleCheckout}>
+                                    <Button primary className={cx('checkout-btn')}>
                                         Thanh toán tất cả
                                     </Button>
                                 </Link>
@@ -100,4 +71,4 @@ function Menu({ children, cart = false }) {
     );
 }
 
-export default Menu;
+export default Cart;
