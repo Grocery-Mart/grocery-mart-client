@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 
@@ -12,22 +12,29 @@ import { DarkModeSetting } from '~/components/Icons';
 const cx = classNames.bind(styles);
 
 function ProfileDropdown({ children }) {
-    const [isDarkMode, setDarkMode] = useState(false);
+    const [isDarkMode, setDarkMode] = useState(() => {
+        return JSON.parse(localStorage.getItem('darkMode')) || false;
+    });
 
-    const handleDarkMode = () => {
+    useEffect(() => {
         const htmlElement = document.documentElement;
 
-        htmlElement.classList.toggle('dark');
-
-        if (htmlElement.classList.contains('dark')) {
-            setDarkMode(true);
+        if (isDarkMode) {
+            htmlElement.classList.add('dark');
         } else {
-            setDarkMode(false);
+            htmlElement.classList.remove('dark');
         }
+
+        localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+    }, [isDarkMode]);
+
+    const handleDarkMode = () => {
+        setDarkMode(!isDarkMode);
     };
 
     return (
         <Tippy
+            offset={[12, 12]}
             interactive
             placement="bottom-end"
             render={(attrs) => (

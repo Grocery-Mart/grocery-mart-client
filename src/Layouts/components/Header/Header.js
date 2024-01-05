@@ -15,6 +15,7 @@ import SearchInput from '~/components/SearchInput';
 import Image from '~/components/Image';
 import Cart from '~/components/Cart';
 import ProfileDropdown from '~/components/ProfileDropdown';
+import ListProductMenu from '~/components/ListProductMenu';
 
 const cx = classNames.bind(styles);
 
@@ -43,26 +44,32 @@ function Header() {
                     <div className={cx('content-left')}>
                         <Logo />
                         <nav className={cx('navbar')}>
-                            <Link to={routes.home} className={cx('navbar__link')}>
-                                <p>Danh mục</p>
-                                <div className={cx('navbar__arrow')}>
-                                    <ArrowDownIcon className={cx('icon')} />
-                                </div>
-                            </Link>
+                            <div>
+                                <ListProductMenu className={cx('departments')} offset={[-330, 45]} departments>
+                                    <div className={cx('navbar__link')}>
+                                        <p>Danh mục</p>
+                                        <ArrowDownIcon className={cx('icon', 'navbar__arrow')} />
+                                    </div>
+                                </ListProductMenu>
+                            </div>
 
-                            <Link to={routes.home} className={cx('navbar__link')}>
-                                <p>Cửa hàng tạp hóa</p>
-                                <div className={cx('navbar__arrow')}>
-                                    <ArrowDownIcon className={cx('icon')} />
-                                </div>
-                            </Link>
+                            <div>
+                                <ListProductMenu className={cx('grocery')} offset={[-460, 45]} grocery>
+                                    <div className={cx('navbar__link')}>
+                                        <p>Cửa hàng tạp hóa</p>
+                                        <ArrowDownIcon className={cx('icon', 'navbar__arrow')} />
+                                    </div>
+                                </ListProductMenu>
+                            </div>
 
-                            <Link to={routes.home} className={cx('navbar__link')}>
-                                <p>Sắc đẹp</p>
-                                <div className={cx('navbar__arrow')}>
-                                    <ArrowDownIcon className={cx('icon')} />
-                                </div>
-                            </Link>
+                            <div>
+                                <ListProductMenu className={cx('beauty')} offset={[-645, 45]} beauty>
+                                    <div className={cx('navbar__link')}>
+                                        <p>Sắc đẹp</p>
+                                        <ArrowDownIcon className={cx('icon', 'navbar__arrow')} />
+                                    </div>
+                                </ListProductMenu>
+                            </div>
                         </nav>
                     </div>
                     <div className={cx('content-right')}>

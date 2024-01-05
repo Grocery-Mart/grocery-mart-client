@@ -13,6 +13,10 @@
     --icon-color: brightness(0) saturate(100%) invert(8%) sepia(28%) saturate(1439%) hue-rotate(211deg) brightness(92%) contrast(96%);
     
     --header-background-color: #eee;
+    @include media-breakpoint-down(lg) {
+        --header-background-color: #fff;
+    }
+    
     --actions-group-background-color: #fff;
     --actions-group-box-shadow: rgba(0, 0, 0, 0.20);
     --actions-group-separate: #EDEDF6;
@@ -24,29 +28,32 @@
 
     --button-text-color: #171c28;
 
+    // dropdown
     --header-act-dropdown-shadow: rgba(200, 200, 200, 0.4);
     --separate-color: #d2d1d6;
-
-    @include media-breakpoint-down(lg) {
-        --header-background-color: #fff;
-    }
+    --top-menu-border-color: #d2d1d6;
 }
 
 html.dark {
     --body-background: #292e39;
-
+    
     --text-color: #fff;
     --icon-color: brightness(0) saturate(100%) invert(100%) sepia(12%) saturate(1%) hue-rotate(55deg) brightness(102%) contrast(101%);
-
+    
     --header-background-color: #171c28;
+    
     --actions-group-background-color: #292E39;
     --actions-group-box-shadow: rgba(237, 237, 246, 0.2);
     --actions-group-separate: #EDEDF6;
     --actions-search-color: #fff;
     --search-result-title-color: #f1f1f1;
     --search-result-trademark-color: #f1f1f1;
-    --boxshadow-search: 4px 3px 20px 0px rgba(160, 160, 160, 0.75);
+    --boxshadow-search: 1px 0px 8px 0px rgba(120, 120, 120, 0.75);
     --search-result-product-hover-color: rgba(160, 160, 160, 0.75);
+    
+    --header-act-dropdown-shadow: rgba(120, 120, 120, 0.3);
+    --top-menu-border-color: #171c28;
+    --menu-column-products-color: brightness(0) saturate(100%) invert(90%) sepia(31%) saturate(64%) hue-rotate(200deg) brightness(102%) contrast(96%);
 }
 
 * {

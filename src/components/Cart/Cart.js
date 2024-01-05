@@ -13,6 +13,7 @@ const cx = classNames.bind(styles);
 function Cart({ children, cart = false }) {
     return (
         <Tippy
+            offset={[20, 12]}
             interactive
             placement="bottom-end"
             render={(attrs) => (
