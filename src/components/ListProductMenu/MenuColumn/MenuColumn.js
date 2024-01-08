@@ -18,7 +18,7 @@ function MenuColumn({ data }) {
                 <ul className={cx('menu-column__list')}>
                     {data.data &&
                         data.data.map((list, index) => (
-                            <li>
+                            <li key={index}>
                                 <Link className={cx('menu-column__link', `data-${index + 1}`)} to={''}>
                                     {list.title}
                                 </Link>

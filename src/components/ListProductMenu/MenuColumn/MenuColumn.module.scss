@@ -1,6 +1,14 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
 .menu-column {
     display: flex;
     gap: 14px;
+    min-width: 180px;
+    @include media-breakpoint-up(xl) {
+        min-width: 250px;
+    } 
 
     &__icon {
         position: relative;
@@ -49,9 +57,7 @@
 
         &:hover {
             color: #0071dc;
-            font-weight: 500;
-
-            
+            font-style: italic;
         }
     }
 

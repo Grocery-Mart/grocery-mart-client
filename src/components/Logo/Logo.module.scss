@@ -10,18 +10,19 @@
     cursor: pointer;
 
     @include media-breakpoint-down(lg) {
-        gap: 10px;
+        
+        margin-right: 20px;  
     }
-    
-    &__img {
-        @include media-breakpoint-down(lg) {
-            width: 24px;
-            height: 24px;
-        }
 
+    &__img {
         width: 32px;
         height: 32px;
         object-fit: cover;
+
+        @include media-breakpoint-down(md) {
+            width: 24px;
+            height: 24px;
+        }
     }
 
     &__title {
@@ -30,7 +31,12 @@
         line-height: 145.455%;
 
         @include media-breakpoint-down(lg) {
-            font-size: 1.8rem;
+            display: none;
+        }
+
+        @include media-breakpoint-down(md) {
+            display: block;
+            font-size: 1.6rem;
         }
     }
 }

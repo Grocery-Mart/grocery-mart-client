@@ -34,16 +34,16 @@
 .content-left {
     @extend %flexItemsCenter;
     @include media-breakpoint-up(xl) {
-        gap: 144px;
+        gap: 150px;
     }
 
     @include media-breakpoint-between(lg, xl) {
-        gap: 50px;
+        gap: 30px;
     }
 }
 
 .content-menu {
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
         display: block;
     }
 
@@ -56,17 +56,46 @@
 .navbar {
     display: flex;
     gap: 30px;
-
-    @include media-breakpoint-between(lg, xl) {
+    
+    @include media-breakpoint-down(lg) {
         gap: 15px;
     }
+    
+    @include media-breakpoint-down(md) {
+        gap: 20px;
+        position: fixed;
+        inset: 0 50% 0 0;
+        padding: 20px;
+        transform: translateX(-100%) !important;
+        flex-direction: column;
+        background-color: var(--actions-group-background-color);
+        z-index: 9;
+    }
 
-    @include media-breakpoint-down(lg) {
-        display: none;
+    @include media-breakpoint-down(sm) {
+        inset: 0 30% 0 0;
+    }
+
+    &__close-btn {
+        display: none !important;
+        @include media-breakpoint-down(md) {
+            display: inline-flex !important;
+            justify-content: flex-start !important;
+            font-size: 1.6rem !important;
+            padding: 10px 0 !important;
+            margin: -10px 0;
+        }
+    }
+
+    &__logo {
+        @include media-breakpoint-down(lg) {
+            display: none;
+        }
     }
 
     &__link {
         @extend %flexItemsCenter;
+        position: relative;
         padding: 10px 5px;
         cursor: pointer;
 
@@ -74,6 +103,17 @@
             font-size: 1.5rem;
             font-weight: 500;
             line-height: 146.667%;
+        }
+
+        &:hover {
+           text-decoration: underline;
+        }
+
+        @include media-breakpoint-down(md) {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.6rem;
+            line-height: 150%;
         }
     }
 }
@@ -84,9 +124,13 @@
 
 .action {
     @extend %flexItemsCenter;
-    gap: 20px;
+    gap: 30px;
 
-    @include media-breakpoint-between(lg, xl) {
+    @include media-breakpoint-down(xl) {
+        gap: 15px;
+    }
+
+    @include media-breakpoint-down(lg) {
         gap: 10px;
     }
 
@@ -99,16 +143,13 @@
         background-color: var(--actions-group-background-color);
         box-shadow: 0px 20px 60px 10px var(--actions-group-box-shadow);
 
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(sm) {
             display: none;
         }
     }
 
     &__group--single {
         position: relative;
-        @include media-breakpoint-down(lg) {
-            display: none;
-        }
     }
 
     &__group--single &__btn {
@@ -129,12 +170,6 @@
         line-height: 146.667%;
     }
 
-    &__separate {
-        width: 1px;
-        height: 30px;
-        background-color: var(--actions-group-separate);
-    }
-
     &__avatar {
         display: block;
         width: 50px;
@@ -142,11 +177,32 @@
         object-fit: cover;
         border-radius: 8px;
         cursor: pointer;
+
+        // @include media-breakpoint-down(md) {
+        //     display: none;
+        // }
     }
 
     &__search {
         position: absolute;
         top: 100px;
         right: 50px;
+        @include media-breakpoint-down(sm) {
+            right: 10px;
+        }
+    }
+}
+
+.overlay {
+    visibility: hidden;
+    opacity: 0;
+
+    @include media-breakpoint-down(md) {
+        visibility: visible;
+        opacity: 1;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 8;
     }
 }

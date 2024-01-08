@@ -1,5 +1,5 @@
 .search-result, .wrapper {
-    width: 500px;
+    width: min(500px, calc(100% - 20px));
 }
 
 .wrapper { 

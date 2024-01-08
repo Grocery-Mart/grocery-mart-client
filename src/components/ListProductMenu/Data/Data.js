@@ -5,6 +5,15 @@ import {
     MenuProduct111,
     MenuProduct112,
     MenuProduct12,
+    MenuProduct121,
+    MenuProduct122,
+    MenuProduct131,
+    MenuProduct132,
+    MenuProduct141,
+    MenuProduct142,
+    MenuProduct151,
+    MenuProduct152,
+    MenuProduct162,
     MenuProduct21,
     MenuProduct22,
     MenuProduct31,
@@ -276,109 +285,112 @@ export const DataGrocery = [
 
 export const DataBeauty = [
     {
-        icon1: <MenuProduct61 />,
-        icon2: <MenuProduct62 />,
-        title: 'Bánh mì',
+        icon1: <MenuProduct121 />,
+        icon2: <MenuProduct122 />,
+        title: 'Quần áo nam',
         data: [
             {
-                title: 'Sản phẩm mới',
+                title: 'Áo Sơ Mi',
             },
             {
-                title: 'Bánh mì cắt lát',
+                title: 'Quần Jean & Quần vải',
             },
             {
-                title: 'Bánh cuốn & bánh bao',
+                title: 'Áo khoác ngoài',
             },
             {
-                title: 'Bánh nướng',
+                title: 'Áo thun',
             },
             {
-                title: 'Bánh quy & bánh hạch nhân',
+                title: 'Quần áo thường ngày',
             },
         ]
     },
     {
-        icon1: <MenuProduct71 />,
-        icon2: <MenuProduct72 />,
-        title: 'Đồ ăn nhẹ',
+        icon1: <MenuProduct131 />,
+        icon2: <MenuProduct132 />,
+        title: 'Quần áo nữ',
         data: [
             {
-                title: 'Hamburger',
+                title: 'Váy đầm',
             },
             {
-                title: 'Khoai tây chiên',
+                title: 'Váy ngắn',
             },
             {
-                title: 'Bắp rang',
+                title: 'Áo sơ mi',
             },
             {
-                title: 'Salsa & nước chấm',
+                title: 'Túi xách',
             },
             {
-                title: 'Bánh quy',
+                title: '',
             },
         ]
     },
     {
-        icon1: <MenuProduct91 />,
-        icon2: <MenuProduct92 />,
-        title: 'Kẹo',
+        icon1: <MenuProduct141 />,
+        icon2: <MenuProduct142 />,
+        title: 'Giày dép',
         data: [
             {
-                title: 'Sô cô la',
+                title: 'Giày nam',
             },
             {
-                title: 'Kẹo cao su',
+                title: 'Giày nữ',
             },
             {
-                title: 'Kẹo cứng',
+                title: 'Giày thể thao',
             },
             {
-                title: 'Kẹo mềm',
+                title: 'Giày da & Bốt',
             },
             {
-                title: 'Kẹo cao su',
+                title: 'Dép',
             },
         ]
     },
     {
-        icon1: <MenuProduct101 />,
-        icon2: <MenuProduct102 />,
-        title: 'Đồ uống',
+        icon1: <MenuProduct151 />,
+        icon2: <MenuProduct152 />,
+        title: 'Phụ kiện thời trang',
         data: [
             {
-                title: 'Nước ngọt',
+                title: 'Thắt lưng',
             },
             {
-                title: 'Nước trái cây',
+                title: 'Mũ & Mũ lưỡi trai',
             },
             {
-                title: 'Đồ uống thể thao',
+                title: 'Khăn quàng cổ',
             },
             {
-                title: 'Nước tăng lực',
+                title: 'Găng tay',
             },
             {
-                title: 'Trà',
+                title: 'Kính râm',
             },
             {
-                title: 'Socola nóng & cacao',
+                title: '',
             },
         ]
     },
     {
         icon1: <MenuProduct51 />,
-        icon2: <MenuProduct52 />,
-        title: 'Sản phẩm tươi sống',
+        icon2: <MenuProduct162 />,
+        title: 'Quần áo theo mùa',
         data: [
             {
-                title: 'Hoa quả tươi',
+                title: 'Trang phục mùa hè',
             },
             {
-                title: 'Rau sạch',
+                title: 'Trang phục mùa thu',
             },
             {
-                title: 'Sản phẩm hữu cơ',
+                title: 'Trang phục đông',
+            },
+            {
+                title: 'Quần áo mưa',
             },
         ]
     },

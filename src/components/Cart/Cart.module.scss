@@ -1,24 +1,25 @@
 .container {
-    position: relative;
-    width: 550px;
+    width: min(550px, 100%);
     border-radius: 20px;
     background-color: var(--actions-group-background-color);
     box-shadow: 1px 0px 10px 0px var(--header-act-dropdown-shadow);
-}
-
-.content {
-    position: relative;
-    padding: 20px;
+    max-height: calc(min(620px, 100vh - 100px) - 20px);
+    overflow-y: auto;
 
     &::after {
         content: '';
         position: absolute;
         top: -21px;
-        right: 66px;
+        right: 70px;
         border: 11px solid;
         border-color: var(--actions-group-background-color) transparent transparent;
         rotate: -180deg;
     }
+}
+
+.content {
+    padding: 20px;
+    position: relative;
 }
 
 .header {

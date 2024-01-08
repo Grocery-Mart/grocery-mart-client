@@ -1,3 +1,7 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
 .wrapper {
     width: min(1240px, 100%);
     background-color: var(--actions-group-background-color);
@@ -10,33 +14,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    max-height: calc(min(582px, 100vh - 134px) - 60px);
+    max-height: calc(min(582px, 100vh - 120px) - 200px);
     overflow-y: auto;
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: -21px;
-        border: 11px solid;
-        border-color: var(--actions-group-background-color) transparent transparent;
-        rotate: -180deg;
-    }
-}
-
-.departments {
-    &::after {
-        left: 370px ;
-    }
-}
-
-.grocery {
-    &::after {
-        left: 530px !important;
-    }
-}
-
-.beauty {
-    &::after {
-        left: 680px !important;
+    @include media-breakpoint-down(lg) {
+        display: flex;
+        flex-direction: column;
     }
 }

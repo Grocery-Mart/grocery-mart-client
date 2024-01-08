@@ -8,7 +8,7 @@ import { DataDepartments, DataGrocery, DataBeauty } from '~/components/ListProdu
 
 const cx = classNames.bind(styles);
 
-function ListProductMenu({ children, className, offset, departments, grocery, beauty }) {
+function ListProductMenu({ children, className, offset, departments, grocery, fashion }) {
     const renderList = () => {
         if (departments) {
             return DataDepartments.map((data, index) => <MenuColumn data={data} key={index} />);
@@ -16,16 +16,15 @@ function ListProductMenu({ children, className, offset, departments, grocery, be
         if (grocery) {
             return DataGrocery.map((data, index) => <MenuColumn data={data} key={index} />);
         }
-        if (beauty) {
+        if (fashion) {
             return DataBeauty.map((data, index) => <MenuColumn data={data} key={index} />);
         }
     };
 
     return (
         <Tippy
-            offset={offset}
             interactive
-            placement="bottom-start"
+            placement="bottom"
             render={(attrs) => (
                 <div className={cx('wrapper')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
