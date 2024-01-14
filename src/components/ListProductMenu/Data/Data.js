@@ -70,28 +70,7 @@ export const DataDepartments = [
             },
         ],
     },
-    {
-        icon1: <MenuProduct31 />,
-        icon2: <MenuProduct32 />,
-        title: 'Ưu đãi thời trang',
-        data: [
-            {
-                title: 'Quần áo',
-            },
-            {
-                title: 'Giày dép',
-            },
-            {
-                title: 'Phụ kiện',
-            },
-            {
-                title: 'Túi',
-            },
-            {
-                title: 'Trang sức',
-            },
-        ],
-    },
+    
     {
         icon1: <MenuProduct41 />,
         icon2: <MenuProduct42 />,
@@ -393,5 +372,27 @@ export const DataBeauty = [
                 title: 'Quần áo mưa',
             },
         ]
+    },
+    {
+        icon1: <MenuProduct31 />,
+        icon2: <MenuProduct32 />,
+        title: 'Ưu đãi thời trang',
+        data: [
+            {
+                title: 'Quần áo',
+            },
+            {
+                title: 'Giày dép',
+            },
+            {
+                title: 'Phụ kiện',
+            },
+            {
+                title: 'Túi',
+            },
+            {
+                title: 'Trang sức',
+            },
+        ],
     },
 ];

@@ -13,10 +13,8 @@
     --icon-color: brightness(0) saturate(100%) invert(8%) sepia(28%) saturate(1439%) hue-rotate(211deg) brightness(92%) contrast(96%);
     
     --header-background-color: #eee;
-    @include media-breakpoint-down(lg) {
-        --header-background-color: #fff;
-    }
     
+    // Actions
     --actions-group-background-color: #fff;
     --actions-group-box-shadow: rgba(0, 0, 0, 0.20);
     --actions-group-separate: #EDEDF6;
@@ -26,12 +24,42 @@
     --boxshadow-search: rgba(0 0 0 / 12%) 0px 2px 12px;
     --search-result-product-hover-color: rgba(22, 24, 35, 0.03);
 
+    // Button
     --button-text-color: #171c28;
 
-    // dropdown
+    // Dropdown
     --header-act-dropdown-shadow: rgba(200, 200, 200, 0.4);
     --separate-color: #d2d1d6;
     --top-menu-border-color: #d2d1d6;
+
+    // Category item
+    --cate-item-bg: #eee;
+    --cate-item-thumb-bg: #fff;
+    --cate-item-title-color: #000;
+
+    // Button filter
+    --filter-btn-color: #6c6c72;
+    --filter-btn-bg: #fff;
+    // Button heart like
+    --heart-like-btn-bg: #fff;
+    --heart-like-btn-shadow: rgba(124, 124, 124, 0.20);
+    // Product Cart
+    --product-cart-bg: #fff;
+    --product-cart-shadow: rgba(237, 237, 246, 0.2);
+
+    // Filter form
+    --filter-form-bg: #fff;
+    --filter-form-shadow: rgba(200, 200, 200, 0.40);
+    --filter-tag-btn-bg: #f8f8fb;
+
+
+    @include media-breakpoint-down(lg) {
+        --header-background-color: #fff;
+    }
+
+    @include media-breakpoint-down(md) {
+        --cate-item-bg: #fff;
+    }
 }
 
 html.dark {
@@ -42,6 +70,7 @@ html.dark {
     
     --header-background-color: #171c28;
     
+    // Actions
     --actions-group-background-color: #292E39;
     --actions-group-box-shadow: rgba(237, 237, 246, 0.2);
     --actions-group-separate: #EDEDF6;
@@ -51,9 +80,32 @@ html.dark {
     --boxshadow-search: 1px 0px 8px 0px rgba(120, 120, 120, 0.75);
     --search-result-product-hover-color: rgba(160, 160, 160, 0.75);
     
+    // Dropdown
     --header-act-dropdown-shadow: rgba(120, 120, 120, 0.3);
     --top-menu-border-color: #171c28;
     --menu-column-products-color: brightness(0) saturate(100%) invert(90%) sepia(31%) saturate(64%) hue-rotate(200deg) brightness(102%) contrast(96%);
+
+    // Category item
+    --cate-item-bg: #171c28;
+    --cate-item-thumb-bg: #292e39;
+    --cate-item-title-color: #fff;
+
+    // Button filter
+    --filter-btn-color: #fff;
+    --filter-btn-bg: #171C28;
+    // Button heart like
+    --heart-like-btn-bg: #292E39;
+    --heart-like-btn-shadow: rgba(124, 124, 124, 0.20);
+    // Product Cart
+    --product-cart-bg: #171C28;
+    --product-cart-shadow: rgba(0, 0, 0, 0.20);
+
+    
+    // Filter form
+    --filter-form-bg: #2f3441;
+    --filter-form-shadow: rgba(0, 0, 0, 0.4);
+    --filter-tag-btn-bg: #171C28;
+    --filter-form-arrow-color: brightness(0) saturate(100%) invert(16%) sepia(26%) saturate(479%) hue-rotate(185deg) brightness(95%) contrast(88%);
 }
 
 * {
@@ -73,6 +125,7 @@ body {
     text-rendering: optimizeSpeed;
     color: var(--text-color);
     background-color: var(--body-background);
+    
 }
 
 // Scrollbar CSS
@@ -98,6 +151,10 @@ input,
     outline: none;
 }
 
+input {
+    background-color: transparent;
+}
+
 button,
 input,
 textarea,
@@ -117,6 +174,10 @@ ol, ul {
 
 .icon {
     filter: var(--icon-color);
+}
+
+.icon-like {
+    filter: drop-shadow(0px 4px 5px rgba(249,69,69,0.2));
 }
 
 // Fonts emmbeded

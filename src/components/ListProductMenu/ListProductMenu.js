@@ -24,7 +24,7 @@ function ListProductMenu({ children, className, offset, departments, grocery, fa
     return (
         <Tippy
             interactive
-            placement="bottom"
+            placement="bottom-start"
             render={(attrs) => (
                 <div className={cx('wrapper')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>

@@ -14,7 +14,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    max-height: calc(min(582px, 100vh - 120px) - 200px);
+    max-height: calc(min(582px, 100vh - 134px) - 30px);
     overflow-y: auto;
 
     @include media-breakpoint-down(lg) {

@@ -1,18 +1,16 @@
 import classNames from 'classnames/bind';
-import { useLocation } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link, useLocation } from 'react-router-dom';
 import { useRef, useState } from 'react';
 
 import styles from './Header.module.scss';
 import Logo from '~/components/Logo';
-import { ArrowDownIcon, ArrowLeftIcon, CartIcon, MenuIcon, SearchIcon } from '~/components/Icons';
+import { ArrowLeftIcon, CartIcon, MenuIcon, SearchIcon } from '~/components/Icons';
 import Button from '~/components/Button';
-import { faSignIn } from '@fortawesome/free-solid-svg-icons';
 import SearchInput from '~/components/SearchInput';
 import Image from '~/components/Image';
 import Cart from '~/components/Cart';
 import ProfileDropdown from '~/components/ProfileDropdown';
-import ListProductMenu from '~/components/ListProductMenu';
+import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -34,7 +32,7 @@ function Header() {
     const location = useLocation();
 
     const handleOpenOverlay = () => {
-        if (window.matchMedia('(max-width: 768px)').matches) {
+        if (window.matchMedia('(max-width: 992px)').matches) {
             if (openOverlay) {
                 setOpenOverlay(false);
                 navbarElement.current.style.transform = 'translateX(-100%)';
@@ -50,7 +48,7 @@ function Header() {
     };
 
     window.addEventListener('resize', () => {
-        if (!window.matchMedia('(max-width: 767px)').matches) {
+        if (!window.matchMedia('(max-width: 991px)').matches) {
             if (navbarElement.current) {
                 navbarElement.current.style.transform = 'translateX(0)';
                 navbarElement.current.style.setProperty('transform', 'translateX(0)', 'important');
@@ -58,7 +56,7 @@ function Header() {
                 setOpenOverlay(false);
             }
         }
-        if (window.matchMedia('(max-width: 767px)').matches) {
+        if (window.matchMedia('(max-width: 991px)').matches) {
             if (navbarElement.current) {
                 navbarElement.current.style.transform = 'translateX(-100%)';
                 navbarElement.current.style.setProperty('transform', 'translateX(-100%)', 'important');
@@ -68,11 +66,9 @@ function Header() {
         }
     });
 
-    console.log(navbarElement);
-
     return (
         <header className={cx('wrapper')}>
-            <div className={cx('container')}>
+            <div className={cx('container gx-5')}>
                 <div className={cx('content')}>
                     <button className={cx('content-menu')} onClick={handleOpenOverlay}>
                         <MenuIcon className={cx('icon')} />
@@ -82,35 +78,22 @@ function Header() {
                         <nav ref={navbarElement} className={cx('navbar')} id="navbar">
                             <Button
                                 className={cx('navbar__close-btn')}
-                                leftIcon={<ArrowLeftIcon />}
+                                leftIcon={<ArrowLeftIcon className={cx('icon')} />}
                                 onClick={handleOpenOverlay}
                             ></Button>
-                            <div>
-                                <ListProductMenu departments>
-                                    <div className={cx('navbar__link')}>
-                                        <p>Danh mục</p>
-                                        <ArrowDownIcon className={cx('icon', 'navbar__arrow')} />
-                                    </div>
-                                </ListProductMenu>
-                            </div>
 
-                            <div>
-                                <ListProductMenu grocery>
-                                    <div className={cx('navbar__link')}>
-                                        <p>Cửa hàng tạp hóa</p>
-                                        <ArrowDownIcon className={cx('icon', 'navbar__arrow')} />
-                                    </div>
-                                </ListProductMenu>
-                            </div>
-
-                            <div>
-                                <ListProductMenu fashion>
-                                    <div className={cx('navbar__link')}>
-                                        <p>Thời trang</p>
-                                        <ArrowDownIcon className={cx('icon', 'navbar__arrow')} />
-                                    </div>
-                                </ListProductMenu>
-                            </div>
+                            <Link className={cx('navbar__link')} to={routes.home} onClick={handleOpenOverlay}>
+                                Trang chủ
+                            </Link>
+                            <Link className={cx('navbar__link')} to={routes.product} onClick={handleOpenOverlay}>
+                                Cửa hàng tạp hóa
+                            </Link>
+                            <Link className={cx('navbar__link')} to={routes.product} onClick={handleOpenOverlay}>
+                                Nhà & Nội thất
+                            </Link>
+                            <Link className={cx('navbar__link')} to={routes.product} onClick={handleOpenOverlay}>
+                                Thời trang
+                            </Link>
                         </nav>
                     </div>
                     <div className={cx('content-right')}>
@@ -137,7 +120,7 @@ function Header() {
 
                                 <ProfileDropdown>
                                     <Image
-                                        src="https://wx4.sinaimg.cn/mw690/001Pb9yIgy1hl9fqj7mkuj62te4804qu02.jpg"
+                                        src="https://lh3.googleusercontent.com/a/ACg8ocJLer4HZfc9c23PAhVoZBwXms-JHj5xacfLY2Pag60q6yM=s360-c-no"
                                         alt="avatar"
                                         className={cx('action__avatar')}
                                     />
@@ -145,7 +128,7 @@ function Header() {
                             </div>
                         ) : (
                             <>
-                                <Button none text rightIcon={<FontAwesomeIcon icon={faSignIn} />}>
+                                <Button none text>
                                     Đăng nhập
                                 </Button>
                                 <Button primary>Đăng ký</Button>
