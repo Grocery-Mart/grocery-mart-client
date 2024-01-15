@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link, useLocation } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import styles from './Header.module.scss';
 import Logo from '~/components/Logo';
@@ -21,13 +21,9 @@ function Header() {
     const [openOverlay, setOpenOverlay] = useState(false);
     const navbarElement = useRef(null);
 
-    const openSearchInput = () => {
-        if (openSearch) {
-            setOpenSearch(false);
-        } else {
-            setOpenSearch(true);
-        }
-    };
+    const openSearchInput = useCallback(() => {
+        setOpenSearch((prevOpenSearch) => !prevOpenSearch);
+    }, []);
 
     const location = useLocation();
 

@@ -112,4 +112,9 @@
     position: absolute;
     top: 55px;
     right: 0;
+
+    @include media-breakpoint-down(sm) {
+        position: fixed;
+        inset: 0;
+    }
 }
