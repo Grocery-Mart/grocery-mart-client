@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 function Footer() {
     return (
         <footer className={cx('footer')}>
-            <div className={cx('container')}>
+            <div className={cx('container gx-5')}>
                 <div className={cx('footer__inner')}>
                     <div className={cx('footer__row')}>
                         <div className={cx('footer__col')}>
