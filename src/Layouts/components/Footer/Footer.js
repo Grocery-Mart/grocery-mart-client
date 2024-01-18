@@ -132,7 +132,6 @@ function Footer() {
                             <a href='#!' className={cx('footer__social-link', 'footer__social-link--linkedin')}>
                                 <LinkedinIcon />
                             </a>
-                            
                         </div>
                     </div>
                 </div>

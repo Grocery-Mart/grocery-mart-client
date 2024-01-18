@@ -3,19 +3,19 @@ import { Link, useLocation } from 'react-router-dom';
 import { useCallback, useRef, useState } from 'react';
 
 import styles from './Header.module.scss';
+import routes from '~/config/routes';
 import Logo from '~/components/Logo';
-import { ArrowLeftIcon, CartIcon, MenuIcon, SearchIcon } from '~/components/Icons';
 import Button from '~/components/Button';
 import SearchInput from '~/components/SearchInput';
 import Image from '~/components/Image';
 import Cart from '~/components/Cart';
 import ProfileDropdown from '~/components/ProfileDropdown';
-import routes from '~/config/routes';
+import { ArrowLeftIcon, CartIcon, MenuIcon, SearchIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const currentUser = true;
+    const currentUser = false;
 
     const [openSearch, setOpenSearch] = useState(false);
     const [openOverlay, setOpenOverlay] = useState(false);
@@ -124,10 +124,12 @@ function Header() {
                             </div>
                         ) : (
                             <>
-                                <Button none text>
-                                    Đăng nhập
-                                </Button>
-                                <Button primary>Đăng ký</Button>
+                                <Link to={routes.login}>
+                                    <Button none text className={cx('action__login')}>
+                                        Đăng nhập
+                                    </Button>
+                                </Link>
+                                <Link to={routes.signup}><Button primary className={cx('action__signup')}>Đăng ký</Button></Link>
                             </>
                         )}
                     </div>

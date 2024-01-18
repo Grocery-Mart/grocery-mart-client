@@ -1,0 +1,166 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 50px 0;
+    width: min(460px, 100%);
+
+    &__heading {
+        margin-top: 50px;
+        font-size: 3rem;
+        font-weight: 500;
+        line-height: 146.667%;
+
+        @include media-breakpoint-down(md) {
+            font-size: 2.2rem;
+            line-height: 145.455%;
+        }
+    }
+
+    &__text,
+    &__desc {
+        color: var(--auth-inner-text-color);
+    }
+
+    &__desc {
+        margin-top: 10px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 146.667%;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.4rem;
+            line-height: 142.857%;
+        }
+    }
+
+    &__form {
+        width: 100%;
+        margin-top: 30px;
+
+        @include media-breakpoint-down(md) {
+            margin-top: 0;
+        }
+    }
+
+    &__link {
+        color: #0071dc;
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 146.667%;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 142.857%;
+        }
+    }
+
+    &__btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &__text {
+        margin-top: 30px;
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 144.444%;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 150%;
+        }
+
+        & .inner__link {
+            font-size: 1.8rem;
+            line-height: 144.444%;
+            margin-left: 8px;
+
+            @include media-breakpoint-down(md) {
+                font-size: 1.6rem;
+                font-weight: 500;
+                line-height: 150%;
+            }
+        }
+    }
+}
+
+.form {
+    &__group {
+        margin-top: 30px;
+
+        &--inline {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__text-input {
+        height: 50px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        border: 1.5px solid #d2d1d6;
+
+        &:focus-within {
+            border-color: var(--primary-color);
+        }
+    }
+
+    &__input {
+        flex: 1;
+        height: 100%;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 144.444%;
+
+        &::placeholder {
+            color: #d2d1d6;
+        }
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.6rem;
+            line-height: 150%;
+        }
+    }
+
+    &__input-icon {
+        margin-left: 12px;
+    }
+
+    &__checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__checkbox-input {
+    }
+
+    &__checkbox-label {
+        color: var(--auth-inner-checkbox-label-color);
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 146.667%;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 142.857%;
+        }
+    }
+
+    &__pull-right {
+        margin-left: auto;
+    }
+}

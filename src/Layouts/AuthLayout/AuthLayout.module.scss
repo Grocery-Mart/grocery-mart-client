@@ -1,0 +1,29 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.wrapper {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: var(--auth-color);
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.content {
+    height: 100%;
+    padding: 0 30px;
+    background-color: var(--auth-inner-bg);
+
+    @include media-breakpoint-down(md) {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        translate: 100%;
+        overflow-y: auto;
+        transition: translate 0.3s;
+    }
+}

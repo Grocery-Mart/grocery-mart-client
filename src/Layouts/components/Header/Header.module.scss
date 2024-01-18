@@ -203,6 +203,13 @@
             right: 10px;
         }
     }
+
+    &__signup {
+        @include media-breakpoint-down(sm) {
+            margin-left: 0 !important;
+            min-width: 0;
+        }
+    }
 }
 
 .overlay {

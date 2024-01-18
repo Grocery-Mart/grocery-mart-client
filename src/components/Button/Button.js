@@ -12,6 +12,7 @@ function Button({
     filter = false,
     filterTag = false,
     heart = false,
+    auth = false,
     disabled = false,
     none = false,
     children,
@@ -52,6 +53,7 @@ function Button({
         filter,
         filterTag,
         heart,
+        auth,
         disabled,
         none,
     });

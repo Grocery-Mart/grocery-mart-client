@@ -7,9 +7,9 @@ import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
-function Logo() {
+function Logo({ className }) {
     return (
-        <Link to={routes.home} className={cx('logo')}>
+        <Link to={routes.home} className={cx('logo', { [className]: className })}>
             <img src={images.logo} alt="grocerymart" className={cx('logo__img')} />
             <h1 className={cx('logo__title')}>grocerymart</h1>
         </Link>

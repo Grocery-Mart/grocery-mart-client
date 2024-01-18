@@ -12,6 +12,8 @@ const images = {
     cate1: require('~/assets/images/categories/cate-1.png'),
     cate2: require('~/assets/images/categories/cate-2.png'),
     cate3: require('~/assets/images/categories/cate-3.png'),
+    authIntro: require('~/assets/images/auth/auth.svg').default,
+    authIntroArrow: require('~/assets/images/auth/intro-arrow.svg').default,
 };
 
 export default images;
