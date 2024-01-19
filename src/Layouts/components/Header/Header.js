@@ -124,12 +124,16 @@ function Header() {
                             </div>
                         ) : (
                             <>
-                                <Link to={routes.login}>
+                                <a href={routes.login}>
                                     <Button none text className={cx('action__login')}>
                                         Đăng nhập
                                     </Button>
-                                </Link>
-                                <Link to={routes.signup}><Button primary className={cx('action__signup')}>Đăng ký</Button></Link>
+                                </a>
+                                <a href={routes.signup}>
+                                    <Button primary className={cx('action__signup')}>
+                                        Đăng ký
+                                    </Button>
+                                </a>
                             </>
                         )}
                     </div>

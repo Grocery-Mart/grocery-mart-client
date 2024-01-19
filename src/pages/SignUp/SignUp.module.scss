@@ -138,16 +138,60 @@
         margin-left: 12px;
     }
 
+    &__input-btn {
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__error {
+        margin-top: 8px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-align: left;
+        color: red;
+    }
+
     &__checkbox {
+        position: relative;
         display: flex;
         align-items: center;
-        gap: 10px;
+        user-select: none;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            width: 19px;
+            height: 19px;
+            border-radius: 5px;
+            border: 1.5px solid #9e9da8;
+        }
+
+    }
+    
+    &__checkbox:has(:checked) {
+        &::before {
+            border-color: var(--primary-background);
+            background-color: var(--primary-background);
+        }
+
+        &::after {
+            top: 3px;
+            left: 2px;
+            width: 12px;
+            height: 5px;
+            border-radius: 0;
+            rotate: -45deg;
+            border: 3px solid;
+            border-color: transparent transparent var(--filter-tag-btn-bg) var(--filter-tag-btn-bg);
+        }
     }
 
     &__checkbox-input {
+        display: none;
     }
 
     &__checkbox-label {
+        margin-left: 29px;
         color: var(--auth-inner-checkbox-label-color);
         font-size: 1.5rem;
         font-weight: 500;

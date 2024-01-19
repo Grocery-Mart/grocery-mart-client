@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './AuthIntro.module.scss';
@@ -8,10 +8,9 @@ import Logo from '~/components/Logo';
 const cx = classNames.bind(styles);
 
 function AuthIntro({ data }) {
-    const handleShowAuth = () => {
-        console.log(data.current);
+    const handleShowAuth = useCallback(() => {
         data.current.style.translate = '0';
-    }
+    }, [data]);
 
     useEffect(() => {
         document.addEventListener('click', handleShowAuth);
@@ -19,7 +18,7 @@ function AuthIntro({ data }) {
         return () => {
             document.removeEventListener('click', handleShowAuth);
         };
-    }, []);
+    }, [handleShowAuth]);
 
     return (
         <div className={cx('intro')}>
