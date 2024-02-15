@@ -3,19 +3,32 @@
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
 
+@import './Form.scss';
+@import './FontFamily.scss';
+
 :root {
     --primary-color: #77dae6;
     --primary-background: #ffb700;
-    --font-family: 'Gordita', sans-serif;
+    --font-family: 'Lato', sans-serif;
     --body-background: #f6f6f6;
 
     --text-color: #1a162e;
     --icon-color: brightness(0) saturate(100%) invert(8%) sepia(28%) saturate(1439%) hue-rotate(211deg) brightness(92%)
         contrast(96%);
 
-    --header-background-color: #eee;
+    --header-background-color: #ededf6;
+    @include media-breakpoint-down(lg) {
+        --header-background-color: #fff;
+    }
     --footer-text-color: #6f6f73;
     --footer-background-color: var(--header-background-color);
+    --tag-btn-bg: #f8f8fb;
+    --product-detail-tag-custom: #eee;
+    --delete-btn-color: #fff;
+    --separate-bg: #d2d1d6;
+
+    // Form
+    --form-select-option-hover-bg: #ebebeb;
 
     // Actions
     --actions-group-background-color: #fff;
@@ -37,6 +50,9 @@
 
     // Category item
     --cate-item-bg: #eee;
+    @include media-breakpoint-down(md) {
+        --cate-item-bg: #fff;
+    }
     --cate-item-thumb-bg: #fff;
     --cate-item-title-color: #000;
 
@@ -53,7 +69,6 @@
     // Filter form
     --filter-form-bg: #fff;
     --filter-form-shadow: rgba(200, 200, 200, 0.4);
-    --filter-tag-btn-bg: #f8f8fb;
 
     // Auth
     --auth-inner-bg: #fff;
@@ -61,13 +76,44 @@
     --auth-inner-text-color: #9e9da8;
     --auth-btn-color: #d2d1d6;
     --auth-intro-bg: var(--body-background);
-    @include media-breakpoint-down(lg) {
-        --header-background-color: #fff;
+    @include media-breakpoint-down(md) {
+        --auth-intro-bg: #fff;
     }
 
-    @include media-breakpoint-down(md) {
-        --cate-item-bg: #fff;
+    // Breadcrumbs Product
+    --breadcrumbs-bg: #fff;
+    --breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
+
+    // Review card
+    --review-card-bg: #fafafd;
+    @include media-breakpoint-down(sm) {
+        --review-card-bg: #fff;
     }
+
+    // Text content
+    --text-content-hr-bg: #ebebeb;
+
+    // Checkout
+    --checkout-cart-item-bg: #fff;
+    --checkout-cart-item-shadow: rgba(237, 237, 246, 0.2);
+    --checkout-cart-item-border-bottom: #d2d1d6;
+    --checkout-cart-item-icon-color: brightness(0) saturate(100%) invert(11%) sepia(46%) saturate(531%)
+        hue-rotate(210deg) brightness(98%) contrast(105%);
+    --gift-item-bg: rgb(118, 68, 225, 0.1);
+    --gift-item-shadow: rgba(237, 237, 246, 0.2);
+    --checkout-payment-item-bg: #f6f6f6;
+
+    // Dialog
+    --dialog-bg: #fff;
+    --dialog-shadow: var(--checkout-cart-item-shadow);
+
+    // Profile
+    --profile-sidebar-bg: #fff;
+    --profile-sidebar-shadow: rgba(237, 237, 246, 0.2);
+    --profile-sidebar-link-hover: #ebebeb;
+    // Account info
+    --account-info-bg: #f6f6f6;
+    --account-info-icon-bg: #fff;
 }
 
 html.dark {
@@ -79,19 +125,25 @@ html.dark {
 
     --header-background-color: #171c28;
     --footer-text-color: #9e9da6;
+    --tag-btn-bg: #171c28;
+    --product-detail-tag-custom: #292e39;
+    --separate-bg: #292e39;
+
+    // Form
+    --form-select-option-hover-bg: #292e39;
 
     // Actions
     --actions-group-background-color: #292e39;
-    --actions-group-box-shadow: rgba(237, 237, 246, 0.2);
+    --actions-group-box-shadow: rgba(0, 0, 0, 0.2);
     --actions-group-separate: #ededf6;
     --actions-search-color: #fff;
     --search-result-title-color: #f1f1f1;
     --search-result-trademark-color: #f1f1f1;
-    --boxshadow-search: 1px 0px 8px 0px rgba(120, 120, 120, 0.75);
+    --boxshadow-search: 1px 0px 8px 0px rgba(23, 28, 40, 0.4);
     --search-result-product-hover-color: rgba(160, 160, 160, 0.75);
 
     // Dropdown
-    --header-act-dropdown-shadow: rgba(120, 120, 120, 0.3);
+    --header-act-dropdown-shadow: rgba(23, 28, 40, 0.4);
     --top-menu-border-color: #171c28;
     --menu-column-products-color: brightness(0) saturate(100%) invert(90%) sepia(31%) saturate(64%) hue-rotate(200deg)
         brightness(102%) contrast(96%);
@@ -114,22 +166,59 @@ html.dark {
     // Filter form
     --filter-form-bg: #2f3441;
     --filter-form-shadow: rgba(0, 0, 0, 0.4);
-    --filter-tag-btn-bg: #171c28;
     --filter-form-arrow-color: brightness(0) saturate(100%) invert(16%) sepia(26%) saturate(479%) hue-rotate(185deg)
         brightness(95%) contrast(88%);
 
     // Auth
-    --auth-color: #B9BABE;
-    --auth-intro-bg: #171C28;
-    --auth-inner-bg: #292E39;
-    --auth-btn-color: #B9BABE;
-    --auth-google-icon-color: brightness(0) saturate(100%) invert(79%) sepia(5%) saturate(132%) hue-rotate(190deg) brightness(93%) contrast(96%)
+    --auth-color: #b9babe;
+    --auth-intro-bg: #171c28;
+    --auth-inner-bg: #292e39;
+    --auth-btn-color: #b9babe;
+    --auth-google-icon-color: brightness(0) saturate(100%) invert(79%) sepia(5%) saturate(132%) hue-rotate(190deg)
+        brightness(93%) contrast(96%);
+
+    // Breadcrumbs Product
+    --breadcrumbs-bg: #171c28;
+    --breadcrumbs-shadow: rgba(23, 28, 40, 0.2);
+
+    // Review card
+    --review-card-bg: #171c28;
+
+    // Text content
+    --text-content-hr-bg: #3e4043;
+
+    // Checkout
+    --checkout-color: #b9babe;
+    --checkout-cart-item-bg: #171c28;
+    --checkout-cart-item-shadow: rgba(23, 28, 40, 0.2);
+    --checkout-cart-item-border-bottom: #292e39;
+    --checkout-cart-item-icon-color: brightness(0) saturate(100%) invert(80%) sepia(1%) saturate(928%)
+        hue-rotate(237deg) brightness(93%) contrast(94%);
+    --gift-item-bg: #292e39;
+    --gift-item-shadow: transparent;
+    --checkout-payment-item-bg: #292e39;
+
+    // Dialog
+    --dialog-bg: #2f3441;
+    --dialog-shadow: var(--checkout-cart-item-shadow);
+
+    // Profile
+    --profile-sidebar-bg: #171c28;
+    --profile-sidebar-shadow: rgba(23, 28, 40, 0.2);
+    --profile-sidebar-link-hover: #2f3441;
+    --profile-user-icon: brightness(0) saturate(100%) invert(83%) sepia(7%) saturate(118%) hue-rotate(191deg)
+        brightness(91%) contrast(86%);
+    --profile-menu-item-color: #b9babe;
+    // Account info
+    --account-info-bg: #292e39;
+    --account-info-icon-bg: #171c28;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -168,12 +257,23 @@ input,
     outline: none;
 }
 
-input {
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-webkit-autofill:hover {
+    transition: background-color 1s 99999s;
+    -webkit-text-fill-color: var(--checkout-color);
+    caret-color: var(--checkout-color);
+}
+
+input,
+textarea {
     background-color: transparent;
 }
 
 button,
 input,
+label,
 textarea,
 select {
     font-family: inherit;
@@ -190,94 +290,20 @@ ul {
     list-style: none;
 }
 
-.icon {
-    filter: var(--icon-color);
-}
-
 .icon-like {
     filter: drop-shadow(0px 4px 5px rgba(249, 69, 69, 0.2));
+}
+
+.icon {
+    filter: var(--icon-color);
 }
 
 .icon-google {
     filter: var(--auth-google-icon-color);
 }
 
-// Fonts emmbeded
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-Black.otf');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-BlackItalic.otf');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-Bold.otf');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-BoldItalic.otf');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-Light.otf');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-LightItalic.otf');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-Medium.otf');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-MediumItalic.otf');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-Regular.otf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gordita';
-    src: url('/assets/fonts/Gordita-RegularItalic.otf');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+.separate {
+    margin: var(--margin) 0;
+    height: 1px;
+    background-color: var(--separate-bg);
 }

@@ -1,0 +1,100 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.address-card {
+    display: flex;
+    margin-top: 30px;
+    gap: 16px;
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+    }
+
+    &__left {
+        display: flex;
+        gap: 16px;
+        flex: 1;
+    }
+
+    &__choose {
+        display: flex;
+        margin-top: 4px;
+        width: 18px;
+    }
+
+    &__checkbox {
+        position: relative;
+        width: 18px;
+        height: 18px;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 5px;
+            border: 1.5px solid #9e9da8;
+        }
+
+        &-input {
+            display: none;
+        }
+    }
+
+    &__checkbox:has(:checked) {
+        &::before {
+            border-color: #67b044;
+            background-color: #67b044;
+        }
+
+        &::after {
+            top: 4px;
+            left: 4px;
+            width: 9px;
+            height: 3px;
+            border-radius: 1px;
+            rotate: -45deg;
+            border: 2px solid;
+            border-color: transparent transparent var(--tag-btn-bg) var(--tag-btn-bg);
+        }
+    }
+
+    &__title {
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 144.444%;
+    }
+
+    &__desc {
+        margin-top: 4px;
+        width: min(520px, 90%);
+        font-size: 1.5rem;
+        line-height: 146.667%;
+    }
+
+    &__list {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
+        list-style: disc inside;
+        font-size: 1.4rem;
+        line-height: 142.857%;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        &-item {
+            margin-left: 8px;
+        }
+    }
+
+    &__ctrl {
+        display: flex;
+        align-items: flex-end;
+        height: 100%;
+    }
+}

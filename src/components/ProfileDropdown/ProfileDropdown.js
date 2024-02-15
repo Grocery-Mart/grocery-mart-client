@@ -74,7 +74,7 @@ function ProfileDropdown({ children }) {
                                 <li>
                                     <Link
                                         className={cx('user__option')}
-                                        to={routes.cart}
+                                        to={routes.favorite}
                                         onClick={() => setDisabled(true)}
                                     >
                                         Yêu thích
@@ -83,7 +83,7 @@ function ProfileDropdown({ children }) {
                                 <li>
                                     <Link
                                         className={cx('user__option', 'user__cart')}
-                                        to={routes.cart}
+                                        to={routes.checkout}
                                         onClick={() => setDisabled(true)}
                                     >
                                         <p>Giỏ hàng</p>
@@ -115,7 +115,7 @@ function ProfileDropdown({ children }) {
                                 <li>
                                     <Link
                                         className={cx('user__option', 'separate')}
-                                        to={routes.profile}
+                                        to={routes.signup}
                                         onClick={() => setDisabled(true)}
                                     >
                                         Đăng xuất

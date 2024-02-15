@@ -1,6 +1,7 @@
 const images = {
     logo: require('~/assets/images/logo.svg').default,
     noImage: require('~/assets/images/no-image.jpg'),
+    QR: require('~/assets/images/QR.jpg'),
     product1: require('~/assets/images/products/product1.png'),
     product2: require('~/assets/images/products/product2.png'),
     product3: require('~/assets/images/products/product3.png'),
@@ -14,6 +15,11 @@ const images = {
     cate3: require('~/assets/images/categories/cate-3.png'),
     authIntro: require('~/assets/images/auth/auth.svg').default,
     authIntroArrow: require('~/assets/images/auth/intro-arrow.svg').default,
+    GHN: require('~/assets/images/paymentmethod/Logo-GHN.webp'),
+    GHTK: require('~/assets/images/paymentmethod/Logo-GHTK.webp'),
+    BankCart: require('~/assets/images/profile/bank-card.svg').default,
+    VisaBankCard: require('~/assets/images/profile/visa-bank-card.svg').default,
+    CircleBank: require('~/assets/images/profile/Oval.png'),
 };
 
 export default images;

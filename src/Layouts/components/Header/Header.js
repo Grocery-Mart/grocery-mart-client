@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCallback, useRef, useState } from 'react';
 
 import styles from './Header.module.scss';
@@ -15,7 +15,7 @@ import { ArrowLeftIcon, CartIcon, MenuIcon, SearchIcon } from '~/components/Icon
 const cx = classNames.bind(styles);
 
 function Header() {
-    const currentUser = false;
+    const currentUser = true;
 
     const [openSearch, setOpenSearch] = useState(false);
     const [openOverlay, setOpenOverlay] = useState(false);
@@ -24,8 +24,6 @@ function Header() {
     const openSearchInput = useCallback(() => {
         setOpenSearch((prevOpenSearch) => !prevOpenSearch);
     }, []);
-
-    const location = useLocation();
 
     const handleOpenOverlay = () => {
         if (window.matchMedia('(max-width: 992px)').matches) {
@@ -101,18 +99,16 @@ function Header() {
                                     </button>
                                 </div>
 
-                                {openSearch && <SearchInput className={cx('action__search')} />}
+                                {openSearch && <SearchInput className={cx('action__search')} dataAos="fade-up" />}
 
-                                {location.pathname !== '/cart' && (
-                                    <div className={cx('action__group')}>
-                                        <Cart cart>
-                                            <button className={cx('action__btn')}>
-                                                <CartIcon className={cx('icon')} />
-                                                <span className={cx('action__title')}>$65.42</span>
-                                            </button>
-                                        </Cart>
-                                    </div>
-                                )}
+                                <div className={cx('action__group')}>
+                                    <Cart cart>
+                                        <button className={cx('action__btn')}>
+                                            <CartIcon className={cx('icon')} />
+                                            <span className={cx('action__title')}>$65.42</span>
+                                        </button>
+                                    </Cart>
+                                </div>
 
                                 <ProfileDropdown>
                                     <Image

@@ -9,7 +9,7 @@ import SearchProduct from '~/components/SearchProduct'
 
 const cx = classNames.bind(styles);
 
-function SearchInput({ className }) {
+function SearchInput({ className, dataAos }) {
     const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ function SearchInput({ className }) {
                 </div>
             )}
         >
-            <div className={cx('wrapper', { [className]: className })} data-aos="fade-up" data-aos-duration="1000">
+            <div className={cx('wrapper', { [className]: className })} data-aos={dataAos} data-aos-duration="1000">
                 <input type="text" placeholder="Search ..." className={cx('search-input')} />
                 <button className={cx('search-btn')}>{<SearchIcon className={cx('icon')} />}</button>
             </div>

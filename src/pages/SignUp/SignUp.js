@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './SignUp.module.scss';
 import Logo from '~/components/Logo';
 import Button from '~/components/Button';
 import { EmailIcon, PasswordIcon, GoogleIcon } from '~/components/Icons';
+import routes from '~/config/routes';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -15,10 +17,22 @@ function SignUp() {
     const [submit, setSubmit] = useState(true);
     const [showPassword, setShowPassword] = useState('password');
 
-    const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    const emailRegex = useMemo(() => /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/, []);
+    const passwordRegex = useMemo(() => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@-_]).{8,}$/, []);
     const [errors, setErrors] = useState({ email: '', password: '', confirmPassword: '' });
 
-    const handleChangeEmail = () => {
+    const checkSubmit = useCallback(() => {
+        setSubmit(
+            !emailRegex.test(email) ||
+                !passwordRegex.test(password) ||
+                confirmPassword !== password ||
+                email === '' ||
+                password === '' ||
+                confirmPassword === '',
+        );
+    }, [emailRegex, passwordRegex, email, password, confirmPassword]);
+
+    const handleChangeEmail = useCallback(() => {
         if (!emailRegex.test(email)) {
             setErrors({ ...errors, email: 'Email không hợp lệ, vui lòng nhập lại' });
         }
@@ -29,44 +43,40 @@ function SignUp() {
             setErrors({ ...errors, email: '' });
         }
         checkSubmit();
-    };
+    }, [email, checkSubmit, emailRegex, errors]);
 
-    const handleChangePassword = () => {
-        if (password.length < 8) {
-            setErrors({ ...errors, password: 'Mật khẩu phải có tối thiểu 8 ký tự' });
+    const handleChangePassword = useCallback(() => {
+        if (!passwordRegex.test(password)) {
+            setErrors({
+                ...errors,
+                password:
+                    'Mật khẩu phải có tối thiểu 8 ký tự chứa ít nhất 1 chữ số, 1 chữ cái viết hoa, 1 chứ cái viết thường, và 1 ký tự đặc biệt @,-,_',
+            });
         }
         if (password === '') {
             setErrors({ ...errors, password: 'Vui lòng nhập password' });
         }
-        if (password.length >= 8) {
+        if (passwordRegex.test(password)) {
             setErrors({ ...errors, password: '' });
         }
         checkSubmit();
-    };
+    }, [passwordRegex, password, errors, checkSubmit]);
 
-    const handleChangeConfirmPassword = () => {
+    const handleChangeConfirmPassword = useCallback(() => {
         if (confirmPassword !== password) {
             setErrors({
                 ...errors,
                 confirmPassword: 'Mật khẩu không đúng, vui lòng nhập lại',
             });
         }
+        if (confirmPassword === '') {
+            setErrors({ ...errors, confirmPassword: 'Vui lòng nhập lại password' });
+        }
         if (confirmPassword === password) {
             setErrors({ ...errors, confirmPassword: '' });
         }
         checkSubmit();
-    };
-
-    const checkSubmit = () => {
-        setSubmit(
-            !emailRegex.test(email) ||
-                password.length < 8 ||
-                confirmPassword !== password ||
-                email === '' ||
-                password === '' ||
-                confirmPassword === '',
-        );
-    };
+    }, [confirmPassword, password, errors, checkSubmit]);
 
     const handleShowPassword = () => {
         setShowPassword(showPassword === 'password' ? 'text' : 'password');
@@ -140,9 +150,6 @@ function SignUp() {
                         <input type="checkbox" name="" className={cx('form__checkbox-input')} />
                         <span className={cx('form__checkbox-label')}>Hiển thị mật khẩu</span>
                     </label>
-                    <a className={cx('inner__link', 'form__pull-right')} href="#!">
-                        Khôi phục mật khẩu
-                    </a>
                 </div>
                 <div className={cx('form__group', 'inner__btn-group')}>
                     <Button
@@ -161,15 +168,15 @@ function SignUp() {
                         auth
                         className={cx('btn--no-margin')}
                     >
-                        Đăng ký với Google
+                        Đăng nhập với Google
                     </Button>
                 </div>
             </form>
             <p className={cx('inner__text')}>
                 Bạn đã có tài khoản?
-                <a className={cx('inner__link')} href="#!">
+                <Link className={cx('inner__link')} to={routes.login}>
                     Đăng nhập
-                </a>
+                </Link>
             </p>
         </div>
     );

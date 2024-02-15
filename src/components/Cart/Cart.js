@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 
@@ -11,8 +12,17 @@ import routes from '~/config/routes';
 const cx = classNames.bind(styles);
 
 function Cart({ children, cart = false }) {
+    const location = useLocation();
+    const [isDisabled, setDisabled] = useState(false);
+
+    useEffect(() => {
+        setDisabled(false);
+    }, [location]);
+
     return (
         <Tippy
+            disabled={isDisabled}
+            hideOnClick={false}
             offset={[20, 12]}
             interactive
             placement="bottom-end"
@@ -22,7 +32,7 @@ function Cart({ children, cart = false }) {
                         <div className={cx('content')}>
                             <div className={cx('header')}>
                                 <p className={cx('header__title')}>Bạn có 3 sản phẩm</p>
-                                <Link to={routes.cart}>
+                                <Link to={routes.checkout} onClick={() => setDisabled(true)}>
                                     <Button className={cx('header__btn')}>Tất cả</Button>
                                 </Link>
                             </div>
@@ -56,7 +66,7 @@ function Cart({ children, cart = false }) {
                             )}
 
                             <div className={cx('checkout')}>
-                                <Link to={routes.cart}>
+                                <Link to={routes.checkout} onClick={() => setDisabled(true)}>
                                     <Button primary className={cx('checkout-btn')}>
                                         Thanh toán tất cả
                                     </Button>

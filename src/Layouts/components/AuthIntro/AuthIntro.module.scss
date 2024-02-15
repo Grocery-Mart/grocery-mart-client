@@ -11,7 +11,8 @@
     gap: 50px;
     background-color: var(--auth-intro-bg);
 
-    &__logo, &__next {
+    &__logo,
+    &__next {
         position: absolute;
         left: 50%;
         translate: -50%;
@@ -32,11 +33,15 @@
     }
 
     &__text {
-        max-width: 412px;
+        max-width: min(412px, 100%);
         font-size: 1.8rem;
         font-weight: 500;
         text-align: center;
         line-height: 144.444%;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.5rem;
+        }
     }
 
     &__next {
@@ -48,4 +53,8 @@
             display: block;
         }
     }
+}
+
+.isIntro .intro {
+    display: none;
 }

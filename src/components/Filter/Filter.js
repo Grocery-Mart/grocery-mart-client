@@ -15,10 +15,10 @@ function Filter({ isFilter }) {
             <div className={cx('filter')}>
                 <ArrowUpIcon className={cx('filter__arrow')} />
                 <h3 className={cx('filter__heading')}>Filter</h3>
-                <form action="" className={cx('filter__form')}>
+                <form action="" className={cx('filter__form', 'form')}>
                     <div className={cx('filter__row')}>
                         <div className={cx('filter__col')}>
-                            <label className={cx('filter__form-label')}>Price</label>
+                            <label className={cx('form__label')}>Price</label>
                             <div className={cx('filter__form-group')}>
                                 <div
                                     className={cx('filter__form-slider')}
@@ -27,13 +27,13 @@ function Filter({ isFilter }) {
                             </div>
                             <div className={cx('filter__form-group', 'filter__form-group--inline')}>
                                 <div>
-                                    <label className={cx('filter__form-label', 'filter__form-label--sm')}>Minium</label>
+                                    <label className={cx('form__label', 'form__label--sm')}>Minium</label>
                                     <div className={cx('filter__form-text-input', 'filter__form-text-input--small')}>
                                         <input type="text" name="" id="" className={cx('filter__form-input')} />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className={cx('filter__form-label', 'filter__form-label--sm')}>
+                                    <label className={cx('form__label', 'form__label--sm')}>
                                         Maximum
                                     </label>
                                     <div className={cx('filter__form-text-input', 'filter__form-text-input--small')}>
@@ -46,38 +46,38 @@ function Filter({ isFilter }) {
                         <div className={cx('filter__separate')}></div>
 
                         <div className={cx('filter__col')}>
-                            <label className={cx('filter__form-label')}>Size/Weight</label>
+                            <label className={cx('form__label')}>Size/Weight</label>
                             <div className={cx('filter__form-group')}>
-                                <div className={cx('filter__form-select-wrap')}>
-                                    <div className={cx('filter__form-select', 'filter__form-select-weight')}>
+                                <div className={cx('form__select-wrap')}>
+                                    <div className={cx('form__select', 'form__select-weight')}>
                                         <span>500g</span>
-                                        <ArrowDownIcon className={cx('filter__form-select-arrow', 'icon')} />
+                                        <ArrowDownIcon className={cx('form__select-arrow', 'icon')} />
                                     </div>
-                                    <div className={cx('filter__form-select')}>
+                                    <div className={cx('form__select')}>
                                         <span>Gram</span>
-                                        <ArrowDownIcon className={cx('filter__form-select-arrow', 'icon')} />
+                                        <ArrowDownIcon className={cx('form__select-arrow', 'icon')} />
                                     </div>
                                 </div>
                             </div>
                             <div className={cx('filter__form-group')}>
-                                <div className={cx('filter__form-tags')}>
+                                <div className={cx('form__tags')}>
                                     <Button
                                         filterTag
-                                        className={cx('filter__form-tag')}
+                                        className={cx('form__tag')}
                                         onClick={(e) => e.preventDefault()}
                                     >
                                         Small
                                     </Button>
                                     <Button
                                         filterTag
-                                        className={cx('filter__form-tag')}
+                                        className={cx('form__tag')}
                                         onClick={(e) => e.preventDefault()}
                                     >
                                         Medium
                                     </Button>
                                     <Button
                                         filterTag
-                                        className={cx('filter__form-tag')}
+                                        className={cx('form__tag')}
                                         onClick={(e) => e.preventDefault()}
                                     >
                                         Large
@@ -89,7 +89,7 @@ function Filter({ isFilter }) {
                         <div className={cx('filter__separate')}></div>
 
                         <div className={cx('filter__col')}>
-                            <label className={cx('filter__form-label')}>Brand</label>
+                            <label className={cx('form__label')}>Brand</label>
                             <div className={cx('filter__form-group')}>
                                 <div className={cx('filter__form-text-input')}>
                                     <input
@@ -103,24 +103,24 @@ function Filter({ isFilter }) {
                                 </div>
                             </div>
                             <div className={cx('filter__form-group')}>
-                                <div className={cx('filter__form-tags')}>
+                                <div className={cx('form__tags')}>
                                     <Button
                                         filterTag
-                                        className={cx('filter__form-tag')}
+                                        className={cx('form__tag')}
                                         onClick={(e) => e.preventDefault()}
                                     >
                                         Lavazza
                                     </Button>
                                     <Button
                                         filterTag
-                                        className={cx('filter__form-tag')}
+                                        className={cx('form__tag')}
                                         onClick={(e) => e.preventDefault()}
                                     >
                                         Nescafe
                                     </Button>
                                     <Button
                                         filterTag
-                                        className={cx('filter__form-tag')}
+                                        className={cx('form__tag')}
                                         onClick={(e) => e.preventDefault()}
                                     >
                                         Starbucks

@@ -4,6 +4,8 @@
 @import 'bootstrap/scss/mixins';
 
 .home {
+    margin-bottom: 50px;
+
     &__container {
         margin-top: 40px;
 
@@ -14,7 +16,7 @@
 
     &__heading {
         margin-bottom: 20px;
-        font-size: 2.4rem;
+        font-size: 2.2rem;
         font-weight: 700;
         line-height: 141.667%;
 
@@ -51,7 +53,7 @@
     &__item {
         position: relative;
         width: 100%;
-        padding-top: 34%;
+        padding-top: 26%;
 
         @include media-breakpoint-down(md) {
             padding-top: 50%;

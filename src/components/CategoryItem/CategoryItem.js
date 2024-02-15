@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 function CategoryItem({ data }) {
     return (
-        <a href='#!'>
+        <a href="#!">
             <article className={cx('cate-item')}>
                 <img className={cx('cate-item__thumb')} src={data.thumb} alt="" />
                 <div className={cx('cate-item__info')}>

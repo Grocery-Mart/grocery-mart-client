@@ -1,6 +1,7 @@
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
+@import 'three-dots';
 
 .wrapper {
     min-height: 100vh;
@@ -26,4 +27,12 @@
         overflow-y: auto;
         transition: translate 0.3s;
     }
+}
+
+.hidden {
+    display: none;
+}
+.loaded {
+    position: absolute;
+    inset: 50%;
 }

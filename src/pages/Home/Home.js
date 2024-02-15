@@ -110,7 +110,7 @@ function Home() {
 
     const handleOpenFilter = useCallback(() => {
         setFilter((prevFilter) => !prevFilter);
-    },[]);
+    }, []);
 
     const handleClickOutsideFilter = useCallback((event) => {
         if (filterRef.current && !filterRef.current.contains(event.target)) {
@@ -124,6 +124,10 @@ function Home() {
         return () => {
             document.removeEventListener('click', handleClickOutsideFilter);
         };
+    }, [handleClickOutsideFilter]);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
     }, []);
 
     return (
@@ -198,14 +202,14 @@ function Home() {
                             </Button>
                             {filter && (
                                 <div className={cx('filter-form')} data-aos="zoom-in-left" data-aos-duration="200">
-                                    <Filter isFilter={filter}/>
+                                    <Filter isFilter={filter} />
                                 </div>
                             )}
                         </div>
                     </div>
                     <div
                         className={cx(
-                            'row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-5',
+                            'row row-cols-1 row-cols-xl-5 row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-5',
                             'home__products',
                         )}
                     >

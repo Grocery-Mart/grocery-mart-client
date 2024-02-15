@@ -1,0 +1,26 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.address-modal {
+    --content-width: 650px;
+}
+
+.address {
+    &__heading {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 141.667%;
+    }
+
+    &__body {
+        padding-right: 20px;
+        max-height: calc(100vh - 250px);
+        overflow-y: auto;
+        @include media-breakpoint-down(md) {
+            max-height: 100vh;
+            overflow-y: visible;
+            padding-right: 0;
+        }
+    }
+}

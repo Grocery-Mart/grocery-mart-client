@@ -65,6 +65,103 @@ export const ArrowLeftIcon = ({ width = '1.7rem', height = '1.5rem', className }
     </svg>
 );
 
+export const ArrowRightIcon = ({ width = '1rem', height = '1.6rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 10 16"
+        fill="none"
+    >
+        <path d="M1.5 1L8.5 8L1.5 15" stroke="#9E9DA8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+export const DocumentIcon = ({ width = '1.9rem', height = '2rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 19 20"
+        fill="none"
+    >
+        <path
+            d="M12.7161 14.2236H5.49609"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M12.7161 10.0371H5.49609"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M8.25207 5.86035H5.49707"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M12.909 0.75C12.909 0.75 5.23198 0.754 5.21998 0.754C2.45998 0.771 0.750977 2.587 0.750977 5.357V14.553C0.750977 17.337 2.47298 19.16 5.25698 19.16C5.25698 19.16 12.933 19.157 12.946 19.157C15.706 19.14 17.416 17.323 17.416 14.553V5.357C17.416 2.573 15.693 0.75 12.909 0.75Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const BagIcon = ({ width = '2.1rem', height = '2.2rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 21 22"
+        fill="none"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M14.5134 20.5003H6.16555C3.09919 20.5003 0.746786 19.3928 1.41498 14.9351L2.19301 8.89394C2.60491 6.66968 4.02367 5.81842 5.26852 5.81842H15.447C16.7102 5.81842 18.0466 6.73375 18.5225 8.89394L19.3006 14.9351C19.8681 18.8894 17.5797 20.5003 14.5134 20.5003Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M14.6502 5.59873C14.6502 3.21265 12.716 1.27836 10.3299 1.27836V1.27836C9.18088 1.27349 8.07727 1.72652 7.26308 2.53727C6.44889 3.34803 5.9912 4.44971 5.99121 5.59873H5.99121"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M13.296 10.1021H13.2502"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M7.46492 10.1022H7.41916"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
 export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         className={className}
@@ -277,6 +374,178 @@ export const StarIcon = ({ width = '1.8rem', height = '1.8rem', className }) => 
     </svg>
 );
 
+export const HalfStarIcon = ({ width = '2.1rem', height = '2rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 21 20"
+        fill="none"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M11.6043 2.17701L13.4317 5.82776C13.6108 6.18616 13.9565 6.43467 14.3573 6.49218L18.4453 7.08062C19.4554 7.22644 19.8573 8.45055 19.1263 9.15194L16.1702 11.9924C15.8797 12.2718 15.7474 12.6733 15.8162 13.0676L16.5138 17.0778C16.6856 18.0698 15.6298 18.8267 14.727 18.3574L11.0732 16.4627C10.715 16.2768 10.286 16.2768 9.92679 16.4627L6.273 18.3574C5.37023 18.8267 4.31439 18.0698 4.48724 17.0778L5.18385 13.0676C5.25257 12.6733 5.12033 12.2718 4.82982 11.9924L1.87368 9.15194C1.14272 8.45055 1.54464 7.22644 2.55466 7.08062L6.64265 6.49218C7.04354 6.43467 7.39028 6.18616 7.56937 5.82776L9.39574 2.17701C9.84765 1.27433 11.1523 1.27433 11.6043 2.17701Z"
+            stroke="#FFB700"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M11.0732 2.17701V5.82776V6.49218V7.08062V9.15194V11.9924V13.0676V17.0778V16.4627C10.715 16.2768 10.286 16.2768 9.92679 16.4627L6.273 18.3574C5.37023 18.8267 4.31439 18.0698 4.48724 17.0778L5.18385 13.0676C5.25257 12.6733 5.12033 12.2718 4.82982 11.9924L1.87368 9.15194C1.14272 8.45054 1.54464 7.22644 2.55466 7.08062L6.64265 6.49218C7.04354 6.43467 7.39028 6.18616 7.56937 5.82776L9.39574 2.17701C9.84765 1.27433 10.6213 1.27433 11.0732 2.17701Z"
+            fill="#FFB700"
+        />
+    </svg>
+);
+
+export const NoStarIcon = ({ width = '2.1rem', height = '2rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 21 20"
+        fill="none"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M11.6043 2.17701L13.4317 5.82776C13.6108 6.18616 13.9565 6.43467 14.3573 6.49218L18.4453 7.08062C19.4554 7.22644 19.8573 8.45055 19.1263 9.15194L16.1702 11.9924C15.8797 12.2718 15.7474 12.6733 15.8162 13.0676L16.5138 17.0778C16.6856 18.0698 15.6298 18.8267 14.727 18.3574L11.0732 16.4627C10.715 16.2768 10.286 16.2768 9.92679 16.4627L6.273 18.3574C5.37023 18.8267 4.31439 18.0698 4.48724 17.0778L5.18385 13.0676C5.25257 12.6733 5.12033 12.2718 4.82982 11.9924L1.87368 9.15194C1.14272 8.45055 1.54464 7.22644 2.55466 7.08062L6.64265 6.49218C7.04354 6.43467 7.39028 6.18616 7.56937 5.82776L9.39574 2.17701C9.84765 1.27433 11.1523 1.27433 11.6043 2.17701Z"
+            stroke="#FFB700"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const MinusIcon = ({ width = '2.2rem', height = '2.2rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 22 22"
+        fill="none"
+    >
+        <path
+            d="M14.6663 10.9904H7.33301"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M15.6857 1H6.31429C3.04762 1 1 3.31208 1 6.58516V15.4148C1 18.6879 3.0381 21 6.31429 21H15.6857C18.9619 21 21 18.6879 21 15.4148V6.58516C21 3.31208 18.9619 1 15.6857 1Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const PlusIcon = ({ width = '2.2rem', height = '2.2rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 22 22"
+        fill="none"
+    >
+        <path
+            d="M10.9996 7.32715V14.6535"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M14.6663 10.9904H7.33301"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M15.6857 1H6.31429C3.04762 1 1 3.31208 1 6.58516V15.4148C1 18.6879 3.0381 21 6.31429 21H15.6857C18.9619 21 21 18.6879 21 15.4148V6.58516C21 3.31208 18.9619 1 15.6857 1Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const SaveIcon = ({ width = '2.2rem', height = '2rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 22 20"
+        fill="none"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M1.87187 9.59832C0.798865 6.24832 2.05287 2.41932 5.56987 1.28632C7.41987 0.689322 9.46187 1.04132 10.9999 2.19832C12.4549 1.07332 14.5719 0.693322 16.4199 1.28632C19.9369 2.41932 21.1989 6.24832 20.1269 9.59832C18.4569 14.9083 10.9999 18.9983 10.9999 18.9983C10.9999 18.9983 3.59787 14.9703 1.87187 9.59832Z"
+            stroke="#9E9DA8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M15 4.69995C16.07 5.04595 16.826 6.00095 16.917 7.12195"
+            stroke="#9E9DA8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const TrashIcon = ({ width = '1.9rem', height = '2rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 19 20"
+        fill="none"
+    >
+        <path
+            d="M16.3248 7.46875C16.3248 7.46875 15.7818 14.2037 15.4668 17.0407C15.3168 18.3957 14.4798 19.1898 13.1088 19.2148C10.4998 19.2618 7.88779 19.2648 5.27979 19.2098C3.96079 19.1828 3.13779 18.3788 2.99079 17.0478C2.67379 14.1858 2.13379 7.46875 2.13379 7.46875"
+            stroke="#9E9DA8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M17.708 4.24023H0.75"
+            stroke="#9E9DA8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M14.4406 4.23998C13.6556 4.23998 12.9796 3.68498 12.8256 2.91598L12.5826 1.69998C12.4326 1.13898 11.9246 0.750977 11.3456 0.750977H7.11258C6.53358 0.750977 6.02558 1.13898 5.87558 1.69998L5.63258 2.91598C5.47858 3.68498 4.80258 4.23998 4.01758 4.23998"
+            stroke="#9E9DA8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
 export const SendIcon = ({ width = '1.6rem', height = '1.6rem', className }) => (
     <svg
         version="1.1"
@@ -296,6 +565,382 @@ export const SendIcon = ({ width = '1.6rem', height = '1.6rem', className }) => 
 		C274.4,359.9,274.1,359,273.4,358.8z"
             />
         </g>
+    </svg>
+);
+
+export const GiftIcon = ({ width = '5.6rem', height = '5.6rem', className }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 56 56"
+        fill="none"
+    >
+        <path
+            d="M46.6666 28V51.3333H9.33325V28"
+            stroke="#7644E1"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M51.3334 16.3334H4.66675V28H51.3334V16.3334Z"
+            stroke="#7644E1"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path d="M28 51.3334V16.3334" stroke="#7644E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+        <path
+            d="M28.0001 16.3333H17.5001C15.953 16.3333 14.4693 15.7187 13.3753 14.6247C12.2813 13.5308 11.6667 12.0471 11.6667 10.5C11.6667 8.95286 12.2813 7.46913 13.3753 6.37517C14.4693 5.28121 15.953 4.66663 17.5001 4.66663C25.6667 4.66663 28.0001 16.3333 28.0001 16.3333Z"
+            stroke="#7644E1"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M28 16.3333H38.5C40.0471 16.3333 41.5308 15.7187 42.6248 14.6247C43.7188 13.5308 44.3333 12.0471 44.3333 10.5C44.3333 8.95286 43.7188 7.46913 42.6248 6.37517C41.5308 5.28121 40.0471 4.66663 38.5 4.66663C30.3333 4.66663 28 16.3333 28 16.3333Z"
+            stroke="#7644E1"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const AddAddressIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M11.9996 8.32715V15.6535"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M15.6663 11.9904H8.33301"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M16.6857 2H7.31429C4.04762 2 2 4.31208 2 7.58516V16.4148C2 19.6879 4.0381 22 7.31429 22H16.6857C19.9619 22 22 19.6879 22 16.4148V7.58516C22 4.31208 19.9619 2 16.6857 2Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const EditIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M13.7471 20.4428H20.9997"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M12.78 3.79479C13.5557 2.86779 14.95 2.73186 15.8962 3.49173C15.9485 3.53296 17.6295 4.83879 17.6295 4.83879C18.669 5.46719 18.992 6.80311 18.3494 7.82259C18.3153 7.87718 8.81195 19.7645 8.81195 19.7645C8.49578 20.1589 8.01583 20.3918 7.50291 20.3973L3.86353 20.443L3.04353 16.9723C2.92866 16.4843 3.04353 15.9718 3.3597 15.5773L12.78 3.79479Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M11.0205 6.00098L16.4728 10.1881"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const UserIcon = ({ width = '1.6rem', height = '2rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 16 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M7.98468 13.3457C4.11707 13.3457 0.814209 13.9305 0.814209 16.2724C0.814209 18.6143 4.09611 19.22 7.98468 19.22C11.8523 19.22 15.1542 18.6343 15.1542 16.2933C15.1542 13.9524 11.8733 13.3457 7.98468 13.3457Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M7.98464 10.0059C10.5227 10.0059 12.5799 7.94779 12.5799 5.40969C12.5799 2.8716 10.5227 0.814453 7.98464 0.814453C5.44655 0.814453 3.38845 2.8716 3.38845 5.40969C3.37988 7.93922 5.42369 9.99731 7.95226 10.0059H7.98464Z"
+            stroke="#1A162E"
+            strokeWidth="1.42857"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const AddressIcon = ({ width = '1.8rem', height = '2rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 18 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M11.5 8.50051C11.5 7.11924 10.3808 6 9.00051 6C7.61924 6 6.5 7.11924 6.5 8.50051C6.5 9.88076 7.61924 11 9.00051 11C10.3808 11 11.5 9.88076 11.5 8.50051Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M8.99951 19C7.80104 19 1.5 13.8984 1.5 8.56329C1.5 4.38664 4.8571 1 8.99951 1C13.1419 1 16.5 4.38664 16.5 8.56329C16.5 13.8984 10.198 19 8.99951 19Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const ReoderIcon = ({ width = '2.1rem', height = '2rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 21 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M10.1223 13.4365L10.1223 1.39551"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M13.0383 10.5088L10.1223 13.4368L7.20633 10.5088"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M14.7551 6.12793H15.6881C17.7231 6.12793 19.3721 7.77693 19.3721 9.81293V14.6969C19.3721 16.7269 17.7271 18.3719 15.6971 18.3719L4.55707 18.3719C2.52207 18.3719 0.87207 16.7219 0.87207 14.6869V9.80193C0.87207 7.77293 2.51807 6.12793 4.54707 6.12793H5.48907"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const GiftIconSM = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path d="M19 12V21H5V12" stroke="#1A162E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M21 8H3V12H21V8Z" stroke="#1A162E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M12 21V8" stroke="#1A162E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path
+            d="M12 8H8.14286C7.57454 8 7.02949 7.73661 6.62763 7.26777C6.22576 6.79893 6 6.16304 6 5.5C6 4.83696 6.22576 4.20107 6.62763 3.73223C7.02949 3.26339 7.57454 3 8.14286 3C11.1429 3 12 8 12 8Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M12 8H15.8571C16.4255 8 16.9705 7.73661 17.3724 7.26777C17.7742 6.79893 18 6.16304 18 5.5C18 4.83696 17.7742 4.20107 17.3724 3.73223C16.9705 3.26339 16.4255 3 15.8571 3C12.8571 3 12 8 12 8Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const HelpIcon = ({ width = '2rem', height = '2rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M14.334 0.750092H5.665C2.644 0.750092 0.75 2.88909 0.75 5.91609V14.0841C0.75 17.1111 2.635 19.2501 5.665 19.2501H14.333C17.364 19.2501 19.25 17.1111 19.25 14.0841V5.91609C19.25 2.88909 17.364 0.750092 14.334 0.750092Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M9.99414 14.0001V10.0001"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M9.99012 6.20419H10.0001"
+            stroke="#1A162E"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const TermIcon = ({ width = '2rem', height = '2rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M10 0.750092C15.108 0.750092 19.25 4.89109 19.25 10.0001C19.25 15.1081 15.108 19.2501 10 19.2501C4.891 19.2501 0.75 15.1081 0.75 10.0001C0.75 4.89109 4.891 0.750092 10 0.750092Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M9.99512 6.20419V10.6232"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path d="M9.995 13.7961H10.005" stroke="#1A162E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+export const PhoneIcon = ({ width = '2.2rem', height = '2.2rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 22 22"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M13.353 1.5C17.054 1.911 19.978 4.831 20.393 8.532"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M13.353 5.04303C15.124 5.38703 16.508 6.77203 16.853 8.54303"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M10.0315 11.4724C14.0205 15.4604 14.9254 10.8467 17.4653 13.3848C19.9138 15.8328 21.3222 16.3232 18.2188 19.4247C17.8302 19.737 15.3613 23.4943 6.68447 14.8197C-1.99341 6.144 1.76157 3.67244 2.07394 3.28395C5.18377 0.173846 5.66682 1.58938 8.11539 4.03733C10.6541 6.5765 6.04254 7.48441 10.0315 11.4724Z"
+            stroke="#1A162E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const BankCartIcon = ({ width = '1.4rem', height = '1.6rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 14 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M12.2415 12.3076C12.2415 11.9678 11.9803 11.6923 11.6581 11.6923H2.32479C2.00262 11.6923 1.74146 11.9678 1.74146 12.3076C1.74146 12.6475 2.00262 12.923 2.32479 12.923H11.6581C11.9803 12.923 12.2415 12.6475 12.2415 12.3076Z"
+            fill="#FFB700"
+        />
+        <path
+            d="M4.60542 1.8457L3.6988 2.07647L6.19774 6.6426L3.3535 7.44657L2.70959 6.30724L0.933666 6.0233C0.885325 6.01558 0.849961 6.07026 0.874405 6.11493L2.5548 9.18537C2.57153 9.21592 2.59046 9.2445 2.61127 9.27096C2.75698 9.45613 2.99524 9.53727 3.22041 9.46933L3.93873 9.25256L3.93849 9.2518L12.4681 6.84072C12.9493 6.70469 13.235 6.18281 13.106 5.67512C12.977 5.1674 12.4823 4.8661 12.0011 5.00213L8.66291 5.94576L4.60542 1.8457Z"
+            fill="#FFB700"
+        />
+    </svg>
+);
+
+export const VisaBankCartIcon = ({ width = '1.3rem', height = '1.6rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 13 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M2.15263 10.3485L0.945758 11.5553C0.734226 11.7669 0.734226 12.1098 0.945761 12.3214C1.15729 12.5329 1.50026 12.5329 1.71179 12.3214L2.91866 11.1145L6.40445 11.009C6.95614 10.9923 7.48066 10.7657 7.87096 10.3754L11.3189 6.92744C12.6939 5.55245 12.6939 3.32319 11.3189 1.94822C9.94394 0.573249 7.71469 0.573249 6.33969 1.94822L2.89174 5.39618C2.50146 5.78648 2.27483 6.311 2.25814 6.86269L2.15263 10.3485ZM3.27029 9.23083L3.34097 6.89546C3.34931 6.61961 3.46263 6.35737 3.65777 6.1622L7.10575 2.71425C8.05764 1.76235 9.60099 1.76235 10.5529 2.71425C11.5048 3.66615 11.5048 5.20949 10.5529 6.16139L9.39651 7.31777C9.36547 7.31224 9.33354 7.30935 9.3009 7.30935H6.72382L8.98909 5.04407C9.20064 4.83252 9.20064 4.48956 8.98909 4.27804C8.77757 4.0665 8.43459 4.0665 8.22307 4.27804L3.27029 9.23083ZM5.64048 8.39268H8.3216L7.10493 9.60934C6.90977 9.80451 6.64752 9.91782 6.37168 9.92616L4.03631 9.99685L5.64048 8.39268Z"
+            fill="white"
+        />
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M2.15263 10.3485L0.945758 11.5553C0.734226 11.7669 0.734226 12.1098 0.945761 12.3214C1.15729 12.5329 1.50026 12.5329 1.71179 12.3214L2.91866 11.1145L6.40445 11.009C6.95614 10.9923 7.48066 10.7657 7.87096 10.3754L11.3189 6.92744C12.6939 5.55245 12.6939 3.32319 11.3189 1.94822C9.94394 0.573249 7.71469 0.573249 6.33969 1.94822L2.89174 5.39618C2.50146 5.78648 2.27483 6.311 2.25814 6.86269L2.15263 10.3485ZM3.27029 9.23083L3.34097 6.89546C3.34931 6.61961 3.46263 6.35737 3.65777 6.1622L7.10575 2.71425C8.05764 1.76235 9.60099 1.76235 10.5529 2.71425C11.5048 3.66615 11.5048 5.20949 10.5529 6.16139L9.39651 7.31777C9.36547 7.31224 9.33354 7.30935 9.3009 7.30935H6.72382L8.98909 5.04407C9.20064 4.83252 9.20064 4.48956 8.98909 4.27804C8.77757 4.0665 8.43459 4.0665 8.22307 4.27804L3.27029 9.23083ZM5.64048 8.39268H8.3216L7.10493 9.60934C6.90977 9.80451 6.64752 9.91782 6.37168 9.92616L4.03631 9.99685L5.64048 8.39268Z"
+            fill="#2FE3C1"
+        />
     </svg>
 );
 

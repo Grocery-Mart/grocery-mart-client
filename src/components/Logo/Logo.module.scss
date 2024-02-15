@@ -9,11 +9,6 @@
     user-select: none;
     cursor: pointer;
 
-    @include media-breakpoint-down(lg) {
-        
-        margin-right: 20px;  
-    }
-
     &__img {
         width: 32px;
         height: 32px;
@@ -33,6 +28,19 @@
         @include media-breakpoint-down(md) {
             display: block;
             font-size: 1.6rem;
+        }
+    }
+
+    &.original &__img {
+        @include media-breakpoint-down(md) {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &.original &__title {
+        @include media-breakpoint-down(md) {
+            font-size: 2.2rem
         }
     }
 }
