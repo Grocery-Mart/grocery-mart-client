@@ -3,268 +3,268 @@
 @import 'bootstrap/scss/mixins';
 
 .profile {
-    margin-bottom: 50px;
-    color: var(--checkout-color);
+  margin-bottom: 50px;
+  color: var(--checkout-color);
 
-    &-container {
-        margin-top: 30px;
-
-        @include media-breakpoint-down(md) {
-            margin-top: 20px;
-        }
-
-        @include media-breakpoint-down(sm) {
-            &:not(&--content) {
-                background-color: var(--breadcrumbs-bg);
-                border-radius: 10px;
-                padding: 16px;
-            }
-        }
-    }
-
-    &-input {
-        margin-top: 20px;
-    }
-
-    &-search {
-        display: none;
-        width: 100%;
-        background-color: var(--breadcrumbs-bg);
-
-        @include media-breakpoint-down(md) {
-            display: flex;
-        }
-    }
-
-    &__sidebar {
-        padding-bottom: 30px;
-        border-radius: 20px;
-        background-color: var(--profile-sidebar-bg);
-        box-shadow: 0px 20px 60px 10px var(--profile-sidebar-shadow);
-        overflow: hidden;
-    }
-
-    &-user {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        color: #fff;
-        background: linear-gradient(180deg, rgba(26, 22, 46, 0) 0%, #1a162e 100%),
-            url('../../assets/images/profile/user-background.png') no-repeat center / cover;
-        box-shadow: 0px 20px 60px 10px var(--profile-sidebar-shadow);
-
-        &__avatar {
-            margin-top: 35px;
-            width: 121px;
-            height: 121px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            background: #ccc content-box;
-            box-shadow: 0px 4px 14px 2px rgba(0, 0, 0, 0.08);
-        }
-
-        &__name {
-            margin-top: 15px;
-            font-size: 1.8rem;
-            font-weight: 700;
-            line-height: 144.444%;
-        }
-
-        &__desc {
-            margin-top: 2px;
-            font-size: 1.5rem;
-            font-weight: 500;
-            line-height: 146.667%;
-        }
-    }
-
-    &-menu {
-        margin-top: 30px;
-        padding: 0 30px;
-
-        &__title {
-            font-size: 1.8rem;
-            font-weight: 500;
-            line-height: 144.444%;
-        }
-
-        &__list {
-            margin-top: 11px;
-        }
-
-        &__link {
-            display: flex;
-            align-items: center;
-            padding: 0 4px;
-            height: 32px;
-            gap: 10px;
-            font-size: 1.5rem;
-            line-height: 146.667%;
-            color: var(--profile-menu-item-color);
-            border-radius: 5px;
-
-            &:hover {
-                background-color: var(--profile-sidebar-link-hover);
-                transition: background-color 0.2s;
-            }
-        }
-
-        &__icon-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 100%;
-            filter: var(--profile-user-icon);
-        }
-    }
-}
-
-.profile-info {
-    padding: 30px;
-    color: var(--profile-menu-item-color);
-    border-radius: 20px;
-    background-color: var(--checkout-cart-item-bg);
-    box-shadow: 0px 20px 60px 10px var(--checkout-cart-item-shadow);
+  &-container {
+    margin-top: 30px;
 
     @include media-breakpoint-down(md) {
-        margin-top: 20px;
+      margin-top: 20px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      &:not(&--content) {
+        background-color: var(--breadcrumbs-bg);
+        border-radius: 10px;
         padding: 16px;
+      }
     }
+  }
 
-    &__heading {
-        font-size: 2rem;
-        font-weight: 600;
-        line-height: 145.455%;
+  &-input {
+    margin-top: 20px;
+  }
+
+  &-search {
+    display: none;
+    width: 100%;
+    background-color: var(--breadcrumbs-bg);
+
+    @include media-breakpoint-down(md) {
+      display: flex;
     }
+  }
 
-    &__desc {
-        margin: 6px 0 16px;
-        font-size: 1.6rem;
-        line-height: 144.667%;
-    }
-}
+  &__sidebar {
+    padding-bottom: 30px;
+    border-radius: 20px;
+    background-color: var(--profile-sidebar-bg);
+    box-shadow: 0px 20px 60px 10px var(--profile-sidebar-shadow);
+    overflow: hidden;
+  }
 
-.payment-card {
-    position: relative;
-    padding: 20px;
-    height: 100%;
-    color: #fff;
-    border-radius: 10px;
-    background-color: var(--payment-card-bg);
-    user-select: none;
-
-    &__img {
-        position: absolute;
-        top: 0;
-        right: 0;
-        pointer-events: none;
-    }
-
-    &__top,
-    &__number,
-    &__bottom {
-        position: relative;
-        z-index: 1;
-    }
-
-    &__top {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    &__type {
-        font-size: 1.4rem;
-        font-weight: 500;
-        line-height: 142.857%;
-    }
-
-    &__number {
-        margin-top: 37px;
-        font-size: 1.8rem;
-        font-weight: 500;
-        line-height: 144.444%;
-    }
-
-    &__bottom {
-        display: flex;
-        align-items: center;
-        margin-top: 20px;
-    }
-
-    &__label {
-        font-size: 0.8rem;
-        font-weight: 500;
-        line-height: 175%;
-    }
-
-    &__expired {
-        margin: 0 auto 0 40px;
-    }
-
-    &__value {
-        font-size: 1rem;
-        font-weight: 500;
-        line-height: 140%;
-    }
-
-    &__circle {
-        width: 42px;
-        height: 28px;
-        z-index: 1;
-    }
-}
-
-.new-card {
+  &-user {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 14px;
-    height: 100%;
-    min-height: 170px;
-    border-radius: 10px;
-    border: 1px dashed #d2d1d6;
-    filter: var(--profile-user-icon);
+    padding: 20px;
+    color: #fff;
+    background: linear-gradient(180deg, rgba(26, 22, 46, 0) 0%, #1a162e 100%),
+      url('../../assets/images/profile/user-background.png') no-repeat center / cover;
+    box-shadow: 0px 20px 60px 10px var(--profile-sidebar-shadow);
 
-    &__text {
-        font-size: 1.4rem;
-        font-weight: 500;
-        line-height: 142.857%;
-    }
-}
-
-.account-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: var(--account-info-bg);
-
-    &__icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        width: 54px;
-        height: 54px;
-        border-radius: 8px;
-        background-color: var(--account-info-icon-bg);
+    &__avatar {
+      margin-top: 35px;
+      width: 121px;
+      height: 121px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      background: #ccc content-box;
+      box-shadow: 0px 4px 14px 2px rgba(0, 0, 0, 0.08);
     }
 
-    &__title {
-        font-size: 1.5rem;
-        font-weight: 500;
-        line-height: 146.667%;
+    &__name {
+      margin-top: 15px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 144.444%;
     }
 
     &__desc {
-        margin-top: 6px;
-        font-size: 1.4rem;
-        line-height: 142.857%;
+      margin-top: 2px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 146.667%;
     }
+  }
+
+  &-menu {
+    margin-top: 30px;
+    padding: 0 30px;
+
+    &__title {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 144.444%;
+    }
+
+    &__list {
+      margin-top: 11px;
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+      height: 32px;
+      gap: 10px;
+      font-size: 1.5rem;
+      line-height: 146.667%;
+      color: var(--profile-menu-item-color);
+      border-radius: 5px;
+
+      &:hover {
+        background-color: var(--profile-sidebar-link-hover);
+        transition: background-color 0.2s;
+      }
+    }
+
+    &__icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 100%;
+      filter: var(--profile-user-icon);
+    }
+  }
+}
+
+.profile-info {
+  padding: 30px;
+  color: var(--profile-menu-item-color);
+  border-radius: 20px;
+  background-color: var(--checkout-cart-item-bg);
+  box-shadow: 0px 20px 60px 10px var(--checkout-cart-item-shadow);
+
+  @include media-breakpoint-down(md) {
+    margin-top: 20px;
+    padding: 16px;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 145.455%;
+  }
+
+  &__desc {
+    margin: 6px 0 16px;
+    font-size: 1.6rem;
+    line-height: 144.667%;
+  }
+}
+
+.payment-card {
+  position: relative;
+  padding: 20px;
+  height: 100%;
+  color: #fff;
+  border-radius: 10px;
+  background-color: var(--payment-card-bg);
+  user-select: none;
+
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+  }
+
+  &__top,
+  &__number,
+  &__bottom {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__type {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 142.857%;
+  }
+
+  &__number {
+    margin-top: 37px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 144.444%;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 175%;
+  }
+
+  &__expired {
+    margin: 0 auto 0 40px;
+  }
+
+  &__value {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 140%;
+  }
+
+  &__circle {
+    width: 42px;
+    height: 28px;
+    z-index: 1;
+  }
+}
+
+.new-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  height: 100%;
+  min-height: 170px;
+  border-radius: 10px;
+  border: 1px dashed #d2d1d6;
+  filter: var(--profile-user-icon);
+
+  &__text {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 142.857%;
+  }
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--account-info-bg);
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+    background-color: var(--account-info-icon-bg);
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%;
+  }
+
+  &__desc {
+    margin-top: 6px;
+    font-size: 1.4rem;
+    line-height: 142.857%;
+  }
 }

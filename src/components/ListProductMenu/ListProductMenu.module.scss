@@ -3,22 +3,22 @@
 @import 'bootstrap/scss/mixins';
 
 .wrapper {
-    width: min(1240px, 100%);
-    background-color: var(--actions-group-background-color);
-    box-shadow: 0px 40px 90px 20px var(--header-act-dropdown-shadow);
-    border-radius: 20px;
+  width: min(1240px, 100%);
+  background-color: var(--actions-group-background-color);
+  box-shadow: 0px 40px 90px 20px var(--header-act-dropdown-shadow);
+  border-radius: 20px;
 }
 
 .dropdown {
-    padding: 30px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-height: calc(min(582px, 100vh - 134px) - 30px);
-    overflow-y: auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-height: calc(min(582px, 100vh - 134px) - 30px);
+  overflow-y: auto;
 
-    @include media-breakpoint-down(lg) {
-        display: flex;
-        flex-direction: column;
-    }
+  @include media-breakpoint-down(lg) {
+    display: flex;
+    flex-direction: column;
+  }
 }

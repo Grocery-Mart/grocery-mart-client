@@ -3,221 +3,221 @@
 @import 'bootstrap/scss/mixins';
 
 %flexItemsCenter {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 10px;
-    background-color: var(--header-background-color);
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--header-background-color);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
 }
 
 .content {
-    @extend %flexItemsCenter;
-    padding: 20px 0;
-    justify-content: space-between;
+  @extend %flexItemsCenter;
+  padding: 20px 0;
+  justify-content: space-between;
 
-    @include media-breakpoint-down(sm) {
-        padding: 16px 0;
-    }
+  @include media-breakpoint-down(sm) {
+    padding: 16px 0;
+  }
 }
 
 .content-left {
-    @extend %flexItemsCenter;
-    @include media-breakpoint-up(xl) {
-        gap: 100px;
-    }
+  @extend %flexItemsCenter;
+  @include media-breakpoint-up(xl) {
+    gap: 100px;
+  }
 
-    @include media-breakpoint-between(lg, xl) {
-        gap: 30px;
-    }
+  @include media-breakpoint-between(lg, xl) {
+    gap: 30px;
+  }
 }
 
 .content-menu {
-    @include media-breakpoint-down(lg) {
-        display: block;
-    }
+  @include media-breakpoint-down(lg) {
+    display: block;
+  }
 
-    display: none;
-    padding: 8px 10px;
-    background-color: transparent;
-    cursor: pointer;
+  display: none;
+  padding: 8px 10px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .navbar {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 30px;
 
-    @include media-breakpoint-down(xl) {
-        gap: 15px;
-    }
+  @include media-breakpoint-down(xl) {
+    gap: 15px;
+  }
 
+  @include media-breakpoint-down(lg) {
+    position: fixed;
+    inset: 0 50% 0 0;
+    padding: 20px;
+    transform: translateX(-100%) !important;
+    flex-direction: column;
+    background-color: var(--actions-group-background-color);
+    border-radius: 0px 20px 20px 0px;
+    z-index: 9;
+  }
+
+  @include media-breakpoint-down(sm) {
+    inset: 0 30% 0 0;
+  }
+
+  &__close-btn {
+    display: none !important;
     @include media-breakpoint-down(lg) {
-        position: fixed;
-        inset: 0 50% 0 0;
-        padding: 20px;
-        transform: translateX(-100%) !important;
-        flex-direction: column;
-        background-color: var(--actions-group-background-color);
-        border-radius: 0px 20px 20px 0px;
-        z-index: 9;
+      display: inline-flex !important;
+      justify-content: flex-start !important;
+      font-size: 1.6rem !important;
+      padding: 10px 0 !important;
+      margin: -10px 0;
+    }
+  }
+
+  &__cart {
+    display: none;
+    @include media-breakpoint-down(md) {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 146.667%;
+    }
+  }
+
+  &__logo {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+
+  &__link {
+    @extend %flexItemsCenter;
+    position: relative;
+    padding: 10px 5px;
+    cursor: pointer;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%;
+
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
     }
 
-    @include media-breakpoint-down(sm) {
-        inset: 0 30% 0 0;
+    @include media-breakpoint-down(md) {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.6rem;
+      line-height: 150%;
     }
-
-    &__close-btn {
-        display: none !important;
-        @include media-breakpoint-down(lg) {
-            display: inline-flex !important;
-            justify-content: flex-start !important;
-            font-size: 1.6rem !important;
-            padding: 10px 0 !important;
-            margin: -10px 0;
-        }
-    }
-
-    &__cart {
-        display: none;
-        @include media-breakpoint-down(md) {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.5rem;
-            font-weight: 500;
-            line-height: 146.667%;
-        }
-    }
-
-    &__logo {
-        @include media-breakpoint-down(lg) {
-            display: none;
-        }
-    }
-
-    &__link {
-        @extend %flexItemsCenter;
-        position: relative;
-        padding: 10px 5px;
-        cursor: pointer;
-
-        font-size: 1.5rem;
-        font-weight: 500;
-        line-height: 146.667%;
-
-        border-bottom: 1px solid transparent;
-        transition: color 0.2s;
-
-        &:hover {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        @include media-breakpoint-down(md) {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.6rem;
-            line-height: 150%;
-        }
-    }
+  }
 }
 
 .navbar__arrow {
-    margin: 3px 0 0 6px;
+  margin: 3px 0 0 6px;
 }
 
 .action {
+  @extend %flexItemsCenter;
+  gap: 30px;
+
+  @include media-breakpoint-down(xl) {
+    gap: 15px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    gap: 10px;
+  }
+
+  &__group {
     @extend %flexItemsCenter;
-    gap: 30px;
 
-    @include media-breakpoint-down(xl) {
-        gap: 15px;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: var(--actions-group-background-color);
+    box-shadow: 0px 20px 60px 10px var(--actions-group-box-shadow);
+
+    @include media-breakpoint-down(sm) {
+      display: none;
     }
+  }
 
-    @include media-breakpoint-down(lg) {
-        gap: 10px;
+  &__group--single {
+    position: relative;
+  }
+
+  &__group--single &__btn {
+    padding: 13px;
+  }
+
+  &__btn {
+    @extend %flexItemsCenter;
+    padding: 13px 20px;
+    gap: 10px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%;
+  }
+
+  &__avatar {
+    display: block;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  &__search {
+    position: absolute;
+    top: 90px;
+    right: 50px;
+    @include media-breakpoint-down(sm) {
+      right: 10px;
     }
+  }
 
-    &__group {
-        @extend %flexItemsCenter;
-
-        min-width: 50px;
-        height: 50px;
-        border-radius: 8px;
-        background-color: var(--actions-group-background-color);
-        box-shadow: 0px 20px 60px 10px var(--actions-group-box-shadow);
-
-        @include media-breakpoint-down(sm) {
-            display: none;
-        }
+  &__signup {
+    @include media-breakpoint-down(sm) {
+      margin-left: 0 !important;
+      min-width: 0;
     }
-
-    &__group--single {
-        position: relative;
-    }
-
-    &__group--single &__btn {
-        padding: 13px;
-    }
-
-    &__btn {
-        @extend %flexItemsCenter;
-        padding: 13px 20px;
-        gap: 10px;
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    &__title {
-        font-size: 1.5rem;
-        font-weight: 500;
-        line-height: 146.667%;
-    }
-
-    &__avatar {
-        display: block;
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-
-    &__search {
-        position: absolute;
-        top: 90px;
-        right: 50px;
-        @include media-breakpoint-down(sm) {
-            right: 10px;
-        }
-    }
-
-    &__signup {
-        @include media-breakpoint-down(sm) {
-            margin-left: 0 !important;
-            min-width: 0;
-        }
-    }
+  }
 }
 
 .overlay {
-    visibility: hidden;
-    opacity: 0;
+  visibility: hidden;
+  opacity: 0;
 
-    @include media-breakpoint-down(lg) {
-        visibility: visible;
-        opacity: 1;
-        position: fixed;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: 8;
-    }
+  @include media-breakpoint-down(lg) {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 8;
+  }
 }

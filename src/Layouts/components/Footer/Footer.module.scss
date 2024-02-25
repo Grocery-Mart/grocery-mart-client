@@ -4,169 +4,169 @@
 @import 'bootstrap/scss/mixins';
 
 .footer {
-    padding: 50px 0;
-    font-size: 1.4rem;
-    background-color: var(--footer-background-color);
+  padding: 50px 0;
+  font-size: 1.4rem;
+  background-color: var(--footer-background-color);
 
-    &__row {
-        display: grid;
-        grid-template-columns: 1.8fr repeat(3, 0.9fr) 1.5fr;
-        gap: 50px;
+  &__row {
+    display: grid;
+    grid-template-columns: 1.8fr repeat(3, 0.9fr) 1.5fr;
+    gap: 50px;
 
-        @include media-breakpoint-down(lg) {
-            grid-template-columns: 1fr;
-        }
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__desc {
+    margin-top: 30px;
+    line-height: 1.5;
+
+    @include media-breakpoint-down(lg) {
+      width: min(400px, 100%);
+    }
+  }
+
+  &__help-text {
+    margin-top: 40px;
+    line-height: 1.5;
+  }
+
+  &__form {
+    display: flex;
+    gap: 8px;
+    padding: 16px 0;
+
+    @include media-breakpoint-down(xl) {
+      flex-direction: column;
     }
 
-    &__desc {
-        margin-top: 30px;
-        line-height: 1.5;
-
-        @include media-breakpoint-down(lg) {
-            width: min(400px, 100%);
-        }
+    @include media-breakpoint-down(lg) {
+      flex-direction: row;
     }
 
-    &__help-text {
-        margin-top: 40px;
-        line-height: 1.5;
+    &-btn {
+      padding: 8px;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 2px solid #d2d1d6;
+
+    &::placeholder {
+      font-weight: 400;
     }
 
-    &__form {
-        display: flex;
-        gap: 8px;
-        padding: 16px 0;
-
-        @include media-breakpoint-down(xl) {
-            flex-direction: column;
-        }
-
-        @include media-breakpoint-down(lg) {
-            flex-direction: row;
-        }
-
-        &-btn {
-            padding: 8px;
-            font-size: 1.6rem;
-        }
+    @include media-breakpoint-down(lg) {
+      width: 50%;
     }
 
-    &__input {
-        width: 100%;
-        font-size: 1.5rem;
-        font-weight: 500;
-        padding: 10px 12px;
-        border-radius: 6px;
-        border: 2px solid #d2d1d6;
-
-        &::placeholder {
-            font-weight: 400;
-        }
-
-        @include media-breakpoint-down(lg) {
-            width: 50%;
-        }
-
-        @include media-breakpoint-down(md) {
-            width: 60%;
-            font-size: 1.6rem;
-        }
-
-        @include media-breakpoint-down(sm) {
-            flex: 1;
-        }
+    @include media-breakpoint-down(md) {
+      width: 60%;
+      font-size: 1.6rem;
     }
 
-    &__heading {
-        font-size: 1.8rem;
-        font-weight: 600;
-        text-transform: capitalize;
+    @include media-breakpoint-down(sm) {
+      flex: 1;
+    }
+  }
+
+  &__heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  &__list {
+    margin-top: 15px;
+  }
+
+  &__text {
+    @include media-breakpoint-down(lg) {
+      width: min(400px, 100%);
+    }
+  }
+
+  &__link,
+  &__text {
+    padding: 8px 0;
+    line-height: 1.4;
+  }
+
+  &__link {
+    display: inline-block;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &__label {
+    margin-top: 15px;
+    font-weight: 500;
+  }
+
+  &__text,
+  &__copyright {
+    color: var(--footer-text-color);
+  }
+
+  &__bottom {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column-reverse;
+      gap: 50px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__social-link {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    filter: grayscale(50%);
+    transition: filter, translate;
+    transition-duration: 0.3s;
+
+    @include media-breakpoint-down(sm) {
+      width: 42px;
+      height: 42px;
     }
 
-    &__list {
-        margin-top: 15px;
+    &--facebook {
+      background-color: #4863a9;
     }
 
-    &__text {
-        @include media-breakpoint-down(lg) {
-            width: min(400px, 100%);
-        }
+    &--instagram {
+      background-color: #2134af;
+      background-image: linear-gradient(214deg, #2134af 0%, #515bd4 11%, #dd2a7b 62%, #feda77 72%, #f58529 91%);
     }
 
-    &__link,
-    &__text {
-        padding: 8px 0;
-        line-height: 1.4;
+    &--linkedin {
+      background-color: #2f71ab;
     }
 
-    &__link {
-        display: inline-block;
-
-        &:hover {
-            color: var(--primary-color);
-        }
+    &:hover {
+      filter: grayscale(0);
+      translate: 0 -3px;
     }
-
-    &__label {
-        margin-top: 15px;
-        font-weight: 500;
-    }
-
-    &__text,
-    &__copyright {
-        color: var(--footer-text-color);
-    }
-
-    &__bottom {
-        margin-top: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        @include media-breakpoint-down(md) {
-            flex-direction: column-reverse;
-            gap: 50px;
-        }
-    }
-
-    &__socials {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    &__social-link {
-        display: flex;
-        width: 32px;
-        height: 32px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        filter: grayscale(50%);
-        transition: filter, translate;
-        transition-duration: 0.3s;
-
-        @include media-breakpoint-down(sm) {
-            width: 42px;
-            height: 42px;
-        }
-
-        &--facebook {
-            background-color: #4863a9;
-        }
-
-        &--instagram {
-            background-color: #2134af;
-            background-image: linear-gradient(214deg, #2134af 0%, #515bd4 11%, #dd2a7b 62%, #feda77 72%, #f58529 91%);
-        }
-
-        &--linkedin {
-            background-color: #2f71ab;
-        }
-
-        &:hover {
-            filter: grayscale(0);
-            translate: 0 -3px;
-        }
-    }
+  }
 }

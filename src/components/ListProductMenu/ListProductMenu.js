@@ -9,33 +9,33 @@ import { DataDepartments, DataGrocery, DataBeauty } from '~/components/ListProdu
 const cx = classNames.bind(styles);
 
 function ListProductMenu({ children, className, offset, departments, grocery, fashion }) {
-    const renderList = () => {
-        if (departments) {
-            return DataDepartments.map((data, index) => <MenuColumn data={data} key={index} />);
-        }
-        if (grocery) {
-            return DataGrocery.map((data, index) => <MenuColumn data={data} key={index} />);
-        }
-        if (fashion) {
-            return DataBeauty.map((data, index) => <MenuColumn data={data} key={index} />);
-        }
-    };
+  const renderList = () => {
+    if (departments) {
+      return DataDepartments.map((data, index) => <MenuColumn data={data} key={index} />);
+    }
+    if (grocery) {
+      return DataGrocery.map((data, index) => <MenuColumn data={data} key={index} />);
+    }
+    if (fashion) {
+      return DataBeauty.map((data, index) => <MenuColumn data={data} key={index} />);
+    }
+  };
 
-    return (
-        <Tippy
-            interactive
-            placement="bottom-start"
-            render={(attrs) => (
-                <div className={cx('wrapper')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <div className={cx('dropdown', { [className]: className })}>{renderList()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
-        >
-            {children}
-        </Tippy>
-    );
+  return (
+    <Tippy
+      interactive
+      placement="bottom-start"
+      render={(attrs) => (
+        <div className={cx('wrapper')} tabIndex="-1" {...attrs}>
+          <PopperWrapper>
+            <div className={cx('dropdown', { [className]: className })}>{renderList()}</div>
+          </PopperWrapper>
+        </div>
+      )}
+    >
+      {children}
+    </Tippy>
+  );
 }
 
 export default ListProductMenu;

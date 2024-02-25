@@ -7,268 +7,267 @@
 @import './FontFamily.scss';
 
 :root {
-    --primary-color: #77dae6;
-    --primary-background: #ffb700;
-    --font-family: 'Lato', sans-serif;
-    --body-background: #f6f6f6;
+  --primary-color: #77dae6;
+  --primary-background: #ffb700;
+  --font-family: 'Lato', sans-serif;
+  --body-background: #f6f6f6;
 
-    --text-color: #1a162e;
-    --icon-color: brightness(0) saturate(100%) invert(8%) sepia(28%) saturate(1439%) hue-rotate(211deg) brightness(92%)
-        contrast(96%);
+  --text-color: #1a162e;
+  --icon-color: brightness(0) saturate(100%) invert(8%) sepia(28%) saturate(1439%) hue-rotate(211deg) brightness(92%)
+    contrast(96%);
 
-    --header-background-color: #ededf6;
-    @include media-breakpoint-down(lg) {
-        --header-background-color: #fff;
-    }
-    --footer-text-color: #6f6f73;
-    --footer-background-color: var(--header-background-color);
-    --tag-btn-bg: #f8f8fb;
-    --product-detail-tag-custom: #eee;
-    --delete-btn-color: #fff;
-    --separate-bg: #d2d1d6;
+  --header-background-color: #ededf6;
+  @include media-breakpoint-down(lg) {
+    --header-background-color: #fff;
+  }
+  --footer-text-color: #6f6f73;
+  --footer-background-color: var(--header-background-color);
+  --tag-btn-bg: #f8f8fb;
+  --product-detail-tag-custom: #eee;
+  --delete-btn-color: #fff;
+  --separate-bg: #d2d1d6;
 
-    // Form
-    --form-select-option-hover-bg: #ebebeb;
+  // Form
+  --form-select-option-hover-bg: #ebebeb;
 
-    // Actions
-    --actions-group-background-color: #fff;
-    --actions-group-box-shadow: rgba(0, 0, 0, 0.2);
-    --actions-group-separate: #ededf6;
-    --actions-search-color: #171c28;
-    --search-result-title-color: rgba(22, 24, 35, 0.341);
-    --search-result-trademark-color: rgba(22, 24, 35, 0.5);
-    --boxshadow-search: rgba(0 0 0 / 12%) 0px 2px 12px;
-    --search-result-product-hover-color: rgba(22, 24, 35, 0.03);
+  // Actions
+  --actions-group-background-color: #fff;
+  --actions-group-box-shadow: rgba(0, 0, 0, 0.2);
+  --actions-group-separate: #ededf6;
+  --actions-search-color: #171c28;
+  --search-result-title-color: rgba(22, 24, 35, 0.341);
+  --search-result-trademark-color: rgba(22, 24, 35, 0.5);
+  --boxshadow-search: rgba(0 0 0 / 12%) 0px 2px 12px;
+  --search-result-product-hover-color: rgba(22, 24, 35, 0.03);
 
-    // Button
-    --button-text-color: #171c28;
+  // Button
+  --button-text-color: #171c28;
 
-    // Dropdown
-    --header-act-dropdown-shadow: rgba(200, 200, 200, 0.4);
-    --separate-color: #d2d1d6;
-    --top-menu-border-color: #d2d1d6;
+  // Dropdown
+  --header-act-dropdown-shadow: rgba(200, 200, 200, 0.4);
+  --separate-color: #d2d1d6;
+  --top-menu-border-color: #d2d1d6;
 
-    // Category item
-    --cate-item-bg: #eee;
-    @include media-breakpoint-down(md) {
-        --cate-item-bg: #fff;
-    }
-    --cate-item-thumb-bg: #fff;
-    --cate-item-title-color: #000;
+  // Category item
+  --cate-item-bg: #eee;
+  @include media-breakpoint-down(md) {
+    --cate-item-bg: #fff;
+  }
+  --cate-item-thumb-bg: #fff;
+  --cate-item-title-color: #000;
 
-    // Button filter
-    --filter-btn-color: #6c6c72;
-    --filter-btn-bg: #fff;
-    // Button heart like
-    --heart-like-btn-bg: #fff;
-    --heart-like-btn-shadow: rgba(124, 124, 124, 0.2);
-    // Product Cart
-    --product-cart-bg: #fff;
-    --product-cart-shadow: rgba(237, 237, 246, 0.2);
+  // Button filter
+  --filter-btn-color: #6c6c72;
+  --filter-btn-bg: #fff;
+  // Button heart like
+  --heart-like-btn-bg: #fff;
+  --heart-like-btn-shadow: rgba(124, 124, 124, 0.2);
+  // Product Cart
+  --product-cart-bg: #fff;
+  --product-cart-shadow: rgba(237, 237, 246, 0.2);
 
-    // Filter form
-    --filter-form-bg: #fff;
-    --filter-form-shadow: rgba(200, 200, 200, 0.4);
+  // Filter form
+  --filter-form-bg: #fff;
+  --filter-form-shadow: rgba(200, 200, 200, 0.4);
 
-    // Auth
-    --auth-inner-bg: #fff;
-    --auth-inner-checkbox-label-color: #9e9da8;
-    --auth-inner-text-color: #9e9da8;
-    --auth-btn-color: #d2d1d6;
-    --auth-intro-bg: var(--body-background);
-    @include media-breakpoint-down(md) {
-        --auth-intro-bg: #fff;
-    }
+  // Auth
+  --auth-inner-bg: #fff;
+  --auth-inner-checkbox-label-color: #9e9da8;
+  --auth-inner-text-color: #9e9da8;
+  --auth-btn-color: #d2d1d6;
+  --auth-intro-bg: var(--body-background);
+  @include media-breakpoint-down(md) {
+    --auth-intro-bg: #fff;
+  }
 
-    // Breadcrumbs Product
-    --breadcrumbs-bg: #fff;
-    --breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
+  // Breadcrumbs Product
+  --breadcrumbs-bg: #fff;
+  --breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
 
-    // Review card
-    --review-card-bg: #fafafd;
-    @include media-breakpoint-down(sm) {
-        --review-card-bg: #fff;
-    }
+  // Review card
+  --review-card-bg: #fafafd;
+  @include media-breakpoint-down(sm) {
+    --review-card-bg: #fff;
+  }
 
-    // Text content
-    --text-content-hr-bg: #ebebeb;
+  // Text content
+  --text-content-hr-bg: #ebebeb;
 
-    // Checkout
-    --checkout-cart-item-bg: #fff;
-    --checkout-cart-item-shadow: rgba(237, 237, 246, 0.2);
-    --checkout-cart-item-border-bottom: #d2d1d6;
-    --checkout-cart-item-icon-color: brightness(0) saturate(100%) invert(11%) sepia(46%) saturate(531%)
-        hue-rotate(210deg) brightness(98%) contrast(105%);
-    --gift-item-bg: rgb(118, 68, 225, 0.1);
-    --gift-item-shadow: rgba(237, 237, 246, 0.2);
-    --checkout-payment-item-bg: #f6f6f6;
+  // Checkout
+  --checkout-cart-item-bg: #fff;
+  --checkout-cart-item-shadow: rgba(237, 237, 246, 0.2);
+  --checkout-cart-item-border-bottom: #d2d1d6;
+  --checkout-cart-item-icon-color: brightness(0) saturate(100%) invert(11%) sepia(46%) saturate(531%) hue-rotate(210deg)
+    brightness(98%) contrast(105%);
+  --gift-item-bg: rgb(118, 68, 225, 0.1);
+  --gift-item-shadow: rgba(237, 237, 246, 0.2);
+  --checkout-payment-item-bg: #f6f6f6;
 
-    // Dialog
-    --dialog-bg: #fff;
-    --dialog-shadow: var(--checkout-cart-item-shadow);
+  // Dialog
+  --dialog-bg: #fff;
+  --dialog-shadow: var(--checkout-cart-item-shadow);
 
-    // Profile
-    --profile-sidebar-bg: #fff;
-    --profile-sidebar-shadow: rgba(237, 237, 246, 0.2);
-    --profile-sidebar-link-hover: #ebebeb;
-    // Account info
-    --account-info-bg: #f6f6f6;
-    --account-info-icon-bg: #fff;
+  // Profile
+  --profile-sidebar-bg: #fff;
+  --profile-sidebar-shadow: rgba(237, 237, 246, 0.2);
+  --profile-sidebar-link-hover: #ebebeb;
+  // Account info
+  --account-info-bg: #f6f6f6;
+  --account-info-icon-bg: #fff;
 }
 
 html.dark {
-    --body-background: #292e39;
+  --body-background: #292e39;
 
-    --text-color: #fff;
-    --icon-color: brightness(0) saturate(100%) invert(100%) sepia(12%) saturate(1%) hue-rotate(55deg) brightness(102%)
-        contrast(101%);
+  --text-color: #fff;
+  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(12%) saturate(1%) hue-rotate(55deg) brightness(102%)
+    contrast(101%);
 
-    --header-background-color: #171c28;
-    --footer-text-color: #9e9da6;
-    --tag-btn-bg: #171c28;
-    --product-detail-tag-custom: #292e39;
-    --separate-bg: #292e39;
+  --header-background-color: #171c28;
+  --footer-text-color: #9e9da6;
+  --tag-btn-bg: #171c28;
+  --product-detail-tag-custom: #292e39;
+  --separate-bg: #292e39;
 
-    // Form
-    --form-select-option-hover-bg: #292e39;
+  // Form
+  --form-select-option-hover-bg: #292e39;
 
-    // Actions
-    --actions-group-background-color: #292e39;
-    --actions-group-box-shadow: rgba(0, 0, 0, 0.2);
-    --actions-group-separate: #ededf6;
-    --actions-search-color: #fff;
-    --search-result-title-color: #f1f1f1;
-    --search-result-trademark-color: #f1f1f1;
-    --boxshadow-search: 1px 0px 8px 0px rgba(23, 28, 40, 0.4);
-    --search-result-product-hover-color: rgba(160, 160, 160, 0.75);
+  // Actions
+  --actions-group-background-color: #292e39;
+  --actions-group-box-shadow: rgba(0, 0, 0, 0.2);
+  --actions-group-separate: #ededf6;
+  --actions-search-color: #fff;
+  --search-result-title-color: #f1f1f1;
+  --search-result-trademark-color: #f1f1f1;
+  --boxshadow-search: 1px 0px 8px 0px rgba(23, 28, 40, 0.4);
+  --search-result-product-hover-color: rgba(160, 160, 160, 0.75);
 
-    // Dropdown
-    --header-act-dropdown-shadow: rgba(23, 28, 40, 0.4);
-    --top-menu-border-color: #171c28;
-    --menu-column-products-color: brightness(0) saturate(100%) invert(90%) sepia(31%) saturate(64%) hue-rotate(200deg)
-        brightness(102%) contrast(96%);
+  // Dropdown
+  --header-act-dropdown-shadow: rgba(23, 28, 40, 0.4);
+  --top-menu-border-color: #171c28;
+  --menu-column-products-color: brightness(0) saturate(100%) invert(90%) sepia(31%) saturate(64%) hue-rotate(200deg)
+    brightness(102%) contrast(96%);
 
-    // Category item
-    --cate-item-bg: #171c28;
-    --cate-item-thumb-bg: #292e39;
-    --cate-item-title-color: #fff;
+  // Category item
+  --cate-item-bg: #171c28;
+  --cate-item-thumb-bg: #292e39;
+  --cate-item-title-color: #fff;
 
-    // Button filter
-    --filter-btn-color: #fff;
-    --filter-btn-bg: #171c28;
-    // Button heart like
-    --heart-like-btn-bg: #292e39;
-    --heart-like-btn-shadow: rgba(124, 124, 124, 0.2);
-    // Product Cart
-    --product-cart-bg: #171c28;
-    --product-cart-shadow: rgba(0, 0, 0, 0.2);
+  // Button filter
+  --filter-btn-color: #fff;
+  --filter-btn-bg: #171c28;
+  // Button heart like
+  --heart-like-btn-bg: #292e39;
+  --heart-like-btn-shadow: rgba(124, 124, 124, 0.2);
+  // Product Cart
+  --product-cart-bg: #171c28;
+  --product-cart-shadow: rgba(0, 0, 0, 0.2);
 
-    // Filter form
-    --filter-form-bg: #2f3441;
-    --filter-form-shadow: rgba(0, 0, 0, 0.4);
-    --filter-form-arrow-color: brightness(0) saturate(100%) invert(16%) sepia(26%) saturate(479%) hue-rotate(185deg)
-        brightness(95%) contrast(88%);
+  // Filter form
+  --filter-form-bg: #2f3441;
+  --filter-form-shadow: rgba(0, 0, 0, 0.4);
+  --filter-form-arrow-color: brightness(0) saturate(100%) invert(16%) sepia(26%) saturate(479%) hue-rotate(185deg)
+    brightness(95%) contrast(88%);
 
-    // Auth
-    --auth-color: #b9babe;
-    --auth-intro-bg: #171c28;
-    --auth-inner-bg: #292e39;
-    --auth-btn-color: #b9babe;
-    --auth-google-icon-color: brightness(0) saturate(100%) invert(79%) sepia(5%) saturate(132%) hue-rotate(190deg)
-        brightness(93%) contrast(96%);
+  // Auth
+  --auth-color: #b9babe;
+  --auth-intro-bg: #171c28;
+  --auth-inner-bg: #292e39;
+  --auth-btn-color: #b9babe;
+  --auth-google-icon-color: brightness(0) saturate(100%) invert(79%) sepia(5%) saturate(132%) hue-rotate(190deg)
+    brightness(93%) contrast(96%);
 
-    // Breadcrumbs Product
-    --breadcrumbs-bg: #171c28;
-    --breadcrumbs-shadow: rgba(23, 28, 40, 0.2);
+  // Breadcrumbs Product
+  --breadcrumbs-bg: #171c28;
+  --breadcrumbs-shadow: rgba(23, 28, 40, 0.2);
 
-    // Review card
-    --review-card-bg: #171c28;
+  // Review card
+  --review-card-bg: #171c28;
 
-    // Text content
-    --text-content-hr-bg: #3e4043;
+  // Text content
+  --text-content-hr-bg: #3e4043;
 
-    // Checkout
-    --checkout-color: #b9babe;
-    --checkout-cart-item-bg: #171c28;
-    --checkout-cart-item-shadow: rgba(23, 28, 40, 0.2);
-    --checkout-cart-item-border-bottom: #292e39;
-    --checkout-cart-item-icon-color: brightness(0) saturate(100%) invert(80%) sepia(1%) saturate(928%)
-        hue-rotate(237deg) brightness(93%) contrast(94%);
-    --gift-item-bg: #292e39;
-    --gift-item-shadow: transparent;
-    --checkout-payment-item-bg: #292e39;
+  // Checkout
+  --checkout-color: #b9babe;
+  --checkout-cart-item-bg: #171c28;
+  --checkout-cart-item-shadow: rgba(23, 28, 40, 0.2);
+  --checkout-cart-item-border-bottom: #292e39;
+  --checkout-cart-item-icon-color: brightness(0) saturate(100%) invert(80%) sepia(1%) saturate(928%) hue-rotate(237deg)
+    brightness(93%) contrast(94%);
+  --gift-item-bg: #292e39;
+  --gift-item-shadow: transparent;
+  --checkout-payment-item-bg: #292e39;
 
-    // Dialog
-    --dialog-bg: #2f3441;
-    --dialog-shadow: var(--checkout-cart-item-shadow);
+  // Dialog
+  --dialog-bg: #2f3441;
+  --dialog-shadow: var(--checkout-cart-item-shadow);
 
-    // Profile
-    --profile-sidebar-bg: #171c28;
-    --profile-sidebar-shadow: rgba(23, 28, 40, 0.2);
-    --profile-sidebar-link-hover: #2f3441;
-    --profile-user-icon: brightness(0) saturate(100%) invert(83%) sepia(7%) saturate(118%) hue-rotate(191deg)
-        brightness(91%) contrast(86%);
-    --profile-menu-item-color: #b9babe;
-    // Account info
-    --account-info-bg: #292e39;
-    --account-info-icon-bg: #171c28;
+  // Profile
+  --profile-sidebar-bg: #171c28;
+  --profile-sidebar-shadow: rgba(23, 28, 40, 0.2);
+  --profile-sidebar-link-hover: #2f3441;
+  --profile-user-icon: brightness(0) saturate(100%) invert(83%) sepia(7%) saturate(118%) hue-rotate(191deg)
+    brightness(91%) contrast(86%);
+  --profile-menu-item-color: #b9babe;
+  // Account info
+  --account-info-bg: #292e39;
+  --account-info-icon-bg: #171c28;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-size: 1.6rem;
-    font-family: var(--font-family);
-    line-height: 1.5;
-    text-rendering: optimizeSpeed;
-    color: var(--text-color);
-    background-color: var(--body-background);
+  font-size: 1.6rem;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  color: var(--text-color);
+  background-color: var(--body-background);
 }
 
 // Scrollbar CSS
 html ::-webkit-scrollbar {
-    border-radius: 0px;
-    width: 8px;
+  border-radius: 0px;
+  width: 8px;
 }
 
 html ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(22, 24, 35, 0.06);
+  border-radius: 4px;
+  background-color: rgba(22, 24, 35, 0.06);
 }
 
 html ::-webkit-scrollbar-track {
-    border-radius: 0px;
-    background-color: rgba(0, 0, 0, 0);
+  border-radius: 0px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 button,
-input,
-[tabindex] {
-    border: none;
-    outline: none;
+input {
+  border: none;
+  outline: none;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active,
 input:-webkit-autofill:hover {
-    transition: background-color 1s 99999s;
-    -webkit-text-fill-color: var(--checkout-color);
-    caret-color: var(--checkout-color);
+  transition: background-color 1s 99999s;
+  -webkit-text-fill-color: var(--checkout-color);
+  caret-color: var(--checkout-color);
 }
 
 input,
 textarea {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 button,
@@ -276,34 +275,34 @@ input,
 label,
 textarea,
 select {
-    font-family: inherit;
-    color: inherit;
+  font-family: inherit;
+  color: inherit;
 }
 
 a {
-    color: var(--text-color);
-    text-decoration: none;
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .icon-like {
-    filter: drop-shadow(0px 4px 5px rgba(249, 69, 69, 0.2));
+  filter: drop-shadow(0px 4px 5px rgba(249, 69, 69, 0.2));
 }
 
 .icon {
-    filter: var(--icon-color);
+  filter: var(--icon-color);
 }
 
 .icon-google {
-    filter: var(--auth-google-icon-color);
+  filter: var(--auth-google-icon-color);
 }
 
 .separate {
-    margin: var(--margin) 0;
-    height: 1px;
-    background-color: var(--separate-bg);
+  margin: var(--margin) 0;
+  height: 1px;
+  background-color: var(--separate-bg);
 }
