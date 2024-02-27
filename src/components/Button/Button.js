@@ -30,6 +30,7 @@ const Button = forwardRef(
       edit = false,
       backProfile = false,
       deleteBtn = false,
+      sidebarFilter = false,
       children,
       className,
       leftIcon,
@@ -85,6 +86,7 @@ const Button = forwardRef(
       edit,
       backProfile,
       deleteBtn,
+      sidebarFilter,
     });
 
     return (

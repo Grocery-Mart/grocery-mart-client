@@ -303,6 +303,6 @@ ul {
 
 .separate {
   margin: var(--margin) 0;
-  height: 1px;
+  height: var(--height, 1px);
   background-color: var(--separate-bg);
 }

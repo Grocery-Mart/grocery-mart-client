@@ -34,6 +34,7 @@ function ForgotPassword() {
     if (emailRegex.test(email)) {
       setErrors('');
     }
+    setErrorMessage(false);
     checkSubmit();
   }, [email, checkSubmit, emailRegex]);
 

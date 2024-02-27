@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import styles from './CheckOut.module.scss';
 
@@ -136,7 +136,7 @@ function CheckOut() {
                 <div className={cx('cart-info__separate')}></div>
                 <div className={cx('cart-info__row')}>
                   <span>Thành tiền:</span>
-                  <span>{`$${totalPrice.toFixed(2) + 10}`}</span>
+                  <span>{`$${(totalPrice + 10).toFixed(2)}`}</span>
                 </div>
                 <Link to={routes.shipping}>
                   <Button continueCheckout primary className={cx('cart-info__next-btn')}>

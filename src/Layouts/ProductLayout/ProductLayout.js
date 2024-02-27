@@ -13,8 +13,14 @@ function ProductLayout({ children }) {
     <div className={cx('wrapper')}>
       <Header />
       <div className={cx('container')}>
-        <Sidebar></Sidebar>
-        <div className={cx('content')}>{children}</div>
+        <div className={cx('row')}>
+          <div className={cx('col-2')}>
+            <Sidebar />
+          </div>
+          <div className={cx('col-10')}>
+            <div className={cx('content')}>{children}</div>
+          </div>
+        </div>
       </div>
       <Footer />
     </div>
