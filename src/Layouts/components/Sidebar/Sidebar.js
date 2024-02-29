@@ -8,14 +8,16 @@ import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
-function Sidebar() {
-  const categories = ['Cà phê', 'Sản phẩm tươi sống', 'Sản phẩm đông lạnh', 'Đồ ăn nhẹ', 'Bánh mỳ', 'Đồ uống', 'Kẹo'];
-  const productTypes = ['Cà phê rang xay', 'Cà phê hòa tan'];
-  const trademarks = ['Lavazzza', 'Nescafe', 'Starbucks'];
+function Sidebar({ data }) {
+  const categories = data.categories;
+  const productTypes = data.productTypes;
+  const trademarks = data.trademarks;
   const stars = [5, 4, 3, 2, 1];
-  const [currentCategory, setCurrentCategory] = useState('Cà phê');
+  
+  const [currentCategory, setCurrentCategory] = useState(data.categories[0]);
   const [filterPrice, setFilterPrice] = useState({ min: '', max: '' });
   const [currentStar, setCurrentStar] = useState();
+
   const [isExpandedCategory, setIsExpandedCategory] = useState(false);
   const [isExpandedProductType, setIsExpandedProductType] = useState(false);
   const [isExpandedTrademark, setIsExpandedTrademark] = useState(false);
@@ -33,7 +35,7 @@ function Sidebar() {
         <MenuIcon className={cx('sidebar__menu-icon', 'icon')} />
         Tất cả danh mục
       </h1>
-      <div className={cx('separate')} style={{ '--margin': '20px', '--height': '0.5px' }}></div>
+      <div className={cx('separate')} style={{ '--margin': '20px', '--height': '0.5px', '--bg': '#d2d2d6' }}></div>
 
       <TransitionGroup component="ul" className={cx('sidebar__list')}>
         {categories.map((category, index) => {

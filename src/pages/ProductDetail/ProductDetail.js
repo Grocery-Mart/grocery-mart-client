@@ -83,13 +83,13 @@ function ProductDetail() {
           <ul className={cx('breadcrumbs')}>
             <li>
               <a href="#!" className={cx('breadcrumbs__link')}>
-                Cửa hàng tạp hóa
+                Trang chủ
                 <ArrowRightIcon />
               </a>
             </li>
             <li>
               <a href="#!" className={cx('breadcrumbs__link')}>
-                Cà phê
+                Cửa hàng tạp hóa
                 <ArrowRightIcon />
               </a>
             </li>

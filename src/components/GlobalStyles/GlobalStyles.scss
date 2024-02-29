@@ -107,6 +107,16 @@
   --dialog-bg: #fff;
   --dialog-shadow: var(--checkout-cart-item-shadow);
 
+  // SideBar
+  --sidebar-separate-bg: #d2d1d6;
+  --evaluates-current-bg: #ebebeb;
+
+  // Arrange products
+  --arrange-bg: rgba(0, 0, 0, 0.03);
+  --arrange-title-color: #555;
+  --arrange-item-bg: #fff;
+  --arrange-btn-current-color: #fff;
+
   // Profile
   --profile-sidebar-bg: #fff;
   --profile-sidebar-shadow: rgba(237, 237, 246, 0.2);
@@ -201,6 +211,15 @@ html.dark {
   // Dialog
   --dialog-bg: #2f3441;
   --dialog-shadow: var(--checkout-cart-item-shadow);
+
+  // Sidebar
+  --evaluates-current-bg: #2f3441;
+
+  // Arrange products
+  --arrange-bg: #171c28;
+  --arrange-title-color: #9e9da8;
+  --arrange-item-bg: #292e39;
+  --arrange-btn-current-color: #f8f8f8;
 
   // Profile
   --profile-sidebar-bg: #171c28;
@@ -304,5 +323,5 @@ ul {
 .separate {
   margin: var(--margin) 0;
   height: var(--height, 1px);
-  background-color: var(--separate-bg);
+  background-color: var(--bg, --separate-bg);
 }

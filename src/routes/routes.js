@@ -2,7 +2,7 @@ import config from '~/config';
 import { ProductLayout, AuthLayout } from '~/Layouts';
 
 import Home from '~/pages/Home';
-import Product from '~/pages/Product';
+import Grocery from '~/pages/Grocery';
 import CheckOut from '~/pages/CheckOut';
 import Favorite from '~/pages/Favorite';
 import Profile from '~/pages/Profile';
@@ -15,7 +15,7 @@ import PaymentMethod from '~/pages/PaymentMethod';
 
 const publicRoutes = [
   { path: config.routes.home, component: Home },
-  { path: config.routes.product, component: Product, layout: ProductLayout },
+  { path: config.routes.grocery, component: Grocery, layout: ProductLayout },
   { path: config.routes.profile, component: Profile },
   { path: config.routes.login, component: LogIn, layout: AuthLayout },
   { path: config.routes.signup, component: SignUp, layout: AuthLayout },

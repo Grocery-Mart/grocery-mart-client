@@ -79,7 +79,7 @@ function Header() {
               <Link className={cx('navbar__link')} to={routes.home} onClick={handleOpenOverlay}>
                 Trang chủ
               </Link>
-              <Link className={cx('navbar__link')} to={routes.product} onClick={handleOpenOverlay}>
+              <Link className={cx('navbar__link')} to={routes.grocery} onClick={handleOpenOverlay}>
                 Cửa hàng tạp hóa
               </Link>
               <Link className={cx('navbar__link')} to={routes.product} onClick={handleOpenOverlay}>

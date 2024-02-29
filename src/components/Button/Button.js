@@ -31,6 +31,9 @@ const Button = forwardRef(
       backProfile = false,
       deleteBtn = false,
       sidebarFilter = false,
+      arrangeProduct = false,
+      nextPage = false,
+      pageNumber = false,
       children,
       className,
       leftIcon,
@@ -87,6 +90,9 @@ const Button = forwardRef(
       backProfile,
       deleteBtn,
       sidebarFilter,
+      arrangeProduct,
+      nextPage,
+      pageNumber,
     });
 
     return (

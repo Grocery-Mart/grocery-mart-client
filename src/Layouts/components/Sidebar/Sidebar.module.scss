@@ -4,6 +4,9 @@
 
 .sidebar {
   margin-top: 60px;
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
 
   &__heading {
     display: flex;
@@ -80,7 +83,7 @@
 
     &-group {
       padding: 20px 0;
-      border-bottom: 0.5px solid var(--separate-bg);
+      border-bottom: 0.5px solid var(--sidebar-separate-bg);
     }
 
     &-title {
@@ -186,7 +189,7 @@
 
       &--current {
         border-radius: 20px;
-        background-color: #ebebeb;
+        background-color: var(--evaluates-current-bg);
       }
     }
 
