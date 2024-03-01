@@ -226,7 +226,7 @@ function Sidebar({ data }) {
             })}
 
             {!isExpandedStar && stars.length > 4 && (
-              <CSSTransition timeout={0} classNames="item">
+              <CSSTransition timeout={400} classNames="item">
                 <div className={cx('sidebar__item', 'sidebar__filter-more')} onClick={() => setIsExpandedStar(true)}>
                   Thêm
                   <ArrowRightIcon className={cx('sidebar__item-more', 'icon')} />

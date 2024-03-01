@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 
-import styles from './Grocery.module.scss';
+import styles from './Furniture.module.scss';
 
 import images from '~/assets/images';
 import Button from '~/components/Button';
@@ -10,7 +10,7 @@ import { ArrowRightIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
-function Grocery() {
+function Furniture() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -205,4 +205,4 @@ function Grocery() {
   );
 }
 
-export default Grocery;
+export default Furniture;

@@ -31,8 +31,8 @@
     }
 
     &.pageNumber,
-    .nextPage,
-    .pageNumber {
+    &.nextPage,
+    &.pageNumber {
       margin-left: 15px;
     }
 

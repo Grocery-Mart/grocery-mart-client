@@ -5,7 +5,8 @@
 .sidebar {
   margin-top: 60px;
   @include media-breakpoint-down(lg) {
-    display: none;
+    margin-top: 0;
+    padding: 0 20px;
   }
 
   &__heading {
@@ -201,6 +202,9 @@
 
   &__delete-btn {
     padding: 20px 0;
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 30px;
+    }
   }
 }
 

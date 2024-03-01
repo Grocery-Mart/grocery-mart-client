@@ -82,10 +82,10 @@ function Header() {
               <Link className={cx('navbar__link')} to={routes.grocery} onClick={handleOpenOverlay}>
                 Cửa hàng tạp hóa
               </Link>
-              <Link className={cx('navbar__link')} to={routes.product} onClick={handleOpenOverlay}>
+              <Link className={cx('navbar__link')} to={routes.furniture} onClick={handleOpenOverlay}>
                 Nhà & Nội thất
               </Link>
-              <Link className={cx('navbar__link')} to={routes.product} onClick={handleOpenOverlay}>
+              <Link className={cx('navbar__link')} to={routes.fashion} onClick={handleOpenOverlay}>
                 Thời trang
               </Link>
             </nav>

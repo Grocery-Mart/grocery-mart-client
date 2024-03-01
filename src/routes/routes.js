@@ -3,6 +3,8 @@ import { ProductLayout, AuthLayout } from '~/Layouts';
 
 import Home from '~/pages/Home';
 import Grocery from '~/pages/Grocery';
+import Furniture from '~/pages/Furniture';
+import Fashion from '~/pages/Fashion';
 import CheckOut from '~/pages/CheckOut';
 import Favorite from '~/pages/Favorite';
 import Profile from '~/pages/Profile';
@@ -16,6 +18,8 @@ import PaymentMethod from '~/pages/PaymentMethod';
 const publicRoutes = [
   { path: config.routes.home, component: Home },
   { path: config.routes.grocery, component: Grocery, layout: ProductLayout },
+  { path: config.routes.furniture, component: Furniture, layout: ProductLayout },
+  { path: config.routes.fashion, component: Fashion, layout: ProductLayout },
   { path: config.routes.profile, component: Profile },
   { path: config.routes.login, component: LogIn, layout: AuthLayout },
   { path: config.routes.signup, component: SignUp, layout: AuthLayout },

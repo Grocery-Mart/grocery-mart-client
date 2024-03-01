@@ -60,10 +60,10 @@ function ProductLayout({ children }) {
           </ul>
         </div>
         <div className={cx('row')}>
-          <div className={cx('col-12 col-xxl-2 col-xl-2 col-lg-3 col-md-12 col-sm-12')}>
-            <Sidebar data={data}/>
+          <div className={cx('col-12 col-xxl-2 col-xl-2 col-lg-3 col-md-12 col-sm-12 order-2 order-lg-1')}>
+            <Sidebar data={data} />
           </div>
-          <div className={cx('col-12 col-xxl-10 col-xl-10 col-lg-9 col-md-12 col-sm-12')}>
+          <div className={cx('col-12 col-xxl-10 col-xl-10 col-lg-9 col-md-12 col-sm-12 order-md-1 order-1 order-lg-2')}>
             <div className={cx('content')}>{children}</div>
           </div>
         </div>
