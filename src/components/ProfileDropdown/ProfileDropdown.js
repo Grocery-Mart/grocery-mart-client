@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
+import Cookies from 'js-cookie';
 
 import styles from './ProfileDropdown.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Image from '../Image';
 import { Link, useLocation } from 'react-router-dom';
 import routes from '~/config/routes';
-import { DarkModeSetting } from '~/components/Icons';
+import { ArrowLeftIcon, DarkModeSetting } from '~/components/Icons';
+import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
@@ -15,6 +17,8 @@ function ProfileDropdown({ children }) {
   const [isDarkMode, setDarkMode] = useState(() => {
     return JSON.parse(localStorage.getItem('darkMode')) || false;
   });
+  const langs = Cookies.get('lang');
+  const [isLanguages, setIsLanguages] = useState(false);
 
   useEffect(() => {
     const htmlElement = document.documentElement;
@@ -39,10 +43,16 @@ function ProfileDropdown({ children }) {
     setDisabled(false);
   }, [location]);
 
+  const handleResetToFirst = () => {
+    setIsLanguages(false);
+  };
+
   return (
     <Tippy
+      delay={[0, 700]}
       disabled={isDisabled}
       hideOnClick={false}
+      onHidden={handleResetToFirst}
       offset={[12, 12]}
       interactive
       placement="bottom-end"
@@ -61,6 +71,7 @@ function ProfileDropdown({ children }) {
                   <p className={cx('user__nickname')}>@fengtimo1219</p>
                 </div>
               </div>
+
               <ul className={cx('user__menu')}>
                 <li>
                   <Link className={cx('user__option')} to={routes.profile} onClick={() => setDisabled(true)}>
@@ -82,24 +93,109 @@ function ProfileDropdown({ children }) {
                     <p className={cx('cart-quantity')}>3</p>
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    className={cx('user__option', 'separate')}
-                    onClick={() => {
-                      handleDarkMode();
-                      setDisabled(true);
-                    }}
-                    to={''}
-                  >
-                    {isDarkMode ? <span>Chế độ sáng</span> : <span>Chế độ tối</span>}
-                    <DarkModeSetting className={cx('icon')} />
-                  </Link>
-                </li>
-                <li>
-                  <Link className={cx('user__option')} to={routes.profile} onClick={() => setDisabled(true)}>
-                    Cài đặt
-                  </Link>
-                </li>
+                {!isLanguages && (
+                  <>
+                    <li>
+                      <Link
+                        className={cx('user__option', 'separate')}
+                        to={''}
+                        onClick={() => {
+                          setIsLanguages(true);
+                        }}
+                      >
+                        Ngôn ngữ
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className={cx('user__option')}
+                        onClick={() => {
+                          handleDarkMode();
+                          setDisabled(true);
+                        }}
+                        to={''}
+                      >
+                        {isDarkMode ? <span>Chế độ sáng</span> : <span>Chế độ tối</span>}
+                        <DarkModeSetting className={cx('icon')} />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className={cx('user__option')} to={routes.profile} onClick={() => setDisabled(true)}>
+                        Cài đặt
+                      </Link>
+                    </li>
+                  </>
+                )}
+                {isLanguages && (
+                  <>
+                    <li>
+                      <Link
+                        className={cx('user__option', 'user__option--languages', 'separate')}
+                        to={''}
+                        onClick={() => {
+                          setIsLanguages(false);
+                        }}
+                      >
+                        <ArrowLeftIcon className={cx('icon')} />
+                        Ngôn ngữ
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className={cx('user__option')}
+                        to={''}
+                        onClick={() => {
+                          setDisabled(true);
+                          Cookies.set('lang', 'vi');
+                          window.location.reload();
+                        }}
+                      >
+                        Việt Nam
+                        <img
+                          src={images.vi}
+                          alt="vi"
+                          className={cx('user__language', langs === 'vi' ? 'user__language--current' : '')}
+                        />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className={cx('user__option')}
+                        to={''}
+                        onClick={() => {
+                          setDisabled(true);
+                          Cookies.set('lang', 'en');
+                          window.location.reload();
+                        }}
+                      >
+                        English
+                        <img
+                          src={images.en}
+                          alt="en"
+                          className={cx('user__language', langs === 'en' ? 'user__language--current' : '')}
+                        />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className={cx('user__option')}
+                        to={''}
+                        onClick={() => {
+                          setDisabled(true);
+                          Cookies.set('lang', 'zh');
+                          window.location.reload();
+                        }}
+                      >
+                        中国
+                        <img
+                          src={images.zh}
+                          alt="zh"
+                          className={cx('user__language', langs === 'zh' ? 'user__language--current' : '')}
+                        />
+                      </Link>
+                    </li>
+                  </>
+                )}
                 <li>
                   <Link className={cx('user__option', 'separate')} to={routes.signup} onClick={() => setDisabled(true)}>
                     Đăng xuất

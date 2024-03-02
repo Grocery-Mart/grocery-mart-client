@@ -48,17 +48,31 @@
     margin-top: 30px;
   }
 
+  &__language {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    &--current {
+      border: 3px solid var(--primary-color);
+    }
+  }
+
   &__option {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 15px;
     font-size: 1.7rem;
     font-weight: 500;
-    gap: 15px;
     padding: 14px 0;
 
     &:hover {
       opacity: 0.9;
+    }
+
+    &--languages {
+      justify-content: flex-start;
     }
   }
 

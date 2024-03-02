@@ -5,6 +5,9 @@ import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
+
 import App from '~/App';
 import reportWebVitals from './reportWebVitals';
 
@@ -15,9 +18,11 @@ AOS.init();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyle>
-      <App />
-    </GlobalStyle>
+    <I18nextProvider i18n={i18n}>
+      <GlobalStyle>
+        <App />
+      </GlobalStyle>
+    </I18nextProvider>
   </React.StrictMode>,
 );
 

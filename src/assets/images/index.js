@@ -1,6 +1,9 @@
 const images = {
   logo: require('~/assets/images/logo.svg').default,
   noImage: require('~/assets/images/no-image.jpg'),
+  vi: require('~/assets/images/vi.png'),
+  en: require('~/assets/images/en.png'),
+  zh: require('~/assets/images/zh.png'),
   QR: require('~/assets/images/QR.jpg'),
   product1: require('~/assets/images/products/product1.png'),
   product2: require('~/assets/images/products/product2.png'),

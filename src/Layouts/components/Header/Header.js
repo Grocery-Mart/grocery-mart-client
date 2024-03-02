@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useCallback, useRef, useState } from 'react';
 
 import styles from './Header.module.scss';
@@ -15,6 +16,7 @@ import { ArrowLeftIcon, CartIcon, MenuIcon, SearchIcon } from '~/components/Icon
 const cx = classNames.bind(styles);
 
 function Header() {
+  const { t } = useTranslation();
   const currentUser = true;
 
   const [openSearch, setOpenSearch] = useState(false);
@@ -77,16 +79,16 @@ function Header() {
               ></Button>
 
               <Link className={cx('navbar__link')} to={routes.home} onClick={handleOpenOverlay}>
-                Trang chủ
+                {t('header.na01')}
               </Link>
               <Link className={cx('navbar__link')} to={routes.grocery} onClick={handleOpenOverlay}>
-                Cửa hàng tạp hóa
+              {t('header.na02')}
               </Link>
               <Link className={cx('navbar__link')} to={routes.furniture} onClick={handleOpenOverlay}>
-                Nhà & Nội thất
+              {t('header.na03')}
               </Link>
               <Link className={cx('navbar__link')} to={routes.fashion} onClick={handleOpenOverlay}>
-                Thời trang
+              {t('header.na04')}
               </Link>
             </nav>
           </div>
