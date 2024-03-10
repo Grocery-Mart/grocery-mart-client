@@ -23,20 +23,6 @@
   }
 }
 
-.checkout-input {
-  margin-top: 20px;
-}
-
-.checkout-search {
-  display: none;
-  width: 100%;
-  background-color: var(--breadcrumbs-bg);
-
-  @include media-breakpoint-down(md) {
-    display: flex;
-  }
-}
-
 .breadcrumbs {
   display: flex;
   align-items: center;

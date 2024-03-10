@@ -1,19 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import styles from './CheckOut.module.scss';
 
 import routes from '~/config/routes';
 import images from '~/assets/images';
 import Button from '~/components/Button';
-import SearchInput from '~/components/SearchInput';
 import { ArrowRightIcon, GiftIcon } from '~/components/Icons';
 import CheckoutCartItem from '~/components/CheckoutCartItem';
 
 const cx = classNames.bind(styles);
 
 function CheckOut() {
+  const { t } = useTranslation();
   const DataProduct = [
     {
       id: 1,
@@ -22,6 +24,7 @@ function CheckOut() {
       brand: 'Lavazza',
       price: '47.00',
       quantity: 1,
+      status: t('checkout.status01'),
     },
     {
       id: 2,
@@ -30,6 +33,7 @@ function CheckOut() {
       brand: 'Lavazza',
       price: '53.00',
       quantity: 1,
+      status: t('checkout.status02'),
     },
     {
       id: 3,
@@ -38,6 +42,7 @@ function CheckOut() {
       brand: 'welikecoffee',
       price: '99.99',
       quantity: 1,
+      status: t('checkout.status01'),
     },
   ];
 
@@ -58,23 +63,18 @@ function CheckOut() {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('container')}>
-        {/* Search input */}
-        <div className={cx('checkout-input')}>
-          <SearchInput className={cx('checkout-search')} />
-        </div>
-
         {/* Breadcrumbs */}
         <div className={cx('checkout-container')}>
           <ul className={cx('breadcrumbs')}>
             <li>
               <Link to={routes.home} className={cx('breadcrumbs__link')}>
-                Trang chủ
+                {t('header.na01')}
                 <ArrowRightIcon />
               </Link>
             </li>
             <li>
               <Link to={'#!'} className={cx('breadcrumbs__link', 'breadcrumbs__link--current')}>
-                Giỏ hàng
+                {t('header.prof03')}
               </Link>
             </li>
           </ul>
@@ -96,22 +96,22 @@ function CheckOut() {
                       <div className={cx('cart-info__continue')}>
                         <Link to={routes.home} className={cx('cart-info__continue-link')}>
                           <ArrowRightIcon className={cx('cart-info__continue-arrow')} />
-                          Tiếp tục mua hàng
+                          {t('checkout.title06')}
                         </Link>
                       </div>
                     </div>
                     <div className={cx('col-4 col-xxl-4 col-xl-5')}>
                       <div className={cx('cart-info__row')}>
-                        <span>Tổng giá tiền:</span>
+                        <span>{t('checkout.title02')}</span>
                         <span>{`$${totalPrice.toFixed(2)}`}</span>
                       </div>
                       <div className={cx('cart-info__row')}>
-                        <span>Phí giao hàng:</span>
+                        <span> {t('checkout.title03')}</span>
                         <span>$10.00</span>
                       </div>
                       <div className={cx('cart-info__separate')}></div>
                       <div className={cx('cart-info__row', 'cart-info__row--bold')}>
-                        <span>Tổng tất cả:</span>
+                        <span> {t('checkout.title05')}</span>
                         <span>{`$${totalPrice + 10}`}</span>
                       </div>
                     </div>
@@ -122,25 +122,25 @@ function CheckOut() {
             <div className={cx('col-12 col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12')}>
               <div className={cx('cart-info')}>
                 <div className={cx('cart-info__row')}>
-                  <span>Số sản phẩm:</span>
+                  <span> {t('checkout.title01')}</span>
                   <span>{DataProduct.length}</span>
                 </div>
                 <div className={cx('cart-info__row')}>
-                  <span>Tổng giá tiền:</span>
+                  <span> {t('checkout.title02')}</span>
                   <span>{`$${totalPrice}`}</span>
                 </div>
                 <div className={cx('cart-info__row')}>
-                  <span>Phí giao hàng:</span>
+                  <span> {t('checkout.title03')}</span>
                   <span>$10.00</span>
                 </div>
                 <div className={cx('cart-info__separate')}></div>
                 <div className={cx('cart-info__row')}>
-                  <span>Thành tiền:</span>
+                  <span> {t('checkout.title04')}</span>
                   <span>{`$${(totalPrice + 10).toFixed(2)}`}</span>
                 </div>
                 <Link to={routes.shipping}>
                   <Button continueCheckout primary className={cx('cart-info__next-btn')}>
-                    Thanh toán
+                    {t('button.btn07')}
                   </Button>
                 </Link>
               </div>
@@ -151,10 +151,8 @@ function CheckOut() {
                       <GiftIcon />
                     </div>
                     <div className={cx('gift-item__content')}>
-                      <h3 className={cx('gift-item__title')}>Gửi đơn đặt hàng này như một món quà.</h3>
-                      <p className={cx('gift-item__desc')}>
-                        Các mặt hàng trên sẽ được chuyển đến người nhận quà của bạn.
-                      </p>
+                      <h3 className={cx('gift-item__title')}>{t('checkout.title07')}</h3>
+                      <p className={cx('gift-item__desc')}>{t('checkout.title08')}</p>
                     </div>
                   </article>
                 </a>

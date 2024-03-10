@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './ForgotPassword.module.scss';
 import Logo from '~/components/Logo';
@@ -12,6 +13,7 @@ import Message from '~/components/Message';
 const cx = classNames.bind(styles);
 
 function ForgotPassword() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [submit, setSubmit] = useState(true);
   const [isSuccessMessage, setSuccessMessage] = useState(false);
@@ -26,16 +28,17 @@ function ForgotPassword() {
 
   const handleChangeEmail = useCallback(() => {
     if (!emailRegex.test(email)) {
-      setErrors('Email không hợp lệ, vui lòng nhập lại');
+      setErrors(t('error.err02'));
     }
     if (email === '') {
-      setErrors('Vui lòng nhập email');
+      setErrors(t('error.err01'));
     }
     if (emailRegex.test(email)) {
       setErrors('');
     }
     setErrorMessage(false);
     checkSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [email, checkSubmit, emailRegex]);
 
   const handleForgotPassword = (e) => {
@@ -59,18 +62,16 @@ function ForgotPassword() {
     <div className={cx('inner')}>
       <Logo />
 
-      <h1 className={cx('inner__heading')}>Khôi phục</h1>
-      <p className={cx('inner__desc')}>
-        Bạn quên mật khẩu? Hãy điền đúng email bạn đã đăng kí để chúng tôi cấp lại mật khẩu cho bạn.
-      </p>
+      <h1 className={cx('inner__heading')}>{t('forgotPassword.heading')}</h1>
+      <p className={cx('inner__desc')}>{t('forgotPassword.desc')}</p>
       {isSuccessMessage && (
         <Message success className={cx('inner__message')}>
-          Chúng tôi đã gửi đến email của bạn liên kết khôi phục mật khẩu, vui lòng kiểm tra email của bạn.
+          {t('forgotPassword.message01')}
         </Message>
       )}
       {isErrorMessage && (
         <Message error className={cx('inner__message')}>
-          Chúng tôi đã gửi đến email của bạn vui lòng kiểm tra.
+          {t('forgotPassword.message02')}
         </Message>
       )}
       <form action="" className={cx('inner__form', 'form')}>
@@ -82,7 +83,7 @@ function ForgotPassword() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onBlur={handleChangeEmail}
-              placeholder="Email"
+              placeholder={t('footer.t4-item01')}
               className={cx('form__input')}
             />
             <EmailIcon className={cx('form__input-icon')} />
@@ -91,14 +92,14 @@ function ForgotPassword() {
         </div>
         <div className={cx('form__group', 'inner__btn-group')}>
           <Button primary auth disabled={submit} onClick={(e) => handleForgotPassword(e)}>
-            Đặt lại mật khẩu
+            {t('button.btn15')}
           </Button>
         </div>
       </form>
       <p className={cx('inner__text')}>
-        Quay trở về
+        {t('button.desc01')}
         <Link className={cx('inner__link')} to={routes.login}>
-          Đăng nhập
+          {t('header.prof08')}
         </Link>
       </p>
     </div>

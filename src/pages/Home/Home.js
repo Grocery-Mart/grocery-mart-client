@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Home.module.scss';
 import images from '~/assets/images';
@@ -15,6 +16,7 @@ import Filter from '~/components/Filter';
 const cx = classNames.bind(styles);
 
 function Home() {
+  const { t } = useTranslation();
   const settings = {
     dots: true,
     infinite: true,
@@ -27,79 +29,79 @@ function Home() {
     cssEase: 'linear',
   };
 
-  const DataBrowseCategories = [
+  const DataNewProducts = [
     {
       thumb: images.cate1,
-      title: '$24 - $150',
-      description: 'New sumatra mandeling coffe blend',
+      title: 'đ50.000 - đ150.000',
+      description: t('new-product.desc1'),
     },
     {
       thumb: images.cate2,
-      title: '$37 - $160',
-      description: 'Espresso arabica and robusta beans',
+      title: 'đ45.000 - đ150.000',
+      description: t('new-product.desc2'),
     },
     {
       thumb: images.cate3,
-      title: '$32 - $160',
-      description: 'Lavazza top class whole bean coffee blend',
+      title: 'đ50.000 - đ120.000',
+      description: t('new-product.desc3'),
     },
   ];
 
   const DataProducts = [
     {
       image: images.product1,
-      title: 'Coffee Beans - Espresso Arabica and Robusta Beans',
+      title: t('products.title1'),
       brand: 'Lavazza',
-      price: '$47.00',
+      price: 'đ55.000',
       score: '4.3',
     },
     {
       image: images.product2,
-      title: 'Lavazza Coffee Blends - Try the Italian Espresso',
+      title: t('products.title2'),
       brand: 'Lavazza',
-      price: '$53.00',
+      price: 'đ63.000',
       score: '3.4',
     },
     {
       image: images.product3,
-      title: 'Lavazza - Caffè Espresso Black Tin - Ground coffee',
+      title: t('products.title3'),
       brand: 'welikecoffee',
-      price: '$99.99',
+      price: 'đ199.000',
       score: '5.0',
     },
     {
       image: images.product4,
-      title: 'Qualità Oro Mountain Grown - Espresso Coffee Beans',
+      title: t('products.title4'),
       brand: 'Lavazza',
-      price: '$38.65',
+      price: 'đ49.000',
       score: '4.4',
     },
     {
       image: images.product3,
-      title: 'Lavazza - Caffè Espresso Black Tin - Ground coffee',
+      title: t('products.title3'),
       brand: 'welikecoffee',
-      price: '$99.99',
+      price: 'đ199.000',
       score: '5.0',
     },
     {
       image: images.product1,
-      title: 'Coffee Beans - Espresso Arabica and Robusta Beans',
+      title: t('products.title1'),
       brand: 'Lavazza',
-      price: '$47.00',
+      price: 'đ55.000',
       score: '4.3',
     },
     {
       image: images.product4,
-      title: 'Qualità Oro Mountain Grown - Espresso Coffee Beans',
+      title: t('products.title4'),
       brand: 'Lavazza',
-      price: '$38.65',
+      price: 'đ49.000',
       score: '4.4',
     },
     {
       image: images.product2,
-      title: 'Lavazza Coffee Blends - Try the Italian Espresso',
+      title: t('products.title2'),
       brand: 'Lavazza',
-      price: '$53.00',
+      price: 'đ63.000',
       score: '3.4',
     },
   ];
@@ -171,26 +173,26 @@ function Home() {
             </Slider>
           </div>
         </div>
-        {/* Browse Categories */}
+        {/* New Products */}
         <section className={cx('home__container')}>
-          <h2 className={cx('home__heading')}>Browse Categories</h2>
+          <h2 className={cx('home__heading')}>{t('home.heading01')}</h2>
 
           <div className={cx('row row-cols-1 row-cols-sm-1 row-cols-md-3', { home__cate: 'home__cate' })}>
-            {DataBrowseCategories &&
-              DataBrowseCategories.map((data, index) => (
+            {DataNewProducts &&
+              DataNewProducts.map((data, index) => (
                 <div className={cx('col')} key={index}>
                   <CategoryItem data={data} />
                 </div>
               ))}
           </div>
         </section>
-        {/* Total LavAzza 1320 */}
+        {/* Most Favorites */}
         <section className={cx('home__container')}>
           <div className={cx('home__row')}>
-            <h2 className={cx('home__heading')}>Total LavAzza 1320</h2>
+            <h2 className={cx('home__heading')}>{t('home.heading02')}</h2>
             <div className={cx('filter-wrap')} ref={filterRef}>
               <Button filter rightIcon={<FilterIcon className={cx('icon')} />} onClick={handleOpenFilter}>
-                Filter
+                {t('home.filter')}
               </Button>
               {filter && (
                 <div className={cx('filter-form')} data-aos="zoom-in-left" data-aos-duration="200">

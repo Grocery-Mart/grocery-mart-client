@@ -1,5 +1,6 @@
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useEffect } from 'react';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './CheckoutCartItem.module.scss';
 import Button from '~/components/Button';
@@ -8,9 +9,11 @@ import Modal from '~/components/Modal';
 const cx = classNames.bind(styles);
 
 const CheckoutCartItem = forwardRef(({ data, id }, ref) => {
+  const { t } = useTranslation();
   const [saveModal, setSaveModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [quantity, setQuantity] = useState(data.quantity);
+  const [runOut, setRunOut] = useState(false);
 
   const handleShowSaveModal = () => {
     setSaveModal(!saveModal);
@@ -30,6 +33,12 @@ const CheckoutCartItem = forwardRef(({ data, id }, ref) => {
     console.log(id);
   };
 
+  useEffect(() => {
+    if (data.status === t('checkout.status02')) {
+      setRunOut(true);
+    }
+  }, [data.status, t]);
+
   return (
     <article className={cx('cart-item')}>
       <a href="#!">
@@ -41,7 +50,8 @@ const CheckoutCartItem = forwardRef(({ data, id }, ref) => {
             <a href="#!">{data.title}</a>
           </h3>
           <p className={cx('cart-item__price-wrap')}>
-            {`$${data.price}`} | <span className={cx('cart-item__status')}>In Stock</span>
+            {`$${data.price}`} |{' '}
+            <span className={cx('cart-item__status', runOut ? 'cart-item__status--run-out' : '')}>{data.status}</span>
           </p>
           <div className={cx('cart-item__ctrl', 'cart-item__ctrl--md-block')}>
             <div className={cx('cart-item__input')}>{data.brand}</div>
@@ -78,7 +88,7 @@ const CheckoutCartItem = forwardRef(({ data, id }, ref) => {
               checkoutCartItemCtrl
               leftIcon={<SaveIcon />}
             >
-              Save
+              {t('button.btn05')}
             </Button>
             <Button
               ref={ref}
@@ -89,19 +99,29 @@ const CheckoutCartItem = forwardRef(({ data, id }, ref) => {
               leftIcon={<TrashIcon />}
               className={cx('btn--no-margin')}
             >
-              Delete
+              {t('button.btn06')}
             </Button>
           </div>
         </div>
       </div>
       {saveModal && (
-        <Modal handleShowModal={handleShowSaveModal} handleConfirm={handleSaveConfirm} small confirm={'Thêm'}>
-          Bạn có chắc chắn muốn thêm sản phẩm này vào Yêu thích?
+        <Modal
+          handleShowModal={handleShowSaveModal}
+          handleConfirm={handleSaveConfirm}
+          small
+          confirm={t('button.btn08')}
+        >
+          {t('modal.message01')}
         </Modal>
       )}
       {deleteModal && (
-        <Modal handleShowModal={handleShowDeleteModal} handleConfirm={handleDeleteConfirm} small confirm={'Xóa'}>
-          Bạn có chắc chắn muốn xóa sản phẩm này?
+        <Modal
+          handleShowModal={handleShowDeleteModal}
+          handleConfirm={handleDeleteConfirm}
+          small
+          confirm={t('button.btn06')}
+        >
+          {t('modal.message02')}
         </Modal>
       )}
     </article>

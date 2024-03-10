@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Profile.module.scss';
 import {
@@ -28,6 +29,7 @@ import ProfileFavoriteItem from '~/components/ProfileFavoriteItem';
 const cx = classNames.bind(styles);
 
 function Profile() {
+  const { t } = useTranslation();
   const [type, setType] = useState('overview');
 
   useEffect(() => {
@@ -57,18 +59,18 @@ function Profile() {
                     className={cx('profile-user__avatar')}
                   />
                   <h1 className={cx('profile-user__name')}>Như Công</h1>
-                  <p className={cx('profile-user__desc')}>Đăng kí: 13/02/2024</p>
+                  <p className={cx('profile-user__desc')}>{t('profile.title01')} 13/02/2024</p>
                 </div>
 
                 <div className={cx('profile-menu')}>
-                  <h3 className={cx('profile-menu__title')}>Quản lý tài khoản</h3>
+                  <h3 className={cx('profile-menu__title')}>{t('profile.heading01')}</h3>
                   <ul className={cx('profile-menu__list')}>
                     <li>
                       <a href="#!" className={cx('profile-menu__link')} onClick={() => setType('personalInfo')}>
                         <span className={cx('profile-menu__icon-wrap')}>
                           <UserIcon className={cx('icon')} />
                         </span>
-                        Thông tin cá nhân
+                        {t('profile.title02')}
                       </a>
                     </li>
                     <li>
@@ -76,7 +78,7 @@ function Profile() {
                         <span className={cx('profile-menu__icon-wrap')}>
                           <AddressIcon className={cx('icon')} />
                         </span>
-                        Địa chỉ
+                        {t('profile.title03')}
                       </a>
                     </li>
                     <li>
@@ -84,21 +86,21 @@ function Profile() {
                         <span className={cx('profile-menu__icon-wrap')}>
                           <PasswordIcon className={cx('icon')} />
                         </span>
-                        Thay đổi mật khẩu
+                        {t('profile.title04')}
                       </a>
                     </li>
                   </ul>
                 </div>
 
                 <div className={cx('profile-menu')}>
-                  <h3 className={cx('profile-menu__title')}>Sản phẩm của tôi</h3>
+                  <h3 className={cx('profile-menu__title')}>{t('profile.heading02')}</h3>
                   <ul className={cx('profile-menu__list')}>
                     <li>
                       <a href="#!" className={cx('profile-menu__link')}>
                         <span className={cx('profile-menu__icon-wrap')}>
                           <ReoderIcon className={cx('icon')} />
                         </span>
-                        Đã mua
+                        {t('profile.title05')}
                       </a>
                     </li>
                     <li>
@@ -106,7 +108,7 @@ function Profile() {
                         <span className={cx('profile-menu__icon-wrap')}>
                           <HeartIcon className={cx('icon')} />
                         </span>
-                        Yêu thích
+                        {t('profile.title06')}
                       </a>
                     </li>
                     <li>
@@ -114,21 +116,21 @@ function Profile() {
                         <span className={cx('profile-menu__icon-wrap')}>
                           <GiftIconSM className={cx('icon')} />
                         </span>
-                        Quà tặng
+                        {t('profile.title07')}
                       </a>
                     </li>
                   </ul>
                 </div>
 
                 <div className={cx('profile-menu')}>
-                  <h3 className={cx('profile-menu__title')}>Dịch vụ khách hàng</h3>
+                  <h3 className={cx('profile-menu__title')}>{t('profile.heading03')}</h3>
                   <ul className={cx('profile-menu__list')}>
                     <li>
                       <a href="#!" className={cx('profile-menu__link')}>
                         <span className={cx('profile-menu__icon-wrap')}>
                           <HelpIcon className={cx('icon')} />
                         </span>
-                        Giúp đỡ
+                        {t('profile.title08')}
                       </a>
                     </li>
                     <li>
@@ -136,7 +138,7 @@ function Profile() {
                         <span className={cx('profile-menu__icon-wrap')}>
                           <TermIcon className={cx('icon')} />
                         </span>
-                        Điều khoản sử dụng
+                        {t('profile.title09')}
                       </a>
                     </li>
                   </ul>
@@ -153,8 +155,8 @@ function Profile() {
                 <div className={cx('profile-info')}>
                   <div className={cx('row gy-5')}>
                     <div className={cx('col-12')}>
-                      <h2 className={cx('profile-info__heading')}>Tài khoản thanh toán</h2>
-                      <p className={cx('profile-info__desc')}>Phương thức thanh toán</p>
+                      <h2 className={cx('profile-info__heading')}>{t('profile.heading04')}</h2>
+                      <p className={cx('profile-info__desc')}>{t('paymentMethod.heading')}</p>
 
                       <div className={cx('row gy-4 row-cols-1 row-cols-xxl-3 row-cols-xl-3 row-cols-lg-2')}>
                         <div className={cx('col')}>
@@ -167,11 +169,11 @@ function Profile() {
                             <div className={cx('payment-card__number')}>0982155291</div>
                             <div className={cx('payment-card__bottom')}>
                               <div>
-                                <p className={cx('payment-card__label')}>Chủ thẻ</p>
+                                <p className={cx('payment-card__label')}>{t('profile.desc01')}</p>
                                 <p className={cx('payment-card__value')}>Nhu Cong</p>
                               </div>
                               <div className={cx('payment-card__expired')}>
-                                <p className={cx('payment-card__label')}>Hết hạn</p>
+                                <p className={cx('payment-card__label')}>{t('profile.desc02')}</p>
                                 <p className={cx('payment-card__value')}>11/2025</p>
                               </div>
                               <div className={cx('payment-card__circle')}>
@@ -190,11 +192,11 @@ function Profile() {
                             <div className={cx('payment-card__number')}>0982155291</div>
                             <div className={cx('payment-card__bottom')}>
                               <div>
-                                <p className={cx('payment-card__label')}>Chủ thẻ</p>
+                                <p className={cx('payment-card__label')}>{t('profile.desc01')}</p>
                                 <p className={cx('payment-card__value')}>Nhu Cong</p>
                               </div>
                               <div className={cx('payment-card__expired')}>
-                                <p className={cx('payment-card__label')}>Hết hạn</p>
+                                <p className={cx('payment-card__label')}>{t('profile.desc02')}</p>
                                 <p className={cx('payment-card__value')}>11/2025</p>
                               </div>
                               <div className={cx('payment-card__circle')}>
@@ -206,15 +208,15 @@ function Profile() {
                         <div className={cx('col')}>
                           <a href="#!" className={cx('new-card')} onClick={() => setType('addNewCard')}>
                             <PlusIcon className={cx('icon')} />
-                            <p className={cx('new-card__text')}>Thêm thẻ</p>
+                            <p className={cx('new-card__text')}>{t('profile.title10')}</p>
                           </a>
                         </div>
                       </div>
                     </div>
 
                     <div className={cx('col-12')}>
-                      <h2 className={cx('profile-info__heading')}>Thông tin cá nhân</h2>
-                      <p className={cx('profile-info__desc')}>Địa chỉ, thông tin liên lạc và mật khẩu</p>
+                      <h2 className={cx('profile-info__heading')}>{t('profile.heading05')}</h2>
+                      <p className={cx('profile-info__desc')}>{t('profile.desc03')}</p>
 
                       <div
                         className={cx(
@@ -227,7 +229,7 @@ function Profile() {
                               <EmailIcon className={'icon'} />
                             </div>
                             <div>
-                              <h3 className={cx('account-info__title')}>Email</h3>
+                              <h3 className={cx('account-info__title')}>{t('footer.t4-item01')}</h3>
                               <p className={cx('account-info__desc')}>yeusangtao96@gmail.com</p>
                             </div>
                           </article>
@@ -238,7 +240,7 @@ function Profile() {
                               <PhoneIcon className={'icon'} />
                             </div>
                             <div>
-                              <h3 className={cx('account-info__title')}>Số điện thoại</h3>
+                              <h3 className={cx('account-info__title')}>{t('profile.title11')}</h3>
                               <p className={cx('account-info__desc')}>+84 982155291</p>
                             </div>
                           </article>
@@ -249,7 +251,7 @@ function Profile() {
                               <AddressIcon className={'icon'} />
                             </div>
                             <div>
-                              <h3 className={cx('account-info__title')}>Địa chỉ</h3>
+                              <h3 className={cx('account-info__title')}>{t('footer.t4-item03')}</h3>
                               <p className={cx('account-info__desc')}>Hạ Mỗ, Đan Phượng, Hà Nội</p>
                             </div>
                           </article>
@@ -260,7 +262,7 @@ function Profile() {
                               <PasswordIcon className={'icon'} />
                             </div>
                             <div>
-                              <h3 className={cx('account-info__title')}>Mật khẩu</h3>
+                              <h3 className={cx('account-info__title')}>{t('profile.title12')}</h3>
                               <p className={cx('account-info__desc')}>**********</p>
                             </div>
                           </article>
@@ -269,8 +271,8 @@ function Profile() {
                     </div>
 
                     <div className={cx('col-12')}>
-                      <h2 className={cx('profile-info__heading')}>Yêu thích</h2>
-                      <p className={cx('profile-info__desc')}>2 sản phẩm</p>
+                      <h2 className={cx('profile-info__heading')}>{t('profile.heading06')}</h2>
+                      <p className={cx('profile-info__desc')}>2 {t('paymentMethod.desc01')}</p>
                       <ProfileFavoriteItem />
                       <div className={cx('separate')} style={{ '--margin': '20px' }}></div>
                       <ProfileFavoriteItem />

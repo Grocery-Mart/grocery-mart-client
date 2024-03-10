@@ -38,6 +38,7 @@
   --search-result-title-color: rgba(22, 24, 35, 0.341);
   --search-result-trademark-color: rgba(22, 24, 35, 0.5);
   --boxshadow-search: rgba(0 0 0 / 12%) 0px 2px 12px;
+  --icon-color-search: rgba(22, 24, 35, 0.34);
   --search-result-product-hover-color: rgba(22, 24, 35, 0.03);
 
   // Button
@@ -149,7 +150,8 @@ html.dark {
   --actions-search-color: #fff;
   --search-result-title-color: #f1f1f1;
   --search-result-trademark-color: #f1f1f1;
-  --boxshadow-search: 1px 0px 8px 0px rgba(23, 28, 40, 0.4);
+  --boxshadow-search: 1px 0px 8px 0px rgba(95, 95, 95, 0.34);
+  --icon-color-search: #b9babe;
   --search-result-product-hover-color: rgba(160, 160, 160, 0.75);
 
   // Dropdown

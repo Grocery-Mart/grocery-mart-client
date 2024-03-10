@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './ProfileFavoriteItem.module.scss';
 
@@ -8,6 +9,8 @@ import Button from '~/components/Button';
 const cx = classNames.bind(styles);
 
 function ProfileFavoriteItem() {
+  const { t } = useTranslation();
+
   return (
     <article className={cx('favorite-item')}>
       <img src={images.product1} alt="" className={cx('favorite-item__thumb')} />
@@ -16,7 +19,7 @@ function ProfileFavoriteItem() {
         <div className={cx('favorite-item__content')}>
           <span className={cx('favorite-item__price')}>$47.00</span>
           <Button favoriteCheckout primary>
-            Thêm vào giỏ hàng
+            {t('button.btn14')}
           </Button>
         </div>
       </div>

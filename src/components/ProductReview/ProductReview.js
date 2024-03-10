@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './ProductReview.module.scss';
 import { HalfStarIcon, NoStarIcon, StarIcon } from '~/components/Icons';
@@ -6,9 +7,11 @@ import { HalfStarIcon, NoStarIcon, StarIcon } from '~/components/Icons';
 const cx = classNames.bind(styles);
 
 function ProductReview() {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('prod-content')}>
-      <h2 className={cx('prod-content__heading')}>Đánh giá của các khách hàng</h2>
+      <h2 className={cx('prod-content__heading')}>{t('productDetail.desc04')}</h2>
       <div className={cx('prod-content__reviews')}>
         <div
           className={cx('row row-cols-1 row-cols-xxl-3 row-cols-xl-3 row-cols-lg-3 row-cols-md-1 row-cols-sm-1 gy-4')}

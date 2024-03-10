@@ -2,6 +2,7 @@ import { useState, useCallback, useRef } from 'react';
 import classNames from 'classnames/bind';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Filter.module.scss';
 import { ArrowDownIcon, ArrowUpIcon, SearchIcon } from '~/components/Icons';
@@ -10,9 +11,10 @@ import Button from '~/components/Button';
 const cx = classNames.bind(styles);
 
 function Filter({ isFilter }) {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState(isFilter); // --open/close filter--
   const [value, setValue] = useState([10, 60]); // --price--
-  const sizes = ['Small', 'Medium', 'Large']; // --size/weight start--
+  const sizes = [t('filter.title03'), t('filter.title04'), t('filter.title05')]; // --size/weight start--
   const brands = ['Lavazza', 'Nescafe', 'Starbucks'];
   const [filterUnit, setFilterUnit] = useState('Gram');
   const [filterWeight, setFilterWeight] = useState(() => {
@@ -65,17 +67,17 @@ function Filter({ isFilter }) {
         }}
       >
         <ArrowUpIcon className={cx('filter__arrow')} />
-        <h3 className={cx('filter__heading')}>Filter</h3>
+        <h3 className={cx('filter__heading')}>{t('home.filter')}</h3>
         <form action="" className={cx('filter__form', 'form')}>
           <div className={cx('filter__row')}>
             <div className={cx('filter__col')}>
-              <label className={cx('form__label')}>Price</label>
+              <label className={cx('form__label')}>{t('filter.heading01')}</label>
               <div className={cx('filter__form-group')}>
                 <Slider range defaultValue={[10, 60]} value={value} onChange={handleChange} min={0} max={100} />
               </div>
               <div className={cx('filter__form-group', 'filter__form-group--inline')}>
                 <div>
-                  <label className={cx('form__label', 'form__label--sm')}>Minium</label>
+                  <label className={cx('form__label', 'form__label--sm')}>{t('filter.title01')}</label>
                   <div className={cx('filter__form-text-input', 'filter__form-text-input--small')}>
                     <input
                       value={value[0]}
@@ -88,7 +90,7 @@ function Filter({ isFilter }) {
                   </div>
                 </div>
                 <div>
-                  <label className={cx('form__label', 'form__label--sm')}>Maximum</label>
+                  <label className={cx('form__label', 'form__label--sm')}>{t('filter.title02')}</label>
                   <div className={cx('filter__form-text-input', 'filter__form-text-input--small')}>
                     <input
                       value={value[1]}
@@ -106,7 +108,7 @@ function Filter({ isFilter }) {
             <div className={cx('filter__separate')}></div>
 
             <div className={cx('filter__col')}>
-              <label className={cx('form__label')}>Size/Weight</label>
+              <label className={cx('form__label')}>{t('filter.heading02')}</label>
               <div className={cx('filter__form-group')}>
                 <div className={cx('form__select-wrap')}>
                   <div className={cx('form__select', 'form__select-weight')} onClick={() => setOpenWeight(!openWeight)}>
@@ -257,7 +259,7 @@ function Filter({ isFilter }) {
             <div className={cx('filter__separate')}></div>
 
             <div className={cx('filter__col')}>
-              <label className={cx('form__label')}>Brand</label>
+              <label className={cx('form__label')}>{t('filter.heading03')}</label>
               <div className={cx('filter__form-group')}>
                 <div className={cx('filter__form-text-input')}>
                   <input
@@ -265,7 +267,7 @@ function Filter({ isFilter }) {
                     name=""
                     id=""
                     className={cx('filter__form-input')}
-                    placeholder="Search brand name"
+                    placeholder={t('filter.desc01')}
                   />
                   <SearchIcon className={cx('icon', 'filter__form-icon-search')} />
                 </div>
@@ -298,10 +300,10 @@ function Filter({ isFilter }) {
                 setFilter(false);
               }}
             >
-              Cancel
+              {t('button.btn01')}
             </Button>
             <Button primary className={cx('filter__actions-result')} onClick={(e) => e.preventDefault()}>
-              Show Result
+              {t('button.btn02')}
             </Button>
           </div>
         </form>

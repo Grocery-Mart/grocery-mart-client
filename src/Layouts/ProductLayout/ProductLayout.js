@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import styles from './ProductLayout.module.scss';
 
@@ -7,22 +8,22 @@ import Header from '~/Layouts/components/Header';
 import Footer from '~/Layouts/components/Footer';
 import Sidebar from '~/Layouts/components/Sidebar';
 import { ArrowRightIcon } from '~/components/Icons';
-import SearchInput from '~/components/SearchInput';
 import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
 function ProductLayout({ children }) {
+  const { t } = useTranslation();
   const location = useLocation();
   let page = '';
   if (location.pathname === '/grocery') {
-    page = 'Cửa hàng tạp hóa';
+    page = t('header.na02');
   }
   if (location.pathname === '/furniture') {
-    page = 'Nhà & Nội thất';
+    page = t('header.na03');
   }
   if (location.pathname === '/fashion') {
-    page = 'Thời trang';
+    page = t('header.na04');
   }
 
   let categories = ['Cà phê', 'Sản phẩm tươi sống', 'Sản phẩm đông lạnh', 'Đồ ăn nhẹ', 'Bánh mỳ', 'Đồ uống', 'Kẹo'];
@@ -39,16 +40,12 @@ function ProductLayout({ children }) {
     <div className={cx('wrapper')}>
       <Header />
       <div className={cx('container')}>
-        {/* Search input */}
-        <div className={cx('product-input')}>
-          <SearchInput className={cx('prod-search')} />
-        </div>
         {/* Breadcrumbs */}
         <div className={cx('product-container')}>
           <ul className={cx('breadcrumbs')}>
             <li>
               <Link to={routes.home} className={cx('breadcrumbs__link')}>
-                Trang chủ
+                {t('header.na01')}
                 <ArrowRightIcon />
               </Link>
             </li>

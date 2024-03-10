@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './ProductDetail.module.scss';
 
@@ -15,7 +16,6 @@ import {
 } from '~/components/Icons';
 import images from '~/assets/images';
 import Button from '~/components/Button';
-import SearchInput from '~/components/SearchInput';
 import ProductReview from '~/components/ProductReview';
 import ProductSimilar from '~/components/ProductSimilar';
 import ProductDescription from '~/components/ProductDescription';
@@ -23,11 +23,13 @@ import ProductDescription from '~/components/ProductDescription';
 const cx = classNames.bind(styles);
 
 function ProductDetail() {
+  const { t } = useTranslation();
+  const tabs = [t('productDetail.tab01'), t('productDetail.tab02'), t('productDetail.tab03')];
+  const sizes = [t('filter.title03'), t('filter.title04'), t('filter.title05')];
+  const productImages = [images.product1, images.product2, images.product3, images.product4];
+
   const [like, setLike] = useState(false);
 
-  const tabs = ['Mô tả', 'Đánh giá', 'Tương tự'];
-  // const [props, setProps] = useState([]);
-  const [type, setType] = useState('Mô tả');
   const [filterUnit, setFilterUnit] = useState('Gram');
   const [filterWeight, setFilterWeight] = useState(() => {
     if (filterUnit === 'Gram') {
@@ -36,12 +38,15 @@ function ProductDetail() {
       return '1kg';
     }
   });
+  const [filterSize, setFilterSize] = useState('');
+
   const [openWeight, setOpenWeight] = useState(false);
   const [openUnit, setOpenUnit] = useState(false);
+  const [proImage, setProImage] = useState(productImages[0]);
+  const [type, setType] = useState(t('productDetail.tab01'));
+
   const filterWeightRef = useRef(null);
   const filterUnitRef = useRef(null);
-  const sizes = ['Small', 'Medium', 'Large'];
-  const [filterSize, setFilterSize] = useState('');
 
   const handleLikeBtn = (e) => {
     e.preventDefault();
@@ -73,23 +78,18 @@ function ProductDetail() {
       }}
     >
       <div className={cx('container')}>
-        {/* Search input */}
-        <div className={cx('product-input')}>
-          <SearchInput className={cx('prod-search')} />
-        </div>
-
         {/* Breadcrumbs */}
         <div className={cx('product-container')}>
           <ul className={cx('breadcrumbs')}>
             <li>
               <a href="#!" className={cx('breadcrumbs__link')}>
-                Trang chủ
+                {t('header.na01')}
                 <ArrowRightIcon />
               </a>
             </li>
             <li>
               <a href="#!" className={cx('breadcrumbs__link')}>
-                Cửa hàng tạp hóa
+                {t('header.na02')}
                 <ArrowRightIcon />
               </a>
             </li>
@@ -115,18 +115,27 @@ function ProductDetail() {
                 <div className={cx('prod-preview')}>
                   <div className={cx('prod-preview__list')}>
                     <div className={cx('prod-preview__item')}>
-                      <img src={images.product2} alt="" className={cx('prod-preview__img')} />
+                      {productImages.map(
+                        (productImg, index) =>
+                          proImage === productImg && (
+                            <img key={index} src={productImg} alt="" className={cx('prod-preview__img')} />
+                          ),
+                      )}
                     </div>
                   </div>
                   <div className={cx('prod-preview__thumbs')}>
-                    <img
-                      src={images.product2}
-                      alt=""
-                      className={cx('prod-preview__thumb-img', 'prod-preview__thumb-img--active')}
-                    />
-                    <img src={images.product1} alt="" className={cx('prod-preview__thumb-img')} />
-                    <img src={images.product3} alt="" className={cx('prod-preview__thumb-img')} />
-                    <img src={images.product4} alt="" className={cx('prod-preview__thumb-img')} />
+                    {productImages.map((productImg, index) => (
+                      <img
+                        key={index}
+                        src={productImg}
+                        alt=""
+                        onClick={() => setProImage(productImg)}
+                        className={cx(
+                          'prod-preview__thumb-img',
+                          proImage === productImg ? 'prod-preview__thumb-img--active' : '',
+                        )}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -138,10 +147,10 @@ function ProductDetail() {
                       <div className={cx('col-12 col-xxl-5 col-xl-6 col-lg-12 col-md-12')}>
                         <div className={cx('prod-prop')}>
                           <StarIcon className={cx('prod-prop__icon')} />
-                          <h4 className={cx('prod-prop__title')}>(3.5) 1100 reviews</h4>
+                          <h4 className={cx('prod-prop__title')}>(3.5) 1100 {t('productDetail.title01')}</h4>
                         </div>
                         <div className={cx('prod-filter')}>
-                          <label className={cx('form__label')}>Size/Weight</label>
+                          <label className={cx('form__label')}>{t('filter.heading02')}</label>
                           <div className={cx('prod-filter__form-group')}>
                             <div className={cx('form__select-wrap')}>
                               <div
@@ -296,20 +305,20 @@ function ProductDetail() {
                         <div className={cx('prod-props')}>
                           <div className={cx('prod-prop')}>
                             <DocumentIcon className={cx('prod-prop__icon', 'icon')} />
-                            <h4 className={cx('prod-prop__title')}>Compare</h4>
+                            <h4 className={cx('prod-prop__title')}>{t('productDetail.title02')}</h4>
                           </div>
                           <div className={cx('prod-prop')}>
                             <CartIcon className={cx('icon')} />
                             <div>
-                              <h4 className={cx('prod-prop__title')}>Delivery</h4>
-                              <p className={cx('prod-prop__desc')}>From $6 for 1-3 days</p>
+                              <h4 className={cx('prod-prop__title')}>{t('header.na05')}</h4>
+                              <p className={cx('prod-prop__desc')}>{t('productDetail.desc01')}</p>
                             </div>
                           </div>
                           <div className={cx('prod-prop')}>
                             <BagIcon className={cx('icon')} />
                             <div>
-                              <h4 className={cx('prod-prop__title')}>Pickup</h4>
-                              <p className={cx('prod-prop__desc')}>Out of 2 store, today</p>
+                              <h4 className={cx('prod-prop__title')}>{t('productDetail.title03')}</h4>
+                              <p className={cx('prod-prop__desc')}>{t('productDetail.desc02')}</p>
                             </div>
                           </div>
                           <div className={cx('prod-info__card')}>
@@ -322,7 +331,7 @@ function ProductDetail() {
                             </div>
                             <div className={cx('prod-info__row', 'prod-info__row--btn')}>
                               <Button primary addToCart>
-                                Add to card
+                              {t('button.btn14')}
                               </Button>
                               <Button className={cx('btn--no-margin')} addToHeartCart onClick={handleLikeBtn}>
                                 {like ? (
@@ -358,15 +367,30 @@ function ProductDetail() {
               ))}
             </ul>
             <div className={cx('prod-tab__contents')}>
-              <div className={cx('prod-tab__content', type === 'Mô tả' ? 'prod-tab__content--current' : '')}>
+              <div
+                className={cx(
+                  'prod-tab__content',
+                  type === t('productDetail.tab01') ? 'prod-tab__content--current' : '',
+                )}
+              >
                 <ProductDescription />
               </div>
 
-              <div className={cx('prod-tab__content', type === 'Đánh giá' ? 'prod-tab__content--current' : '')}>
+              <div
+                className={cx(
+                  'prod-tab__content',
+                  type === t('productDetail.tab02') ? 'prod-tab__content--current' : '',
+                )}
+              >
                 <ProductReview />
               </div>
 
-              <div className={cx('prod-tab__content', type === 'Tương tự' ? 'prod-tab__content--current' : '')}>
+              <div
+                className={cx(
+                  'prod-tab__content',
+                  type === t('productDetail.tab03') ? 'prod-tab__content--current' : '',
+                )}
+              >
                 <ProductSimilar />
               </div>
             </div>

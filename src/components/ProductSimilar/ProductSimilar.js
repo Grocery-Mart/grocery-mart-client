@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './ProductSimilar.module.scss';
 
@@ -8,6 +9,7 @@ import Product from '~/components/Product';
 const cx = classNames.bind(styles);
 
 function ProductSimilar() {
+  const { t } = useTranslation();
   const DataProducts = [
     {
       image: images.product1,
@@ -48,7 +50,7 @@ function ProductSimilar() {
 
   return (
     <div className={cx('prod-content')}>
-      <h2 className={cx('prod-content__heading')}>Các mặt hàng tương tự bạn có thể thích</h2>
+      <h2 className={cx('prod-content__heading')}>{t('productDetail.desc05')}</h2>
       <div className={cx('prod-content__similar')}>
         <div
           className={cx('row row-cols-1 row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 g-4')}

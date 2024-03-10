@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, forwardRef, useRef } from 'react';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './FavoriteItem.module.scss';
 import Button from '~/components/Button';
@@ -9,8 +11,11 @@ const cx = classNames.bind(styles);
 
 const FavoriteItem = forwardRef(
   ({ data, id, checkAll, countChecked, dataProductLength, onCheckCountItemChecked, onAddCartProduct }, ref) => {
+    const { t } = useTranslation();
     const [deleteModal, setDeleteModal] = useState(false);
     const [quantity, setQuantity] = useState(data.quantity);
+    const [runOut, setRunOut] = useState(false);
+
     const checkItem = useRef(null);
 
     const handleShowDeleteModal = () => {
@@ -30,6 +35,12 @@ const FavoriteItem = forwardRef(
       }
       onAddCartProduct(checkItem.current.checked, { ...data, quantity: quantity });
     }, [checkAll]);
+
+    useEffect(() => {
+      if (data.status === t('checkout.status02')) {
+        setRunOut(true);
+      }
+    }, [data.status, t]);
 
     return (
       <article className={cx('cart-item')}>
@@ -52,7 +63,7 @@ const FavoriteItem = forwardRef(
               <a href="#!">{data.title}</a>
             </h3>
             <p className={cx('cart-item__price-wrap')}>
-              {`$${data.price}`} | <span className={cx('cart-item__status')}>In Stock</span>
+              {`$${data.price}`} | <span className={cx('cart-item__status', runOut ? 'cart-item__status--run-out' : '')}>{data.status}</span>
             </p>
             <div className={cx('cart-item__ctrl-wrap')}>
               <div className={cx('cart-item__ctrl', 'cart-item__ctrl--md-block')}>
@@ -89,7 +100,7 @@ const FavoriteItem = forwardRef(
                   leftIcon={<TrashIcon />}
                   className={cx('btn--no-margin')}
                 >
-                  Delete
+                  {t('button.btn06')}
                 </Button>
               </div>
             </div>
@@ -97,14 +108,14 @@ const FavoriteItem = forwardRef(
           <div className={cx('cart-item__content-right')}>
             <p className={cx('cart-item__total-price')}>{`$${(quantity * data.price).toFixed(2)}`}</p>
             <Button className={cx('cart-item__checkout-btn')} favoriteCheckout primary>
-              Thanh toán
+            {t('button.btn07')}
             </Button>
           </div>
         </div>
 
         {deleteModal && (
-          <Modal handleShowModal={handleShowDeleteModal} handleConfirm={handleDeleteConfirm} small confirm={'Xóa'}>
-            Bạn có chắc chắn muốn xóa sản phẩm này?
+          <Modal handleShowModal={handleShowDeleteModal} handleConfirm={handleDeleteConfirm} small confirm={t('button.btn06')}>
+            {t('modal.message02')}
           </Modal>
         )}
       </article>

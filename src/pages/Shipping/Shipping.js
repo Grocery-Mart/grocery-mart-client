@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Shipping.module.scss';
 
 import routes from '~/config/routes';
 import images from '~/assets/images';
-import SearchInput from '~/components/SearchInput';
 import { AddAddressIcon, ArrowRightIcon } from '~/components/Icons';
 import CheckoutCartItem from '~/components/CheckoutCartItem';
 import Button from '~/components/Button';
@@ -15,34 +15,37 @@ import AddUserAddress from '~/components/AddUserAddress';
 
 const cx = classNames.bind(styles);
 
-const DataProduct = [
-  {
-    id: 1,
-    image: images.product1,
-    title: 'Coffee Beans - Espresso Arabica and Robusta Beans',
-    brand: 'Lavazza',
-    price: '47.00',
-    quantity: 1,
-  },
-  {
-    id: 2,
-    image: images.product2,
-    title: 'Lavazza Coffee Blends - Try the Italian Espresso',
-    brand: 'Lavazza',
-    price: '53.00',
-    quantity: 1,
-  },
-  {
-    id: 3,
-    image: images.product3,
-    title: 'Lavazza - Caffè Espresso Black Tin - Ground coffee',
-    brand: 'welikecoffee',
-    price: '99.99',
-    quantity: 1,
-  },
-];
-
 function Shipping() {
+  const { t } = useTranslation();
+  const DataProduct = [
+    {
+      id: 1,
+      image: images.product1,
+      title: 'Coffee Beans - Espresso Arabica and Robusta Beans',
+      brand: 'Lavazza',
+      price: '47.00',
+      quantity: 1,
+      status: t('checkout.status01'),
+    },
+    {
+      id: 2,
+      image: images.product2,
+      title: 'Lavazza Coffee Blends - Try the Italian Espresso',
+      brand: 'Lavazza',
+      price: '53.00',
+      quantity: 1,
+      status: t('checkout.status02'),
+    },
+    {
+      id: 3,
+      image: images.product3,
+      title: 'Lavazza - Caffè Espresso Black Tin - Ground coffee',
+      brand: 'welikecoffee',
+      price: '99.99',
+      quantity: 1,
+      status: t('checkout.status01'),
+    },
+  ];
   const [totalPrice, setTotalPrice] = useState(0);
   const [modal, setModal] = useState(false);
 
@@ -65,30 +68,25 @@ function Shipping() {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('container')}>
-        {/* Search input */}
-        <div className={cx('checkout-input')}>
-          <SearchInput className={cx('checkout-search')} />
-        </div>
-
         {/* Breadcrumbs */}
         <div className={cx('checkout-container')}>
           <ul className={cx('breadcrumbs')}>
             <li>
               <Link to={routes.home} className={cx('breadcrumbs__link')}>
-                Trang chủ
+                {t('header.na01')}
                 <ArrowRightIcon />
               </Link>
             </li>
             <li>
               <Link to={routes.checkout} className={cx('breadcrumbs__link')}>
-                Giỏ hàng
+                {t('header.prof03')}
                 <ArrowRightIcon />
               </Link>
             </li>
 
             <li>
               <a href="#!" className={cx('breadcrumbs__link', 'breadcrumbs__link--current')}>
-                Vận chuyển
+                {t('header.na05')}
               </a>
             </li>
           </ul>
@@ -100,7 +98,7 @@ function Shipping() {
             <div className={cx('col-12 col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12')}>
               <div className={cx('cart-info')}>
                 <h1 className={cx('cart-info__heading')}>
-                  1. Vận chuyển, đến từ Thứ Hai, ngày 16 tháng 5—Thứ Ba, ngày 24 tháng 5
+                {t('shipping.heading')}
                 </h1>
                 <div className={cx('cart-info__separate')}></div>
 
@@ -108,21 +106,21 @@ function Shipping() {
                 <div className={cx('user-address')}>
                   <div className={cx('user-address__top')}>
                     <div>
-                      <h2 className={cx('user-address__title')}>Địa chỉ giao hàng</h2>
-                      <p className={cx('user-address__desc')}>Chúng tôi nên giao hàng cho bạn ở đâu?</p>
+                      <h2 className={cx('user-address__title')}>{t('shipping.title01')}</h2>
+                      <p className={cx('user-address__desc')}>{t('shipping.desc01')}</p>
                     </div>
                     <Button onClick={handleShowModal} addAddress primary leftIcon={<AddAddressIcon />}>
-                      Thêm địa chỉ mới
+                      {t('button.btn10')}
                     </Button>
                   </div>
                   <div className={cx('user-address__list')}>
                     {/* Empty message */}
                     {/* <p className={cx('user-address__message')}>
-                                            Bạn chưa có địa chỉ nào.{' '}
-                                            <a href="#!" className={cx('user-address__link')}>
-                                                Thêm địa chỉ mới
-                                            </a>
-                                        </p> */}
+                      t('shipping.desc02')}{' '}
+                      <a href="#!" className={cx('user-address__link')}>
+                        {t('shipping.btn10')}
+                      </a>
+                    </p> */}
 
                     <UserAddressCard />
                     <UserAddressCard />
@@ -130,7 +128,7 @@ function Shipping() {
                 </div>
 
                 <div className={cx('cart-info__separate')}></div>
-                <h2 className={cx('cart-info__sub-heading')}>Chi tiết các sản phẩm</h2>
+                <h2 className={cx('cart-info__sub-heading')}>{t('shipping.title02')}</h2>
 
                 <div className={cx('cart-info__list')}>
                   {DataProduct.map((product, index) => (
@@ -143,7 +141,7 @@ function Shipping() {
                       <div className={cx('cart-info__continue')}>
                         <Link to={routes.home} className={cx('cart-info__continue-link')}>
                           <ArrowRightIcon className={cx('cart-info__continue-arrow')} />
-                          Tiếp tục mua hàng
+                          {t('checkout.title06')}
                         </Link>
                       </div>
                     </div>
@@ -154,25 +152,25 @@ function Shipping() {
             <div className={cx('col-12 col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12')}>
               <div className={cx('cart-info')}>
                 <div className={cx('cart-info__row')}>
-                  <span>Số sản phẩm:</span>
+                  <span>{t('checkout.title01')}</span>
                   <span>{DataProduct.length}</span>
                 </div>
                 <div className={cx('cart-info__row')}>
-                  <span>Tổng giá tiền:</span>
+                  <span>{t('checkout.title02')}</span>
                   <span>{`$${totalPrice}`}</span>
                 </div>
                 <div className={cx('cart-info__row')}>
-                  <span>Phí giao hàng:</span>
+                  <span>{t('checkout.title03')}</span>
                   <span>$10.00</span>
                 </div>
                 <div className={cx('cart-info__separate')}></div>
                 <div className={cx('cart-info__row')}>
-                  <span>Thành tiền:</span>
+                  <span>{t('checkout.title04')}</span>
                   <span>{`$${totalPrice + 10}`}</span>
                 </div>
                 <Link to={routes.payment_method}>
                   <Button continueCheckout primary className={cx('cart-info__next-btn')}>
-                    Tiếp tục thanh toán
+                    {t('button.btn12')}
                   </Button>
                 </Link>
               </div>

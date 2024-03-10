@@ -84,6 +84,10 @@
 
   &__status {
     color: #67b044;
+
+    &--run-out {
+      color: #fa6785;
+    }
   }
 
   &__ctrl {

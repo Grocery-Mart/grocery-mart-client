@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
+import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
 
 import styles from './ProfileDropdown.module.scss';
@@ -14,6 +15,7 @@ import images from '~/assets/images';
 const cx = classNames.bind(styles);
 
 function ProfileDropdown({ children }) {
+  const { t } = useTranslation();
   const [isDarkMode, setDarkMode] = useState(() => {
     return JSON.parse(localStorage.getItem('darkMode')) || false;
   });
@@ -49,7 +51,7 @@ function ProfileDropdown({ children }) {
 
   return (
     <Tippy
-      delay={[0, 700]}
+      delay={[0, 300]}
       disabled={isDisabled}
       hideOnClick={false}
       onHidden={handleResetToFirst}
@@ -75,12 +77,12 @@ function ProfileDropdown({ children }) {
               <ul className={cx('user__menu')}>
                 <li>
                   <Link className={cx('user__option')} to={routes.profile} onClick={() => setDisabled(true)}>
-                    Hồ sơ
+                    {t('header.prof01')}
                   </Link>
                 </li>
                 <li>
                   <Link className={cx('user__option')} to={routes.favorite} onClick={() => setDisabled(true)}>
-                    Yêu thích
+                    {t('header.prof02')}
                   </Link>
                 </li>
                 <li>
@@ -89,7 +91,7 @@ function ProfileDropdown({ children }) {
                     to={routes.checkout}
                     onClick={() => setDisabled(true)}
                   >
-                    <p>Giỏ hàng</p>
+                    <p>{t('header.prof03')}</p>
                     <p className={cx('cart-quantity')}>3</p>
                   </Link>
                 </li>
@@ -103,7 +105,7 @@ function ProfileDropdown({ children }) {
                           setIsLanguages(true);
                         }}
                       >
-                        Ngôn ngữ
+                        {t('header.prof04')}
                       </Link>
                     </li>
                     <li>
@@ -115,13 +117,13 @@ function ProfileDropdown({ children }) {
                         }}
                         to={''}
                       >
-                        {isDarkMode ? <span>Chế độ sáng</span> : <span>Chế độ tối</span>}
+                        {isDarkMode ? <span>{t('header.prof05')}</span> : <span>{t('header.prof06')}</span>}
                         <DarkModeSetting className={cx('icon')} />
                       </Link>
                     </li>
                     <li>
                       <Link className={cx('user__option')} to={routes.profile} onClick={() => setDisabled(true)}>
-                        Cài đặt
+                        {t('header.prof07')}
                       </Link>
                     </li>
                   </>
@@ -137,7 +139,7 @@ function ProfileDropdown({ children }) {
                         }}
                       >
                         <ArrowLeftIcon className={cx('icon')} />
-                        Ngôn ngữ
+                        {t('header.prof04')}
                       </Link>
                     </li>
                     <li>
@@ -198,7 +200,7 @@ function ProfileDropdown({ children }) {
                 )}
                 <li>
                   <Link className={cx('user__option', 'separate')} to={routes.signup} onClick={() => setDisabled(true)}>
-                    Đăng xuất
+                    {t('header.prof09')}
                   </Link>
                 </li>
               </ul>

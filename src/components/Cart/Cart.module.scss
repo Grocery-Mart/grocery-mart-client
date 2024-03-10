@@ -1,10 +1,18 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
 .container {
-  width: min(550px, 100%);
+  max-width: 550px;
   border-radius: 20px;
   background-color: var(--actions-group-background-color);
   box-shadow: 0px 40px 90px 20px var(--header-act-dropdown-shadow);
   max-height: calc(min(620px, 100vh - 100px) - 20px);
   overflow-y: auto;
+
+  @include media-breakpoint-down(md) {
+    width: min(550px, 100%);
+  }
 
   &::after {
     content: '';

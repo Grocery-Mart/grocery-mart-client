@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Sidebar.module.scss';
 import { ArrowRightIcon, FilterIcon, MenuIcon, NoStarIcon, StarIcon } from '~/components/Icons';
@@ -9,11 +10,12 @@ import Button from '~/components/Button';
 const cx = classNames.bind(styles);
 
 function Sidebar({ data }) {
+  const { t } = useTranslation();
   const categories = data.categories;
   const productTypes = data.productTypes;
   const trademarks = data.trademarks;
   const stars = [5, 4, 3, 2, 1];
-  
+
   const [currentCategory, setCurrentCategory] = useState(data.categories[0]);
   const [filterPrice, setFilterPrice] = useState({ min: '', max: '' });
   const [currentStar, setCurrentStar] = useState();
@@ -33,7 +35,7 @@ function Sidebar({ data }) {
     <div className={cx('sidebar')}>
       <h1 className={cx('sidebar__heading')}>
         <MenuIcon className={cx('sidebar__menu-icon', 'icon')} />
-        Tất cả danh mục
+        {t('sidebar.heading01')}
       </h1>
       <div className={cx('separate')} style={{ '--margin': '20px', '--height': '0.5px', '--bg': '#d2d2d6' }}></div>
 
@@ -56,7 +58,7 @@ function Sidebar({ data }) {
         {!isExpandedCategory && categories.length > 4 && (
           <CSSTransition key="more" timeout={0} classNames="item">
             <li className={cx('sidebar__item')} onClick={() => setIsExpandedCategory(true)}>
-              Thêm
+              {t('sidebar.btn01')}
               <ArrowRightIcon className={cx('sidebar__item-more', 'icon')} />
             </li>
           </CSSTransition>
@@ -66,10 +68,10 @@ function Sidebar({ data }) {
       <div className={cx('sidebar__filter')}>
         <h2 className={cx('sidebar__heading')}>
           <FilterIcon className={cx('sidebar__filter-icon', 'icon')} />
-          Bộ lọc tìm kiếm
+          {t('sidebar.heading02')}
         </h2>
         <div className={cx('sidebar__filter-group')}>
-          <h3 className={cx('sidebar__filter-title')}>Theo Loại Sản Phẩm</h3>
+          <h3 className={cx('sidebar__filter-title')}>{t('sidebar.title01')}</h3>
 
           <TransitionGroup component="div">
             {productTypes.map((productType, index) => {
@@ -92,7 +94,7 @@ function Sidebar({ data }) {
                   className={cx('sidebar__item', 'sidebar__filter-more')}
                   onClick={() => setIsExpandedProductType(true)}
                 >
-                  Thêm
+                  {t('sidebar.btn01')}
                   <ArrowRightIcon className={cx('sidebar__item-more', 'icon')} />
                 </div>
               </CSSTransition>
@@ -101,7 +103,7 @@ function Sidebar({ data }) {
         </div>
 
         <div className={cx('sidebar__filter-group')}>
-          <h3 className={cx('sidebar__filter-title')}>Thương Hiệu</h3>
+          <h3 className={cx('sidebar__filter-title')}>{t('sidebar.title02')}</h3>
 
           <TransitionGroup component="div">
             {trademarks.map((trademark, index) => {
@@ -124,7 +126,7 @@ function Sidebar({ data }) {
                   className={cx('sidebar__item', 'sidebar__filter-more')}
                   onClick={() => setIsExpandedTrademark(true)}
                 >
-                  Thêm
+                  {t('sidebar.btn01')}
                   <ArrowRightIcon className={cx('sidebar__item-more', 'icon')} />
                 </div>
               </CSSTransition>
@@ -133,7 +135,7 @@ function Sidebar({ data }) {
         </div>
 
         <div className={cx('sidebar__filter-group')}>
-          <h3 className={cx('sidebar__filter-title')}>Khoảng Giá</h3>
+          <h3 className={cx('sidebar__filter-title')}>{t('sidebar.title03')}</h3>
 
           <div className={cx('sidebar__price')}>
             <input
@@ -147,7 +149,7 @@ function Sidebar({ data }) {
               id=""
               name=""
               className={cx('sidebar__price-input')}
-              placeholder="đ Từ"
+              placeholder={t('sidebar.desc01')}
             />
             <div className={cx('sidebar__price-separate')}></div>
             <input
@@ -161,40 +163,40 @@ function Sidebar({ data }) {
               id=""
               name=""
               className={cx('sidebar__price-input')}
-              placeholder="đ Đến"
+              placeholder={t('sidebar.desc02')}
             />
           </div>
 
           <Button sidebarFilter primary>
-            Áp Dụng
+            {t('sidebar.btn02')}
           </Button>
         </div>
 
         <div className={cx('sidebar__filter-group')}>
-          <h3 className={cx('sidebar__filter-title')}>Kích Thước/Trọng Lượng</h3>
+          <h3 className={cx('sidebar__filter-title')}>{t('sidebar.title04')}</h3>
 
           <div className={cx('sidebar__checkbox')}>
             <label className={cx('sidebar__checkbox-label')}>
               <input id="" name="" type="checkbox" className={cx('sidebar__checkbox-input')} />
-              <span className={cx('sidebar__checkbox-desc')}>Nhỏ (100g, 200g, 500g)</span>
+              <span className={cx('sidebar__checkbox-desc')}>{t('sidebar.desc03')} (100g, 200g, 500g)</span>
             </label>
           </div>
           <div className={cx('sidebar__checkbox')}>
             <label className={cx('sidebar__checkbox-label')}>
               <input id="sidebar__checkbox-input" name="" type="checkbox" className={cx('sidebar__checkbox-input')} />
-              <span className={cx('sidebar__checkbox-desc')}>Vừa (1kg, 2kg)</span>
+              <span className={cx('sidebar__checkbox-desc')}>{t('sidebar.desc04')} (1kg, 2kg)</span>
             </label>
           </div>
           <div className={cx('sidebar__checkbox')}>
             <label className={cx('sidebar__checkbox-label')}>
               <input id="sidebar__checkbox-input" name="" type="checkbox" className={cx('sidebar__checkbox-input')} />
-              <span className={cx('sidebar__checkbox-desc')}>To (5kg)</span>
+              <span className={cx('sidebar__checkbox-desc')}>{t('sidebar.desc05')} (5kg)</span>
             </label>
           </div>
         </div>
 
         <div className={cx('sidebar__filter-group')}>
-          <h3 className={cx('sidebar__filter-title')}>Đánh Giá</h3>
+          <h3 className={cx('sidebar__filter-title')}>{t('sidebar.title05')}</h3>
 
           <TransitionGroup component="ul" className={cx('sidebar__evaluates')}>
             {stars.map((star, index) => {
@@ -219,7 +221,7 @@ function Sidebar({ data }) {
                       .map((_, i) => (
                         <NoStarIcon key={`no-star-icon-${i}`} className={cx('sidebar__evaluates-star')} />
                       ))}
-                    {star < 5 && 'trở lên'}
+                    {star < 5 && t('sidebar.desc06')}
                   </li>
                 </CSSTransition>
               );
@@ -228,7 +230,7 @@ function Sidebar({ data }) {
             {!isExpandedStar && stars.length > 4 && (
               <CSSTransition timeout={400} classNames="item">
                 <div className={cx('sidebar__item', 'sidebar__filter-more')} onClick={() => setIsExpandedStar(true)}>
-                  Thêm
+                  {t('sidebar.btn01')}
                   <ArrowRightIcon className={cx('sidebar__item-more', 'icon')} />
                 </div>
               </CSSTransition>
@@ -244,7 +246,7 @@ function Sidebar({ data }) {
               window.scrollTo(0, 0);
             }}
           >
-            Xóa Tất Cả
+            {t('sidebar.btn03')}
           </Button>
         </div>
       </div>

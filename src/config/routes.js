@@ -1,6 +1,5 @@
 const routes = {
   home: '/',
-  product: '/products',
   grocery: '/grocery',
   furniture: '/furniture',
   fashion: '/fashion',
@@ -8,7 +7,7 @@ const routes = {
   login: '/login',
   signup: '/signup',
   forgot_password: '/forgot_password',
-  product_detail: '/product_detail',
+  product_detail: '/:nickname',
   checkout: '/checkout',
   favorite: '/favorite',
   shipping: '/checkout/shipping',

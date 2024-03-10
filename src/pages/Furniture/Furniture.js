@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Furniture.module.scss';
 
@@ -11,73 +12,74 @@ import { ArrowRightIcon } from '~/components/Icons';
 const cx = classNames.bind(styles);
 
 function Furniture() {
+  const { t } = useTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const arrangeTypes = ['Phổ biến', 'Mới nhất', 'Bán chạy'];
-  const arrangePrices = ['Giá: Thấp đến Cao', 'Giá: Cao đến Thấp'];
+  const arrangeTypes = [t('displayFilter.btn01'), t('displayFilter.btn02'), t('displayFilter.btn03')];
+  const arrangePrices = [t('displayFilter.value01'), t('displayFilter.value02')];
   const DataProducts = [
     {
       image: images.product1,
-      title: 'Coffee Beans - Espresso Arabica and Robusta Beans',
+      title: t('products.title1'),
       brand: 'Lavazza',
-      price: '$47.00',
+      price: 'đ55.000',
       score: '4.3',
     },
     {
       image: images.product2,
-      title: 'Lavazza Coffee Blends - Try the Italian Espresso',
+      title: t('products.title2'),
       brand: 'Lavazza',
-      price: '$53.00',
+      price: 'đ63.000',
       score: '3.4',
     },
     {
       image: images.product3,
-      title: 'Lavazza - Caffè Espresso Black Tin - Ground coffee',
+      title: t('products.title3'),
       brand: 'welikecoffee',
-      price: '$99.99',
+      price: 'đ199.000',
       score: '5.0',
     },
     {
       image: images.product4,
-      title: 'Qualità Oro Mountain Grown - Espresso Coffee Beans',
+      title: t('products.title4'),
       brand: 'Lavazza',
-      price: '$38.65',
+      price: 'đ49.000',
       score: '4.4',
     },
     {
       image: images.product3,
-      title: 'Lavazza - Caffè Espresso Black Tin - Ground coffee',
+      title: t('products.title3'),
       brand: 'welikecoffee',
-      price: '$99.99',
+      price: 'đ199.000',
       score: '5.0',
     },
     {
       image: images.product1,
-      title: 'Coffee Beans - Espresso Arabica and Robusta Beans',
+      title: t('products.title1'),
       brand: 'Lavazza',
-      price: '$47.00',
+      price: 'đ55.000',
       score: '4.3',
     },
     {
       image: images.product4,
-      title: 'Qualità Oro Mountain Grown - Espresso Coffee Beans',
+      title: t('products.title4'),
       brand: 'Lavazza',
-      price: '$38.65',
+      price: 'đ49.000',
       score: '4.4',
     },
     {
       image: images.product2,
-      title: 'Lavazza Coffee Blends - Try the Italian Espresso',
+      title: t('products.title2'),
       brand: 'Lavazza',
-      price: '$53.00',
+      price: 'đ63.000',
       score: '3.4',
     },
   ];
   const totalPages = 9;
   const [arrangeTypeCurrent, setArrangeTypeCurrent] = useState('');
-  const [arrangePriceCurrent, setArrangePriceCurrent] = useState('Giá');
+  const [arrangePriceCurrent, setArrangePriceCurrent] = useState(t('displayFilter.btn04'));
   const [isPriceOption, setIsPriceOption] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -117,7 +119,7 @@ function Furniture() {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('arrange')}>
-        <p className={cx('arrange__title')}>Hiển thị theo</p>
+        <p className={cx('arrange__title')}>{t('displayFilter.heading')}</p>
         <div className={cx('arrange__group')}>
           {arrangeTypes.map((arrangeType, index) => (
             <Button
@@ -133,7 +135,7 @@ function Furniture() {
             <span
               className={cx(
                 'arrange__price-value',
-                arrangePriceCurrent !== 'Giá' ? 'arrange__price-value--current' : '',
+                arrangePriceCurrent !== t('displayFilter.btn04') ? 'arrange__price-value--current' : '',
               )}
             >
               {arrangePriceCurrent}

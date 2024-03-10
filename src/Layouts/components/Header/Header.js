@@ -124,12 +124,12 @@ function Header() {
               <>
                 <a href={routes.login}>
                   <Button none text className={cx('action__login')}>
-                    Đăng nhập
+                  {t('header.prof08')}
                   </Button>
                 </a>
                 <a href={routes.signup}>
                   <Button primary className={cx('action__signup')}>
-                    Đăng ký
+                  {t('header.prof010')}
                   </Button>
                 </a>
               </>

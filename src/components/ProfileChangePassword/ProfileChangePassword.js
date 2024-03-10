@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './ProfileChangePassword.module.scss';
 
@@ -9,6 +10,7 @@ import { ArrowLeftIcon, PasswordIcon } from '~/components/Icons';
 const cx = classNames.bind(styles);
 
 function ProfilePersonalInfo({ handleCancel }) {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState('password');
 
   const handleShowPassword = () => {
@@ -23,14 +25,14 @@ function ProfilePersonalInfo({ handleCancel }) {
     <div className={cx('col-12')}>
       <h2 className={cx('add-card__heading')}>
         <Button onClick={handleCancel} backProfile leftIcon={<ArrowLeftIcon className={cx('icon')} />} />
-        Thay đổi mật khẩu
+        {t('profile.title04')}
       </h2>
 
       <form action="" className={cx('form', 'form-card')}>
         <div className={cx('form__row')}>
           <div className={cx('form__group')}>
             <label htmlFor="old-password" className={cx('form__label', 'form__label--lg')}>
-              Mật khẩu cũ
+              {t('profile.title23')}
             </label>
             <div className={cx('form__text-input')}>
               <input
@@ -38,7 +40,7 @@ function ProfilePersonalInfo({ handleCancel }) {
                 autoFocus
                 name="old-password"
                 id="old-password"
-                placeholder="Mật khẩu"
+                placeholder={t('profile.title23')}
                 className={cx('form__input')}
               />
               <PasswordIcon className={cx('form__input-icon')} />
@@ -46,14 +48,14 @@ function ProfilePersonalInfo({ handleCancel }) {
           </div>
           <div className={cx('form__group')}>
             <label htmlFor="new-password" className={cx('form__label', 'form__label--lg')}>
-              Mật khẩu mới
+              {t('profile.title24')}
             </label>
             <div className={cx('form__text-input')}>
               <input
                 type={showPassword}
                 name="new-password"
                 id="new-password"
-                placeholder="Mật khẩu mới"
+                placeholder={t('profile.title24')}
                 className={cx('form__input')}
               />
               <PasswordIcon className={cx('form__input-icon')} />
@@ -69,14 +71,14 @@ function ProfilePersonalInfo({ handleCancel }) {
               id="set-default-card"
               className={cx('form__checkbox-input')}
             />
-            <span className={cx('form__checkbox-label')}>Hiển thị mật khẩu</span>
+            <span className={cx('form__checkbox-label')}>{t('profile.desc05')}</span>
           </label>
         </div>
 
         <div className={cx('form-card__bottom')}>
-          <Button onClick={handleCancel}>Hủy</Button>
+          <Button onClick={handleCancel}>{t('button.btn01')}</Button>
           <Button favoriteCheckout primary>
-            Lưu
+            {t('button.btn05')}
           </Button>
         </div>
       </form>

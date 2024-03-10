@@ -161,7 +161,9 @@
   }
 
   &__group--single {
-    position: relative;
+    @include media-breakpoint-down(sm) {
+      display: block;
+    }
   }
 
   &__group--single &__btn {
@@ -193,7 +195,7 @@
 
   &__search {
     position: absolute;
-    top: 90px;
+    top: 95px;
     right: 50px;
     @include media-breakpoint-down(sm) {
       right: 10px;

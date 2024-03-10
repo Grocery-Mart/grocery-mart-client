@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './SignUp.module.scss';
 import Logo from '~/components/Logo';
@@ -11,6 +12,7 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function SignUp() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -34,48 +36,50 @@ function SignUp() {
 
   const handleChangeEmail = useCallback(() => {
     if (!emailRegex.test(email)) {
-      setErrors({ ...errors, email: 'Email không hợp lệ, vui lòng nhập lại' });
+      setErrors({ ...errors, email: t('error.err02') });
     }
     if (email === '') {
-      setErrors({ ...errors, email: 'Vui lòng nhập email' });
+      setErrors({ ...errors, email: t('error.err01') });
     }
     if (emailRegex.test(email)) {
       setErrors({ ...errors, email: '' });
     }
     checkSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [email, checkSubmit, emailRegex, errors]);
 
   const handleChangePassword = useCallback(() => {
     if (!passwordRegex.test(password)) {
       setErrors({
         ...errors,
-        password:
-          'Mật khẩu phải có tối thiểu 8 ký tự chứa ít nhất 1 chữ số, 1 chữ cái viết hoa, 1 chứ cái viết thường, và 1 ký tự đặc biệt @,-,_',
+        password: t('error.err04'),
       });
     }
     if (password === '') {
-      setErrors({ ...errors, password: 'Vui lòng nhập password' });
+      setErrors({ ...errors, password: t('error.err03') });
     }
     if (passwordRegex.test(password)) {
       setErrors({ ...errors, password: '' });
     }
     checkSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [passwordRegex, password, errors, checkSubmit]);
 
   const handleChangeConfirmPassword = useCallback(() => {
     if (confirmPassword !== password) {
       setErrors({
         ...errors,
-        confirmPassword: 'Mật khẩu không đúng, vui lòng nhập lại',
+        confirmPassword: t('error.err06'),
       });
     }
     if (confirmPassword === '') {
-      setErrors({ ...errors, confirmPassword: 'Vui lòng nhập lại password' });
+      setErrors({ ...errors, confirmPassword: t('error.err05') });
     }
     if (confirmPassword === password) {
       setErrors({ ...errors, confirmPassword: '' });
     }
     checkSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [confirmPassword, password, errors, checkSubmit]);
 
   const handleShowPassword = () => {
@@ -86,10 +90,8 @@ function SignUp() {
     <div className={cx('inner')}>
       <Logo />
 
-      <h1 className={cx('inner__heading')}>Đăng ký</h1>
-      <p className={cx('inner__desc')}>
-        Hãy tạo tài khoản của bạn và Mua sắm như một người chuyên nghiệp và tiết kiệm tiền.
-      </p>
+      <h1 className={cx('inner__heading')}>{t('header.prof10')}</h1>
+      <p className={cx('inner__desc')}>{t('signUp.desc')}</p>
       <form action="" className={cx('inner__form', 'form')}>
         <div className={cx('form__group')}>
           <div className={cx('form__text-input')} style={errors.email !== '' ? { border: '1px solid red' } : {}}>
@@ -99,7 +101,7 @@ function SignUp() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onBlur={handleChangeEmail}
-              placeholder="Email"
+              placeholder={t('footer.t4-item01')}
               className={cx('form__input')}
             />
             <EmailIcon className={cx('form__input-icon')} />
@@ -114,7 +116,7 @@ function SignUp() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onBlur={handleChangePassword}
-              placeholder="Mật khẩu"
+              placeholder={t('profile.title12')}
               className={cx('form__input')}
             />
             <PasswordIcon className={cx('form__input-icon')} />
@@ -132,7 +134,7 @@ function SignUp() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               onBlur={handleChangeConfirmPassword}
-              placeholder="Nhập lại mật khẩu"
+              placeholder={t('signUp.label02')}
               className={cx('form__input')}
             />
             <PasswordIcon className={cx('form__input-icon')} />
@@ -142,7 +144,7 @@ function SignUp() {
         <div className={cx('form__group', 'form__group--inline')}>
           <label className={cx('form__checkbox')} onChange={handleShowPassword}>
             <input type="checkbox" name="" className={cx('form__checkbox-input')} />
-            <span className={cx('form__checkbox-label')}>Hiển thị mật khẩu</span>
+            <span className={cx('form__checkbox-label')}>{t('profile.desc05')}</span>
           </label>
         </div>
         <div className={cx('form__group', 'inner__btn-group')}>
@@ -155,17 +157,17 @@ function SignUp() {
               alert('Submit from');
             }}
           >
-            Đăng ký
+            {t('header.prof10')}
           </Button>
           <Button leftIcon={<GoogleIcon className={cx('icon-google')} />} auth className={cx('btn--no-margin')}>
-            Đăng nhập với Google
+            {t('button.btn16')}
           </Button>
         </div>
       </form>
       <p className={cx('inner__text')}>
-        Bạn đã có tài khoản?
+        {t('button.desc03')}
         <Link className={cx('inner__link')} to={routes.login}>
-          Đăng nhập
+          {t('header.prof08')}
         </Link>
       </p>
     </div>

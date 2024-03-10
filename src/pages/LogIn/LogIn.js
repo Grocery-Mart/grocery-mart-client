@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './LogIn.module.scss';
 import Logo from '~/components/Logo';
@@ -11,6 +12,7 @@ import routes from '~/config/routes';
 const cx = classNames.bind(styles);
 
 function LogIn() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submit, setSubmit] = useState(true);
@@ -26,25 +28,27 @@ function LogIn() {
 
   const handleChangeEmail = useCallback(() => {
     if (!emailRegex.test(email)) {
-      setErrors({ ...errors, email: 'Email không hợp lệ, vui lòng nhập lại' });
+      setErrors({ ...errors, email: t('error.err02') });
     }
     if (email === '') {
-      setErrors({ ...errors, email: 'Vui lòng nhập email' });
+      setErrors({ ...errors, email: t('error.err01') });
     }
     if (emailRegex.test(email)) {
       setErrors({ ...errors, email: '' });
     }
     checkSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [email, checkSubmit, emailRegex, errors]);
 
   const handleChangePassword = useCallback(() => {
     if (password === '') {
-      setErrors({ ...errors, password: 'Vui lòng nhập password' });
+      setErrors({ ...errors, password: t('error.err03') });
     }
     if (passwordRegex.test(password)) {
       setErrors({ ...errors, password: '' });
     }
     checkSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [passwordRegex, password, errors, checkSubmit]);
 
   const handleShowPassword = () => {
@@ -55,8 +59,8 @@ function LogIn() {
     <div className={cx('inner')}>
       <Logo />
 
-      <h1 className={cx('inner__heading')}>Đăng nhập</h1>
-      <p className={cx('inner__desc')}>Chào mừng bạn quay lại, hãy đăng nhập để tiếp tục mua sắm.</p>
+      <h1 className={cx('inner__heading')}>{t('header.prof08')}</h1>
+      <p className={cx('inner__desc')}>{t('logIn.desc')}</p>
       <form action="" className={cx('inner__form', 'form')}>
         <div className={cx('form__group')}>
           <div className={cx('form__text-input')} style={errors.email !== '' ? { border: '1px solid #f44336' } : {}}>
@@ -66,7 +70,7 @@ function LogIn() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onBlur={handleChangeEmail}
-              placeholder="Email"
+              placeholder={t('footer.t4-item01')}
               className={cx('form__input')}
             />
             <EmailIcon className={cx('form__input-icon')} />
@@ -81,7 +85,7 @@ function LogIn() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onBlur={handleChangePassword}
-              placeholder="Mật khẩu"
+              placeholder={t('profile.title12')}
               className={cx('form__input')}
             />
             <PasswordIcon className={cx('form__input-icon')} />
@@ -91,10 +95,10 @@ function LogIn() {
         <div className={cx('form__group', 'form__group--inline')}>
           <label className={cx('form__checkbox')} onChange={handleShowPassword}>
             <input type="checkbox" name="" className={cx('form__checkbox-input')} />
-            <span className={cx('form__checkbox-label')}>Hiển thị mật khẩu</span>
+            <span className={cx('form__checkbox-label')}>{t('profile.desc05')}</span>
           </label>
           <Link className={cx('inner__link', 'form__pull-right')} to={routes.forgot_password}>
-            Khôi phục mật khẩu
+            {t('logIn.forgot')}
           </Link>
         </div>
         <div className={cx('form__group', 'inner__btn-group')}>
@@ -107,17 +111,17 @@ function LogIn() {
               alert('Submit from');
             }}
           >
-            Đăng nhập
+            {t('header.prof08')}
           </Button>
           <Button leftIcon={<GoogleIcon className={cx('icon-google')} />} auth className={cx('btn--no-margin')}>
-            Đăng nhập với Google
+            {t('button.btn16')}
           </Button>
         </div>
       </form>
       <p className={cx('inner__text')}>
-        Bạn chưa có tài khoản?
+        {t('button.desc02')}
         <Link className={cx('inner__link')} to={routes.signup}>
-          Đăng ký
+          {t('header.prof10')}
         </Link>
       </p>
     </div>

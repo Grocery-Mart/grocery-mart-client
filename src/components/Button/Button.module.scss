@@ -91,7 +91,7 @@
   border-radius: 6px;
   background-color: var(--filter-btn-bg);
 
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 142.857%;
   color: var(--filter-btn-color);
@@ -121,7 +121,7 @@
 }
 
 .filterTag {
-  min-width: 0;
+  min-width: 75px;
   padding: 6px 12px;
   border-radius: 6px;
   background-color: var(--tag-btn-bg);
@@ -164,6 +164,7 @@
 
 .auth {
   padding: 12px;
+  font-size: 1.7rem;
   border-radius: 10px;
   border-radius: 10px;
   border: 1px solid var(--auth-btn-color);

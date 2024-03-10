@@ -1,46 +1,46 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import styles from './PaymentMethod.module.scss';
 
 import routes from '~/config/routes';
 import images from '~/assets/images';
-import SearchInput from '~/components/SearchInput';
 import { ArrowRightIcon, EditIcon } from '~/components/Icons';
 import Button from '~/components/Button';
 import AddUserAddress from '~/components/AddUserAddress';
 
 const cx = classNames.bind(styles);
 
-const DataProduct = [
-  {
-    id: 1,
-    image: images.product1,
-    title: 'Coffee Beans - Espresso Arabica and Robusta Beans',
-    brand: 'Lavazza',
-    price: '47.00',
-    quantity: 1,
-  },
-  {
-    id: 2,
-    image: images.product2,
-    title: 'Lavazza Coffee Blends - Try the Italian Espresso',
-    brand: 'Lavazza',
-    price: '53.00',
-    quantity: 1,
-  },
-  {
-    id: 3,
-    image: images.product3,
-    title: 'Lavazza - Caffè Espresso Black Tin - Ground coffee',
-    brand: 'welikecoffee',
-    price: '99.99',
-    quantity: 1,
-  },
-];
-
 function PaymentMethod() {
+  const { t } = useTranslation();
+  const DataProduct = [
+    {
+      id: 1,
+      image: images.product1,
+      title: 'Coffee Beans - Espresso Arabica and Robusta Beans',
+      brand: 'Lavazza',
+      price: '47.00',
+      quantity: 1,
+    },
+    {
+      id: 2,
+      image: images.product2,
+      title: 'Lavazza Coffee Blends - Try the Italian Espresso',
+      brand: 'Lavazza',
+      price: '53.00',
+      quantity: 1,
+    },
+    {
+      id: 3,
+      image: images.product3,
+      title: 'Lavazza - Caffè Espresso Black Tin - Ground coffee',
+      brand: 'welikecoffee',
+      price: '99.99',
+      quantity: 1,
+    },
+  ];
   const [paymentCost, setPaymentCost] = useState('');
   const [totalPrice, setTotalPrice] = useState(0);
   const [modal, setModal] = useState(false);
@@ -64,35 +64,30 @@ function PaymentMethod() {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('container')}>
-        {/* Search input */}
-        <div className={cx('checkout-input')}>
-          <SearchInput className={cx('checkout-search')} />
-        </div>
-
         {/* Breadcrumbs */}
         <div className={cx('checkout-container')}>
           <ul className={cx('breadcrumbs')}>
             <li>
               <Link to={routes.home} className={cx('breadcrumbs__link')}>
-                Trang chủ
+                {t('header.na01')}
                 <ArrowRightIcon />
               </Link>
             </li>
             <li>
               <Link to={routes.checkout} className={cx('breadcrumbs__link')}>
-                Giỏ hàng
+                {t('header.prof03')}
                 <ArrowRightIcon />
               </Link>
             </li>
             <li>
               <Link to={routes.shipping} className={cx('breadcrumbs__link')}>
-                Giao hàng
+                {t('header.na05')}
                 <ArrowRightIcon />
               </Link>
             </li>
             <li>
               <a href="#!" className={cx('breadcrumbs__link', 'breadcrumbs__link--current')}>
-                Phương thức thanh toán
+              {t('header.na06')}
               </a>
             </li>
           </ul>
@@ -105,10 +100,10 @@ function PaymentMethod() {
               <div className={cx('cart-info')}>
                 <div className={cx('cart-info__top')}>
                   <h2 className={cx('cart-info__heading', 'cart-info__heading--lv2')}>
-                    1. Vận chuyển, đến từ Thứ Hai, ngày 16 tháng 5—Thứ Ba, ngày 24 tháng 5
+                  1. {t('shipping.heading')}
                   </h2>
                   <Button edit leftIcon={<EditIcon className={cx('icon')} />} className={cx('card-info__ctrl-btn')}>
-                    Chỉnh sửa
+                  {t('button.btn11')}
                   </Button>
                 </div>
 
@@ -125,26 +120,26 @@ function PaymentMethod() {
                 <article className={cx('payment-item')}>
                   <div className={cx('payment-item__content')}>
                     <div className={cx('payment-item__info')}>
-                      <h3 className={cx('payment-item__title')}>Chi tiết sản phẩm</h3>
-                      <p className={cx('payment-item__desc')}>2 sản phẩm</p>
+                      <h3 className={cx('payment-item__title')}>{t('paymentMethod.title01')}</h3>
+                      <p className={cx('payment-item__desc')}>2 {t('paymentMethod.desc01')}</p>
                     </div>
                   </div>
-                  <p className={cx('payment-item__view-detail')}>Xem chi tiết</p>
+                  <p className={cx('payment-item__view-detail')}>{t('paymentMethod.title02')}</p>
                 </article>
               </div>
 
               <div className={cx('cart-info')}>
-                <h2 className={cx('cart-info__heading', 'cart-info__heading--lv2')}>2. Phương thức thanh toán</h2>
+                <h2 className={cx('cart-info__heading', 'cart-info__heading--lv2')}>2. {t('paymentMethod.heading')}</h2>
                 <div className={cx('cart-info__separate')}></div>
 
-                <h3 className={cx('cart-info__sub-heading')}>Chọn phương thức giao hàng</h3>
+                <h3 className={cx('cart-info__sub-heading')}>{t('paymentMethod.title03')}</h3>
                 <article className={cx('payment-item')}>
                   <img src={images.GHN} alt="" className={cx('payment-item__thumb')} />
                   <div className={cx('payment-item__content')}>
                     <div className={cx('payment-item__info')}>
-                      <h3 className={cx('payment-item__title')}>Giao hàng nhanh</h3>
+                      <h3 className={cx('payment-item__title')}>{t('paymentMethod.title04')}</h3>
                       <p className={cx('payment-item__desc', 'payment-item__desc--low')}>
-                        Nhận hàng: 2-3 ngày làm việc
+                      {t('paymentMethod.desc02')}
                       </p>
                     </div>
 
@@ -180,9 +175,9 @@ function PaymentMethod() {
                   <img src={images.GHTK} alt="" className={cx('payment-item__thumb')} />
                   <div className={cx('payment-item__content')}>
                     <div className={cx('payment-item__info')}>
-                      <h3 className={cx('payment-item__title')}>Giao hàng tiết kiệm</h3>
+                      <h3 className={cx('payment-item__title')}>{t('paymentMethod.title05')}</h3>
                       <p className={cx('payment-item__desc', 'payment-item__desc--low')}>
-                        Nhận hàng: 3-4 ngày làm việc
+                      {t('paymentMethod.desc03')}
                       </p>
                     </div>
                     <span className={cx('payment-item__cost-wrap')}>
@@ -215,14 +210,14 @@ function PaymentMethod() {
 
             <div className={cx('col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12')}>
               <div className={cx('cart-info')}>
-                <h2 className={cx('cart-info__heading', 'cart-info__heading--lv2')}>Hình thức thức thanh toán</h2>
+                <h2 className={cx('cart-info__heading', 'cart-info__heading--lv2')}>{t('paymentMethod.heading')}</h2>
 
                 <form className={cx('form', 'cart-info__form')}>
                   <div className={cx('form__group')}>
                     <div className={cx('form__radios')}>
                       <input defaultChecked type="radio" id="ship-cod" name="payments" className={cx('form__radio')} />
                       <label htmlFor="ship-cod" className={cx('form__label--medium')}>
-                        Thanh toán khi nhận hàng
+                      {t('paymentMethod.title06')}
                       </label>
                     </div>
                   </div>
@@ -231,7 +226,7 @@ function PaymentMethod() {
                     <div className={cx('form__radios')}>
                       <input type="radio" id="transfer" name="payments" className={cx('form__radio')} />
                       <label htmlFor="transfer" className={cx('form__label--medium')}>
-                        Thanh toán bằng chuyển khoản
+                      {t('paymentMethod.title07')}
                       </label>
                     </div>
                   </div>
@@ -240,34 +235,34 @@ function PaymentMethod() {
                     <div className={cx('form__radios')}>
                       <input type="radio" id="international-card" name="payments" className={cx('form__radio')} />
                       <label htmlFor="international-card" className={cx('form__label--medium')}>
-                        Thanh toán bằng thẻ quốc tế Visa, Master
+                      {t('paymentMethod.title08')}
                       </label>
                     </div>
                   </div>
                 </form>
-                <p className={cx('cart-info__desc')}>VUI LÒNG QUÉT MÃ BÊN DƯỚI ĐỂ THANH TOÁN CHUYỂN KHOẢN</p>
+                <p className={cx('cart-info__desc')}>{t('paymentMethod.desc04')}</p>
                 <img src={images.QR} alt="" className={cx('cart-info__QR')} />
 
                 <div className={cx('cart-info__row')}>
-                  <span>Số sản phẩm:</span>
+                  <span>{t('checkout.title01')}</span>
                   <span>{DataProduct.length}</span>
                 </div>
                 <div className={cx('cart-info__row')}>
-                  <span>Tổng giá tiền:</span>
+                  <span>{t('checkout.title02')}</span>
                   <span>{`$${totalPrice}`}</span>
                 </div>
                 <div className={cx('cart-info__row')}>
-                  <span>Phí giao hàng:</span>
+                  <span>{t('checkout.title03')}</span>
                   <span>$10.00</span>
                 </div>
                 <div className={cx('cart-info__separate')}></div>
                 <div className={cx('cart-info__row')}>
-                  <span>Thành tiền:</span>
+                  <span>{t('checkout.title04')}</span>
                   <span>{`$${totalPrice + 10}`}</span>
                 </div>
-                <Link to={routes.shipping}>
+                <Link to={'#!'}>
                   <Button continueCheckout primary className={cx('cart-info__next-btn')}>
-                    Tiếp tục thanh toán
+                  {t('button.btn07')}
                   </Button>
                 </Link>
               </div>

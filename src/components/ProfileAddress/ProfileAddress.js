@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import styles from './ProfileAddress.module.scss';
 
@@ -8,18 +9,20 @@ import { ArrowLeftIcon } from '../Icons';
 const cx = classNames.bind(styles);
 
 function ProfileAddress({ handleCancel }) {
+  const { t } = useTranslation();
+
   return (
     <div className={cx('col-12')}>
       <h2 className={cx('add-card__heading')}>
         <Button onClick={handleCancel} backProfile leftIcon={<ArrowLeftIcon className={cx('icon')} />} />
-        Thay đổi địa chỉ
+        {t('profile.heading08')}
       </h2>
 
       <form action="" className={cx('form', 'form-card')}>
         <div className={cx('form__row')}>
           <div className={cx('form__group')}>
             <label htmlFor="apartment-number" className={cx('form__label', 'form__label--lg')}>
-              Số nhà
+              {t('profile.title19')}
             </label>
             <div className={cx('form__text-input')}>
               <input
@@ -27,21 +30,21 @@ function ProfileAddress({ handleCancel }) {
                 type="text"
                 name="apartment-number"
                 id="apartment-number"
-                placeholder="Số nhà"
+                placeholder={t('profile.title19')}
                 className={cx('form__input')}
               />
             </div>
           </div>
           <div className={cx('form__group')}>
             <label htmlFor="Wards-communes-towns" className={cx('form__label', 'form__label--lg')}>
-              Phường, Xã, Thị trấn
+              {t('profile.title20')}
             </label>
             <div className={cx('form__text-input')}>
               <input
                 type="text"
                 name="Wards-communes-towns"
                 id="Wards-communes-towns"
-                placeholder="Phường, Xã, Thị trấn"
+                placeholder={t('profile.title20')}
                 className={cx('form__input')}
               />
             </div>
@@ -51,32 +54,38 @@ function ProfileAddress({ handleCancel }) {
         <div className={cx('form__row')}>
           <div className={cx('form__group')}>
             <label htmlFor="district-province" className={cx('form__label', 'form__label--lg')}>
-              Quận, Huyện, Tỉnh
+              {t('profile.title21')}
             </label>
             <div className={cx('form__text-input')}>
               <input
                 type="text"
                 name="district-province"
                 id="district-province"
-                placeholder="Quận, Huyện, Tỉnh"
+                placeholder={t('profile.title21')}
                 className={cx('form__input')}
               />
             </div>
           </div>
           <div className={cx('form__group')}>
             <label htmlFor="city" className={cx('form__label', 'form__label--lg')}>
-              Thành Phố
+              {t('profile.title22')}
             </label>
             <div className={cx('form__text-input')}>
-              <input type="text" name="city" id="city" placeholder="Thành Phố" className={cx('form__input')} />
+              <input
+                type="text"
+                name="city"
+                id="city"
+                placeholder={t('profile.title22')}
+                className={cx('form__input')}
+              />
             </div>
           </div>
         </div>
 
         <div className={cx('form-card__bottom')}>
-          <Button onClick={handleCancel}>Hủy</Button>
+          <Button onClick={handleCancel}>{t('button.btn01')}</Button>
           <Button favoriteCheckout primary>
-            Lưu
+            {t('button.btn05')}
           </Button>
         </div>
       </form>

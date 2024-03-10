@@ -1,12 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Favorite.module.scss';
 
 import routes from '~/config/routes';
 import images from '~/assets/images';
-import SearchInput from '~/components/SearchInput';
 import { ArrowRightIcon } from '~/components/Icons';
 import FavoriteItem from '~/components/FavoriteItem';
 import Button from '~/components/Button';
@@ -14,6 +15,7 @@ import Button from '~/components/Button';
 const cx = classNames.bind(styles);
 
 function Favorite() {
+  const { t } = useTranslation();
   const DataProduct = [
     {
       id: 1,
@@ -22,6 +24,7 @@ function Favorite() {
       brand: 'Lavazza',
       price: '47.00',
       quantity: 1,
+      status: t('checkout.status01'),
     },
     {
       id: 2,
@@ -30,6 +33,7 @@ function Favorite() {
       brand: 'Lavazza',
       price: '53.00',
       quantity: 1,
+      status: t('checkout.status02'),
     },
     {
       id: 3,
@@ -38,9 +42,10 @@ function Favorite() {
       brand: 'welikecoffee',
       price: '99.99',
       quantity: 1,
+      status: t('checkout.status01'),
     },
   ];
-
+  // eslint-disable-next-line no-unused-vars
   const [cartProduct, setCartProduct] = useState([]);
   const [checkAll, setCheckAll] = useState(false);
   const [countChecked, setCountChecked] = useState(0);
@@ -92,23 +97,18 @@ function Favorite() {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('container')}>
-        {/* Search input */}
-        <div className={cx('checkout-input')}>
-          <SearchInput className={cx('checkout-search')} />
-        </div>
-
         {/* Breadcrumbs */}
         <div className={cx('checkout-container')}>
           <ul className={cx('breadcrumbs')}>
             <li>
               <Link to={routes.home} className={cx('breadcrumbs__link')}>
-                Trang chủ
+                {t('header.na01')}
                 <ArrowRightIcon />
               </Link>
             </li>
             <li>
               <Link to={'#!'} className={cx('breadcrumbs__link', 'breadcrumbs__link--current')}>
-                Yêu thích
+                {t('header.prof02')}
               </Link>
             </li>
           </ul>
@@ -119,8 +119,8 @@ function Favorite() {
           <div className={cx('row gy-4 gy-lg-5 gy-md-5 gy-sm-4')}>
             <div className={cx('col-12')}>
               <div className={cx('cart-info')}>
-                <h1 className={cx('cart-info__heading')}>Sản phẩm yêu thích</h1>
-                <p className={cx('cart-info__desc')}>3 sản phẩm</p>
+                <h1 className={cx('cart-info__heading')}>{t('favorites.heading')}</h1>
+                <p className={cx('cart-info__desc')}>3 {t('paymentMethod.desc01')}</p>
                 <div className={cx('cart-info__check-all')}>
                   <label className={cx('cart-info__checkbox')}>
                     <input
@@ -165,12 +165,12 @@ function Favorite() {
                     <div className={cx('cart-info__continue')}>
                       <Link to={routes.home} className={cx('cart-info__continue-link')}>
                         <ArrowRightIcon className={cx('cart-info__continue-arrow')} />
-                        Tiếp tục mua hàng
+                        {t('button.btn12')}
                       </Link>
                     </div>
 
                     <Button favoriteCheckout checkoutAll primary>
-                      Thanh toán tất cả
+                      {t('button.btn03')}
                     </Button>
                   </div>
                 </div>
